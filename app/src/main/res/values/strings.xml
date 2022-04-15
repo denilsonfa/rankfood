@@ -1,6 +1,9 @@
 <resources>
     <string name="app_name">RankFood</string>
+
     <string name="title_activity_aa_splash_screen">A_A_SplashScreenActivity</string>
-    <string name="dummy_button">Dummy Button</string>
-    <string name="dummy_content">DUMMY\nCONTENT</string>
+
+    <string name="enter">Entrar</string>
+    <string name="resgister_1">Não possui conta?</string>
+    <string name="resgister_2">Registre-se</string>
 </resources>
