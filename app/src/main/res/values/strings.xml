@@ -1,16 +1,42 @@
 <resources>
+    <!-- System -->
     <string name="app_name">RankFood</string>
+    <string name="app_name_desc">Aplicação para criar e avaliar Ranking de Alimentos</string>
 
-    <string name="title_activity_aa_splash_screen">A_A_SplashScreenActivity</string>
 
-    <string name="enter">Entrar</string>
-    <string name="resgister_1">Não possui conta?</string>
-    <string name="resgister_2">Registre-se</string>
-    <string name="login_1">Não possui conta?</string>
-    <string name="login_2">Registre-se</string>
+    <!-- Menu - Title -->
     <string name="login">Efetuar Login</string>
+    <string name="register">Registrar-se</string>
+    <string name="ok">OK</string>
+    <string name="cancel">Cancelar</string>
+    <string name="logout">Sair</string>
+
+
+    <!-- Text - Activity - A_OPEN / A_LOGIN / A_REGISTER -->
     <string name="name">Nome</string>
+    <string name="email">Email</string>
     <string name="password">Senha</string>
+    <string name="confirm_password">Confirmar Senha</string>
+
+    <string name="resgister_1">Não possui conta?</string>
+    <string name="resgister_2">Registre-se!</string>
+
+    <string name="login_1">Já possui conta?</string>
+    <string name="login_2">Faça o Login!</string>
+
+
+    <!-- Menu - Button -->
+    <string name="enter">Entrar</string>
     <string name="back">Voltar</string>
+    <string name="home">Tela Inicial</string>
+
+    <string name="id_btn_menu_m01CreateRank">Criar\nRanking</string>
+    <string name="id_btn_menu_m02Vote">Votar\nRanking</string>
+    <string name="id_btn_menu_m03ViewRank">Ver\nRanking</string>
+    <string name="id_btn_menu_m04Sobre">Sobre\no app</string>
+
+
+    <!-- Temp -->
+    <string name="temp">Temp</string>
 
 </resources>

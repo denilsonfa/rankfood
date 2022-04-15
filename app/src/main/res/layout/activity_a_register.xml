@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".A_A_Login"
+    tools:context=".A_A_Register"
     android:orientation="vertical"
     android:theme="@android:style/Theme.NoTitleBar">
 
@@ -15,7 +15,7 @@
         android:minHeight="?attr/actionBarSize">
 
         <ImageView
-            android:id="@+id/id_ic_login_back"
+            android:id="@+id/id_ic_register_back"
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:layout_gravity="center|start"
@@ -35,7 +35,7 @@
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:fontFamily="@font/ubuntu_bolder"
-            android:text="@string/login"
+            android:text="@string/register"
             android:layout_marginEnd="20dp"
             android:layout_marginTop="2dp"
             android:layout_marginBottom="2dp"
@@ -62,14 +62,14 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="280dp"
+                android:layout_height="200dp"
                 android:gravity="bottom"
                 android:orientation="vertical"
                 tools:ignore="UseCompoundDrawables">
 
                 <ImageView
                     android:layout_width="match_parent"
-                    android:layout_height="120dp"
+                    android:layout_height="100dp"
                     android:layout_marginBottom="0dp"
                     android:contentDescription="@string/app_name"
                     android:padding="10dp"
@@ -103,7 +103,7 @@
                 android:layout_marginEnd="40dp">
 
                 <EditText
-                    android:id="@+id/id_edtext_login_edName"
+                    android:id="@+id/id_edtext_register_edName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="24dp"
@@ -115,10 +115,25 @@
                     android:minHeight="40dp"
                     android:textSize="16sp"
                     android:theme="@style/list_edTxt"
-                    tools:ignore="Autofill" />
+                    tools:ignore="Autofill"  />
 
                 <EditText
-                    android:id="@+id/id_edtext_login_edSenha"
+                    android:id="@+id/id_edtext_register_edEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="24dp"
+                    android:autofillHints=""
+                    android:background="@drawable/stl_edittext"
+                    android:hint="@string/email"
+                    android:inputType="textEmailAddress"
+                    android:maxLength="50"
+                    android:minHeight="40dp"
+                    android:textSize="16sp"
+                    android:theme="@style/list_edTxt"
+                    tools:ignore="Autofill"  />
+
+                <EditText
+                    android:id="@+id/id_edtext_register_edSenha"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="24dp"
@@ -132,8 +147,23 @@
                     android:theme="@style/list_edTxt"
                     tools:ignore="Autofill"  />
 
+                <EditText
+                    android:id="@+id/id_edtext_register_edConfirmSenha"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="24dp"
+                    android:autofillHints=""
+                    android:background="@drawable/stl_edittext"
+                    android:hint="@string/confirm_password"
+                    android:inputType="textPassword"
+                    android:maxLength="50"
+                    android:minHeight="40dp"
+                    android:textSize="16sp"
+                    android:theme="@style/list_edTxt"
+                    tools:ignore="Autofill"  />
+
                 <Button
-                    android:id="@+id/id_btn_login_enter"
+                    android:id="@+id/id_btn_register_login"
                     style="@style/Widget.AppCompat.Button"
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
@@ -153,37 +183,39 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:weightSum="100"
-                    android:layout_marginTop="24dp">
+                    android:layout_marginTop="24dp"
+                    android:layout_marginBottom="40dp">
 
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="50"
                         android:fontFamily="@font/ubuntu_regular"
-                        android:text="@string/resgister_1"
+                        android:text="@string/login_1"
                         android:textAlignment="center"
                         android:textColor="@color/cor_laranja"
-                        android:textSize="18sp"
+                        android:textSize="16sp"
                         android:paddingTop="16dp"
                         android:paddingBottom="16dp"
                         tools:ignore="TextContrastCheck"
                         android:layout_gravity="center|center_vertical"/>
 
                     <TextView
-                        android:id="@+id/id_text_login_register"
+                        android:id="@+id/id_text_register_login"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="50"
                         android:fontFamily="@font/ubuntu_bolder"
-                        android:text="@string/resgister_2"
+                        android:text="@string/login_2"
                         android:textAlignment="center"
                         android:textColor="@color/cor_laranja"
-                        android:textSize="18sp"
+                        android:textSize="16sp"
                         android:paddingTop="16dp"
                         android:paddingBottom="16dp"
                         tools:ignore="TextContrastCheck"
                         android:background="@drawable/stl_item_color"
                         android:layout_gravity="center|center_vertical"/>
+
                 </LinearLayout>
 
             </LinearLayout>

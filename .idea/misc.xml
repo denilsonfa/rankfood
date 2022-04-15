@@ -23,10 +23,16 @@
         <entry key="..\:/Users/DenilsonFA/AndroidStudioProjects/RankFood_project/app/src/main/res/drawable/stl_edittext_chek.xml" value="0.217" />
         <entry key="..\:/Users/DenilsonFA/AndroidStudioProjects/RankFood_project/app/src/main/res/drawable/stl_edittext_nor.xml" value="0.217" />
         <entry key="..\:/Users/DenilsonFA/AndroidStudioProjects/RankFood_project/app/src/main/res/drawable/stl_edittext_selec.xml" value="0.217" />
+        <entry key="..\:/Users/DenilsonFA/AndroidStudioProjects/RankFood_project/app/src/main/res/drawable/stl_item_color.xml" value="0.217" />
+        <entry key="..\:/Users/DenilsonFA/AndroidStudioProjects/RankFood_project/app/src/main/res/drawable/stl_item_color_nor.xml" value="0.217" />
+        <entry key="..\:/Users/DenilsonFA/AndroidStudioProjects/RankFood_project/app/src/main/res/drawable/stl_item_color_selec.xml" value="0.217" />
         <entry key="..\:/Users/DenilsonFA/AndroidStudioProjects/RankFood_project/app/src/main/res/drawable/stl_item_incolor.xml" value="0.217" />
         <entry key="..\:/Users/DenilsonFA/AndroidStudioProjects/RankFood_project/app/src/main/res/drawable/stl_item_incolor_nor.xml" value="0.217" />
+        <entry key="..\:/Users/DenilsonFA/AndroidStudioProjects/RankFood_project/app/src/main/res/drawable/stl_pop_alert.xml" value="0.217" />
         <entry key="..\:/Users/DenilsonFA/AndroidStudioProjects/RankFood_project/app/src/main/res/layout/activity_a_login.xml" value="0.17229585292860197" />
-        <entry key="..\:/Users/DenilsonFA/AndroidStudioProjects/RankFood_project/app/src/main/res/layout/activity_a_open.xml" value="0.22" />
+        <entry key="..\:/Users/DenilsonFA/AndroidStudioProjects/RankFood_project/app/src/main/res/layout/activity_a_menu.xml" value="0.17229585292860197" />
+        <entry key="..\:/Users/DenilsonFA/AndroidStudioProjects/RankFood_project/app/src/main/res/layout/activity_a_open.xml" value="0.18" />
+        <entry key="..\:/Users/DenilsonFA/AndroidStudioProjects/RankFood_project/app/src/main/res/layout/activity_a_register.xml" value="0.17229585292860197" />
         <entry key="..\:/Users/DenilsonFA/AndroidStudioProjects/RankFood_project/app/src/main/res/layout/activity_a_splash_screen.xml" value="0.33" />
       </map>
     </option>
