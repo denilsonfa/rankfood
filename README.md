@@ -15,20 +15,16 @@
 #
 ### ORGANIZAÇÃO
 ###### Os arquivos do projeto estão organizadas da seguinte forma:
-##
 #### Classes:
 ###### > A_A_ = Classe referente a Activity;
 ###### > A_M_ = Classe referente a Activity de Menu (01,02,03);
 ###### > S_A_ / S_M_ = Classe referente a Sistema de uma Activity;
-##
 #### Estilos:
 ###### > stl_btn_ / stl_item_ = Estilo referente ao botão e outros elementos;
 ###### > stl_edttext = Estilo referente ao EditText;
-##
 #### Arquivos:
 ###### > ic_ = Icones;
 ###### > cor_ = Cores / Gradientes;
-##
 #### Identificadores (ID):
 ###### > id + tipo + activity + função;
 
