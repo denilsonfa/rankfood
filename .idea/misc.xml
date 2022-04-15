@@ -3,9 +3,15 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/DenilsonFA/AndroidStudioProjects/RankFood_project/app/src/main/res/drawable-v24/ic_launcher_background.xml" value="0.217" />
         <entry key="..\:/Users/DenilsonFA/AndroidStudioProjects/RankFood_project/app/src/main/res/drawable/cor_gradient_laranja1.xml" value="0.1815" />
+        <entry key="..\:/Users/DenilsonFA/AndroidStudioProjects/RankFood_project/app/src/main/res/drawable/ic_launcher_foreground.xml" value="0.217" />
+        <entry key="..\:/Users/DenilsonFA/AndroidStudioProjects/RankFood_project/app/src/main/res/drawable/ic_logo_branco.xml" value="0.217" />
+        <entry key="..\:/Users/DenilsonFA/AndroidStudioProjects/RankFood_project/app/src/main/res/drawable/ic_logo_laranja.xml" value="0.217" />
         <entry key="..\:/Users/DenilsonFA/AndroidStudioProjects/RankFood_project/app/src/main/res/drawable/ic_logo_preto.xml" value="0.1815" />
         <entry key="..\:/Users/DenilsonFA/AndroidStudioProjects/RankFood_project/app/src/main/res/drawable/stl_btn_branco01.xml" value="0.1815" />
+        <entry key="..\:/Users/DenilsonFA/AndroidStudioProjects/RankFood_project/app/src/main/res/drawable/stl_btn_branco01_nor.xml" value="0.217" />
+        <entry key="..\:/Users/DenilsonFA/AndroidStudioProjects/RankFood_project/app/src/main/res/drawable/stl_btn_branco01_selec.xml" value="0.217" />
         <entry key="..\:/Users/DenilsonFA/AndroidStudioProjects/RankFood_project/app/src/main/res/drawable/stl_btn_branco02.xml" value="0.1815" />
         <entry key="..\:/Users/DenilsonFA/AndroidStudioProjects/RankFood_project/app/src/main/res/drawable/stl_btn_branco02_nor.xml" value="0.1815" />
         <entry key="..\:/Users/DenilsonFA/AndroidStudioProjects/RankFood_project/app/src/main/res/drawable/stl_btn_branco02_selec.xml" value="0.1815" />
@@ -13,7 +19,14 @@
         <entry key="..\:/Users/DenilsonFA/AndroidStudioProjects/RankFood_project/app/src/main/res/drawable/stl_btn_color_chek.xml" value="0.1815" />
         <entry key="..\:/Users/DenilsonFA/AndroidStudioProjects/RankFood_project/app/src/main/res/drawable/stl_btn_color_nor.xml" value="0.1815" />
         <entry key="..\:/Users/DenilsonFA/AndroidStudioProjects/RankFood_project/app/src/main/res/drawable/stl_btn_color_selec.xml" value="0.1815" />
-        <entry key="..\:/Users/DenilsonFA/AndroidStudioProjects/RankFood_project/app/src/main/res/layout/activity_a_open.xml" value="0.33" />
+        <entry key="..\:/Users/DenilsonFA/AndroidStudioProjects/RankFood_project/app/src/main/res/drawable/stl_edittext.xml" value="0.217" />
+        <entry key="..\:/Users/DenilsonFA/AndroidStudioProjects/RankFood_project/app/src/main/res/drawable/stl_edittext_chek.xml" value="0.217" />
+        <entry key="..\:/Users/DenilsonFA/AndroidStudioProjects/RankFood_project/app/src/main/res/drawable/stl_edittext_nor.xml" value="0.217" />
+        <entry key="..\:/Users/DenilsonFA/AndroidStudioProjects/RankFood_project/app/src/main/res/drawable/stl_edittext_selec.xml" value="0.217" />
+        <entry key="..\:/Users/DenilsonFA/AndroidStudioProjects/RankFood_project/app/src/main/res/drawable/stl_item_incolor.xml" value="0.217" />
+        <entry key="..\:/Users/DenilsonFA/AndroidStudioProjects/RankFood_project/app/src/main/res/drawable/stl_item_incolor_nor.xml" value="0.217" />
+        <entry key="..\:/Users/DenilsonFA/AndroidStudioProjects/RankFood_project/app/src/main/res/layout/activity_a_login.xml" value="0.17229585292860197" />
+        <entry key="..\:/Users/DenilsonFA/AndroidStudioProjects/RankFood_project/app/src/main/res/layout/activity_a_open.xml" value="0.22" />
         <entry key="..\:/Users/DenilsonFA/AndroidStudioProjects/RankFood_project/app/src/main/res/layout/activity_a_splash_screen.xml" value="0.33" />
       </map>
     </option>

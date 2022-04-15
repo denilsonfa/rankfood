@@ -6,4 +6,11 @@
     <string name="enter">Entrar</string>
     <string name="resgister_1">Não possui conta?</string>
     <string name="resgister_2">Registre-se</string>
+    <string name="login_1">Não possui conta?</string>
+    <string name="login_2">Registre-se</string>
+    <string name="login">Efetuar Login</string>
+    <string name="name">Nome</string>
+    <string name="password">Senha</string>
+    <string name="back">Voltar</string>
+
 </resources>
