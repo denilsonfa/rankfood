@@ -8,10 +8,10 @@
 ```
 #
 ##### Layout criado:
-    <p align="center">
-      <img src="https://github.com/denilsonfa/rankfood/blob/main/src/images/img01_open.jpg" width="250">
-      <img src="https://github.com/denilsonfa/rankfood/blob/main/src/images/img02_open.jpg width="250">
-    </p>
+<p align="center">
+   <img src="https://raw.githubusercontent.com/denilsonfa/rankfood/branch_layout_dfa/images/img01_open.jpg" width="250">
+   <img src="https://raw.githubusercontent.com/denilsonfa/rankfood/branch_layout_dfa/images/img02_login.jpg width="250">
+</p>
 #
 ### SOBRE
 ###### Repositorio referenta ao projeto RANKFOOD - Branch "branch_layout_dfa"
