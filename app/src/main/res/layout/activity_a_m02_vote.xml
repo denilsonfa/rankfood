@@ -16,7 +16,7 @@
         tools:ignore="UselessParent">
 
         <ImageView
-            android:id="@+id/id_ic_voterank_back"
+            android:id="@+id/id_ic_m02_back"
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:layout_gravity="center|start"
@@ -33,6 +33,7 @@
             tools:ignore="ImageContrastCheck" />
 
         <TextView
+            android:id="@+id/id_ic_m02_nameVote"
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:fontFamily="@font/ubuntu_bolder"
@@ -47,6 +48,244 @@
             android:gravity="center"
             android:layout_gravity="center|end"
             tools:ignore="TextContrastCheck"/>
+
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="60">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+
+            android:paddingTop="40dp"
+            android:paddingStart="40dp"
+            android:paddingEnd="40dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
+                android:fontFamily="@font/ubuntu_bolder"
+                android:text="@string/voteItem"
+                android:textAlignment="center"
+                android:textColor="@color/cor_laranja"
+                android:textSize="18sp"
+                android:paddingTop="16dp"
+                android:paddingBottom="16dp"
+                tools:ignore="TextContrastCheck"
+                android:textAllCaps="true"
+                android:layout_gravity="center|center_vertical"/>
+
+            <LinearLayout
+                android:id="@+id/id_linear_m02_item01"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="24dp"
+                android:background="@drawable/stl_edittext">
+
+                <ImageView
+                    android:layout_width="56dp"
+                    android:layout_height="56dp"
+                    android:layout_gravity="center|start"
+                    android:layout_marginEnd="10dp"
+                    android:background="@drawable/stl_item_incolor"
+                    android:clickable="true"
+                    android:contentDescription="@string/back"
+                    android:focusable="true"
+                    android:gravity="center"
+                    android:src="@drawable/ic_vote_null"
+                    tools:ignore="ImageContrastCheck" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fontFamily="@font/ubuntu_regular"
+                    android:text="@string/nameITem"
+                    android:textAlignment="textStart"
+                    android:textColor="@color/cor_laranja"
+                    android:textSize="18sp"
+                    tools:ignore="RtlCompat,TextContrastCheck"
+                    android:gravity="center_vertical"
+                    android:layout_gravity="center"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/id_linear_m02_item02"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="24dp"
+                android:background="@drawable/stl_edittext">
+
+                <ImageView
+                    android:layout_width="56dp"
+                    android:layout_height="56dp"
+                    android:layout_gravity="center|start"
+                    android:layout_marginEnd="10dp"
+                    android:background="@drawable/stl_item_incolor"
+                    android:clickable="true"
+                    android:contentDescription="@string/back"
+                    android:focusable="true"
+                    android:gravity="center"
+                    android:src="@drawable/ic_vote_null"
+                    tools:ignore="ImageContrastCheck" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fontFamily="@font/ubuntu_regular"
+                    android:text="@string/nameITem"
+                    android:textAlignment="textStart"
+                    android:textColor="@color/cor_laranja"
+                    android:textSize="18sp"
+                    tools:ignore="RtlCompat,TextContrastCheck"
+                    android:gravity="center_vertical"
+                    android:layout_gravity="center"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/id_linear_m02_item03"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="24dp"
+                android:background="@drawable/stl_edittext">
+
+                <ImageView
+                    android:layout_width="56dp"
+                    android:layout_height="56dp"
+                    android:layout_gravity="center|start"
+                    android:layout_marginEnd="10dp"
+                    android:background="@drawable/stl_item_incolor"
+                    android:clickable="true"
+                    android:contentDescription="@string/back"
+                    android:focusable="true"
+                    android:gravity="center"
+                    android:src="@drawable/ic_vote_null"
+                    tools:ignore="ImageContrastCheck" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fontFamily="@font/ubuntu_regular"
+                    android:text="@string/nameITem"
+                    android:textAlignment="textStart"
+                    android:textColor="@color/cor_laranja"
+                    android:textSize="18sp"
+                    tools:ignore="RtlCompat,TextContrastCheck"
+                    android:gravity="center_vertical"
+                    android:layout_gravity="center"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/id_linear_m02_item04"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="24dp"
+                android:background="@drawable/stl_edittext">
+
+                <ImageView
+                    android:layout_width="56dp"
+                    android:layout_height="56dp"
+                    android:layout_gravity="center|start"
+                    android:layout_marginEnd="10dp"
+                    android:background="@drawable/stl_item_incolor"
+                    android:clickable="true"
+                    android:contentDescription="@string/back"
+                    android:focusable="true"
+                    android:gravity="center"
+                    android:src="@drawable/ic_vote_null"
+                    tools:ignore="ImageContrastCheck" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fontFamily="@font/ubuntu_regular"
+                    android:text="@string/nameITem"
+                    android:textAlignment="textStart"
+                    android:textColor="@color/cor_laranja"
+                    android:textSize="18sp"
+                    tools:ignore="RtlCompat,TextContrastCheck"
+                    android:gravity="center_vertical"
+                    android:layout_gravity="center"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/id_linear_m02_item05"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="24dp"
+                android:background="@drawable/stl_edittext">
+
+                <ImageView
+                    android:layout_width="56dp"
+                    android:layout_height="56dp"
+                    android:layout_gravity="center|start"
+                    android:layout_marginEnd="10dp"
+                    android:background="@drawable/stl_item_incolor"
+                    android:clickable="true"
+                    android:contentDescription="@string/back"
+                    android:focusable="true"
+                    android:gravity="center"
+                    android:src="@drawable/ic_vote_null"
+                    tools:ignore="ImageContrastCheck" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fontFamily="@font/ubuntu_regular"
+                    android:text="@string/nameITem"
+                    android:textAlignment="textStart"
+                    android:textColor="@color/cor_laranja"
+                    android:textSize="18sp"
+                    tools:ignore="RtlCompat,TextContrastCheck"
+                    android:gravity="center_vertical"
+                    android:layout_gravity="center"/>
+
+            </LinearLayout>
+
+            <!-- Deverá aparecer mais itens apartir daqui -->
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+
+        android:paddingTop="40dp"
+        android:paddingBottom="40dp"
+        android:paddingStart="40dp"
+        android:paddingEnd="40dp">
+
+        <Button
+            android:id="@+id/id_btn_m02_savelist"
+            style="@style/Widget.AppCompat.Button"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="@drawable/stl_btn_color"
+            android:clickable="true"
+            android:focusable="true"
+            android:fontFamily="@font/ubuntu_regular"
+            android:text="@string/vote"
+            android:textAllCaps="false"
+            android:textColor="@color/textBranco01"
+            android:textSize="18sp"
+            app:backgroundTint="@color/cor_laranja"
+            tools:ignore="TextContrastCheck" />
 
     </LinearLayout>
 

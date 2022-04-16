@@ -9,6 +9,13 @@
         <entry key="..\:/Users/DenilsonFA/AndroidStudioProjects/RankFood_project/app/src/main/res/drawable/ic_logo_branco.xml" value="0.217" />
         <entry key="..\:/Users/DenilsonFA/AndroidStudioProjects/RankFood_project/app/src/main/res/drawable/ic_logo_laranja.xml" value="0.217" />
         <entry key="..\:/Users/DenilsonFA/AndroidStudioProjects/RankFood_project/app/src/main/res/drawable/ic_logo_preto.xml" value="0.1815" />
+        <entry key="..\:/Users/DenilsonFA/AndroidStudioProjects/RankFood_project/app/src/main/res/drawable/ic_rank_1st.xml" value="0.217" />
+        <entry key="..\:/Users/DenilsonFA/AndroidStudioProjects/RankFood_project/app/src/main/res/drawable/ic_rank_2nd.xml" value="0.217" />
+        <entry key="..\:/Users/DenilsonFA/AndroidStudioProjects/RankFood_project/app/src/main/res/drawable/ic_rank_3rd.xml" value="0.217" />
+        <entry key="..\:/Users/DenilsonFA/AndroidStudioProjects/RankFood_project/app/src/main/res/drawable/ic_rank_th.xml" value="0.217" />
+        <entry key="..\:/Users/DenilsonFA/AndroidStudioProjects/RankFood_project/app/src/main/res/drawable/ic_vote_aprove.xml" value="0.217" />
+        <entry key="..\:/Users/DenilsonFA/AndroidStudioProjects/RankFood_project/app/src/main/res/drawable/ic_vote_null.xml" value="0.217" />
+        <entry key="..\:/Users/DenilsonFA/AndroidStudioProjects/RankFood_project/app/src/main/res/drawable/ic_vote_reprove.xml" value="0.217" />
         <entry key="..\:/Users/DenilsonFA/AndroidStudioProjects/RankFood_project/app/src/main/res/drawable/stl_btn_branco01.xml" value="0.1815" />
         <entry key="..\:/Users/DenilsonFA/AndroidStudioProjects/RankFood_project/app/src/main/res/drawable/stl_btn_branco01_nor.xml" value="0.217" />
         <entry key="..\:/Users/DenilsonFA/AndroidStudioProjects/RankFood_project/app/src/main/res/drawable/stl_btn_branco01_selec.xml" value="0.217" />
@@ -32,12 +39,12 @@
         <entry key="..\:/Users/DenilsonFA/AndroidStudioProjects/RankFood_project/app/src/main/res/font/ubuntu_bolder.xml" value="0.19709277469003847" />
         <entry key="..\:/Users/DenilsonFA/AndroidStudioProjects/RankFood_project/app/src/main/res/layout/activity_a_login.xml" value="0.17229585292860197" />
         <entry key="..\:/Users/DenilsonFA/AndroidStudioProjects/RankFood_project/app/src/main/res/layout/activity_a_m01_createrank.xml" value="0.17229585292860197" />
-        <entry key="..\:/Users/DenilsonFA/AndroidStudioProjects/RankFood_project/app/src/main/res/layout/activity_a_m02_vote.xml" value="0.17229585292860197" />
+        <entry key="..\:/Users/DenilsonFA/AndroidStudioProjects/RankFood_project/app/src/main/res/layout/activity_a_m02_vote.xml" value="0.21" />
         <entry key="..\:/Users/DenilsonFA/AndroidStudioProjects/RankFood_project/app/src/main/res/layout/activity_a_m03_viewrank.xml" value="0.17229585292860197" />
         <entry key="..\:/Users/DenilsonFA/AndroidStudioProjects/RankFood_project/app/src/main/res/layout/activity_a_m04_sobre.xml" value="0.1611799914493373" />
         <entry key="..\:/Users/DenilsonFA/AndroidStudioProjects/RankFood_project/app/src/main/res/layout/activity_a_menu.xml" value="0.17229585292860197" />
         <entry key="..\:/Users/DenilsonFA/AndroidStudioProjects/RankFood_project/app/src/main/res/layout/activity_a_open.xml" value="0.18" />
-        <entry key="..\:/Users/DenilsonFA/AndroidStudioProjects/RankFood_project/app/src/main/res/layout/activity_a_register.xml" value="0.1" />
+        <entry key="..\:/Users/DenilsonFA/AndroidStudioProjects/RankFood_project/app/src/main/res/layout/activity_a_register.xml" value="0.17229585292860197" />
         <entry key="..\:/Users/DenilsonFA/AndroidStudioProjects/RankFood_project/app/src/main/res/layout/activity_a_splash_screen.xml" value="0.33" />
         <entry key="..\:/Users/DenilsonFA/AndroidStudioProjects/RankFood_project/app/src/main/res/layout/item_pop_zoeira.xml" value="0.17229585292860197" />
       </map>

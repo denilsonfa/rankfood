@@ -21,7 +21,7 @@ public class A_M04_Sobre extends AppCompatActivity {
 
 
         // botão para retornar
-        ImageView id_ic_sobre_back = findViewById(R.id.id_ic_sobre_back);
+        ImageView id_ic_sobre_back = findViewById(R.id.id_ic_m04_back);
         id_ic_sobre_back.setOnClickListener(v -> onBackPressed());
     }
 }

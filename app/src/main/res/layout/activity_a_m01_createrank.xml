@@ -16,7 +16,7 @@
         tools:ignore="UselessParent">
 
         <ImageView
-            android:id="@+id/id_ic_createrank_back"
+            android:id="@+id/id_ic_m01_back"
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:layout_gravity="center|start"
@@ -47,6 +47,197 @@
             android:gravity="center"
             android:layout_gravity="center|end"
             tools:ignore="TextContrastCheck"/>
+
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="60">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+
+            android:paddingTop="40dp"
+            android:paddingStart="40dp"
+            android:paddingEnd="40dp">
+
+            <EditText
+                android:id="@+id/id_edtext_m01_edName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
+                android:autofillHints=""
+                android:background="@drawable/stl_edittext"
+                android:hint="@string/nameRank"
+                android:inputType="textCapSentences"
+                android:maxLength="50"
+                android:minHeight="40dp"
+                android:textSize="16sp"
+                android:theme="@style/list_edTxt"
+                tools:ignore="Autofill,TextContrastCheck" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
+                android:fontFamily="@font/ubuntu_bolder"
+                android:text="@string/enterName_item"
+                android:textAlignment="center"
+                android:textColor="@color/cor_laranja"
+                android:textSize="18sp"
+                android:paddingTop="16dp"
+                android:paddingBottom="16dp"
+                tools:ignore="TextContrastCheck"
+                android:textAllCaps="true"
+                android:layout_gravity="center|center_vertical"/>
+
+            <EditText
+                android:id="@+id/id_edtext_m01_namefood01"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
+                android:autofillHints=""
+                android:background="@drawable/stl_edittext"
+                android:hint="@string/nameFood"
+                android:inputType="textCapSentences"
+                android:maxLength="50"
+                android:minHeight="40dp"
+                android:textSize="16sp"
+                android:theme="@style/list_edTxt"
+                tools:ignore="Autofill,TextContrastCheck,DuplicateSpeakableTextCheck" />
+
+            <EditText
+                android:id="@+id/id_edtext_m01_namefood02"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
+                android:autofillHints=""
+                android:background="@drawable/stl_edittext"
+                android:hint="@string/nameFood"
+                android:inputType="textCapSentences"
+                android:maxLength="50"
+                android:minHeight="40dp"
+                android:textSize="16sp"
+                android:theme="@style/list_edTxt"
+                tools:ignore="Autofill,TextContrastCheck" />
+
+            <EditText
+                android:id="@+id/id_edtext_m01_namefood03"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
+                android:autofillHints=""
+                android:background="@drawable/stl_edittext"
+                android:hint="@string/nameFood"
+                android:inputType="textCapSentences"
+                android:maxLength="50"
+                android:minHeight="40dp"
+                android:textSize="16sp"
+                android:theme="@style/list_edTxt"
+                tools:ignore="Autofill,TextContrastCheck" />
+
+            <EditText
+                android:id="@+id/id_edtext_m01_namefood04"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
+                android:autofillHints=""
+                android:background="@drawable/stl_edittext"
+                android:hint="@string/nameFood"
+                android:inputType="textCapSentences"
+                android:maxLength="50"
+                android:minHeight="40dp"
+                android:textSize="16sp"
+                android:theme="@style/list_edTxt"
+                tools:ignore="Autofill,TextContrastCheck" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="100"
+                android:layout_marginBottom="24dp">
+
+                <EditText
+                    android:id="@+id/id_edtext_m01_namefood05"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="80"
+                    android:autofillHints=""
+                    android:background="@drawable/stl_edittext"
+                    android:hint="@string/nameFood"
+                    android:inputType="textCapSentences"
+                    android:maxLength="50"
+                    android:minHeight="40dp"
+                    android:textSize="16sp"
+                    android:theme="@style/list_edTxt"
+                    tools:ignore="Autofill,TextContrastCheck"
+                    android:layout_marginEnd="20dp"/>
+
+                <TextView
+                    android:id="@+id/id_text_m01_addExtra"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="20"
+                    android:fontFamily="@font/ubuntu_regular"
+                    android:text="@string/add"
+                    android:textAlignment="center"
+                    android:textColor="@color/textBranco01"
+                    android:textSize="32sp"
+                    tools:ignore="RtlCompat,TextContrastCheck"
+                    android:background="@drawable/stl_btn_color"
+                    android:gravity="center_vertical"
+                    android:layout_gravity="center"/>
+
+            </LinearLayout>
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
+                android:fontFamily="@font/ubuntu_regular"
+                android:text="@string/select_more_food"
+                android:textAlignment="center"
+                android:textColor="@color/cor_laranja"
+                android:textSize="18sp"
+                android:paddingTop="16dp"
+                android:paddingBottom="16dp"
+                tools:ignore="TextContrastCheck"
+                android:layout_gravity="center|center_vertical"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+
+        android:paddingTop="40dp"
+        android:paddingBottom="40dp"
+        android:paddingStart="40dp"
+        android:paddingEnd="40dp">
+
+        <Button
+            android:id="@+id/id_btn_m01_savelist"
+            style="@style/Widget.AppCompat.Button"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="@drawable/stl_btn_color"
+            android:clickable="true"
+            android:focusable="true"
+            android:fontFamily="@font/ubuntu_regular"
+            android:text="@string/save_list"
+            android:textAllCaps="false"
+            android:textColor="@color/textBranco01"
+            android:textSize="18sp"
+            app:backgroundTint="@color/cor_laranja"
+            tools:ignore="TextContrastCheck" />
 
     </LinearLayout>
 
