@@ -45,6 +45,17 @@ id_ic_open_back = id + icon + a_open + back;
 </p>
 
 #
+### Navegar pelo projeto
+###### Para navegar pelo projeto, basta clicar nos links abaixo:
+###### (lembre-se de atualizar links antes de enviar branch para master)
+ - ###### [Classes](https://github.com/denilsonfa/rankfood/tree/branch_layout_dfa/app/src/main/java/br/com/ddlrs/dla/rankfood)
+ - ###### [Manifest](https://github.com/denilsonfa/rankfood/blob/branch_layout_dfa/app/src/main/AndroidManifest.xml)
+ - ###### [Arquivos](https://github.com/denilsonfa/rankfood/tree/branch_layout_dfa/app/src/main/res)
+ - ###### [Imagens](https://github.com/denilsonfa/rankfood/tree/branch_layout_dfa/app/src/main/res/drawable)
+ - ###### [Layout](https://github.com/denilsonfa/rankfood/tree/branch_layout_dfa/app/src/main/res/layout)
+ - ###### [Values](https://github.com/denilsonfa/rankfood/tree/branch_layout_dfa/app/src/main/res/values)
+
+#
 ### EQUIPE RANKFOOD:
  - ######  DANUSA CRISTINE RIBEIRO
  - ######  DENILSON FABIANO DE ARAUJO
