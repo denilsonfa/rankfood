@@ -28,7 +28,7 @@
             android:contentDescription="@string/back"
             android:focusable="true"
             android:gravity="center"
-            android:src="@drawable/ic_back"
+            android:src="@drawable/ic_icon_back"
             tools:ignore="ImageContrastCheck" />
 
         <TextView
@@ -115,7 +115,7 @@
                     android:minHeight="40dp"
                     android:textSize="16sp"
                     android:theme="@style/list_edTxt"
-                    tools:ignore="Autofill"  />
+                    tools:ignore="Autofill,TextContrastCheck" />
 
                 <EditText
                     android:id="@+id/id_edtext_register_edEmail"
@@ -130,7 +130,7 @@
                     android:minHeight="40dp"
                     android:textSize="16sp"
                     android:theme="@style/list_edTxt"
-                    tools:ignore="Autofill"  />
+                    tools:ignore="Autofill,TextContrastCheck" />
 
                 <EditText
                     android:id="@+id/id_edtext_register_edSenha"
@@ -145,7 +145,7 @@
                     android:minHeight="40dp"
                     android:textSize="16sp"
                     android:theme="@style/list_edTxt"
-                    tools:ignore="Autofill"  />
+                    tools:ignore="Autofill,TextContrastCheck" />
 
                 <EditText
                     android:id="@+id/id_edtext_register_edConfirmSenha"
@@ -160,7 +160,7 @@
                     android:minHeight="40dp"
                     android:textSize="16sp"
                     android:theme="@style/list_edTxt"
-                    tools:ignore="Autofill"  />
+                    tools:ignore="Autofill,TextContrastCheck" />
 
                 <Button
                     android:id="@+id/id_btn_register_login"

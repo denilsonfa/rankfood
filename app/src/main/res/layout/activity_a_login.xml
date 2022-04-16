@@ -28,7 +28,7 @@
             android:contentDescription="@string/back"
             android:focusable="true"
             android:gravity="center"
-            android:src="@drawable/ic_back"
+            android:src="@drawable/ic_icon_back"
             tools:ignore="ImageContrastCheck" />
 
         <TextView

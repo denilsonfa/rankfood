@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".A_M03_ViewRank"
+    android:orientation="vertical"
+    android:theme="@android:style/Theme.NoTitleBar">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/cor_laranja"
+        android:minHeight="?attr/actionBarSize"
+        tools:ignore="UselessParent">
+
+        <ImageView
+            android:id="@+id/id_ic_viewrank_back"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_gravity="center|start"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginBottom="2dp"
+            android:background="@drawable/stl_item_incolor"
+            android:clickable="true"
+            android:contentDescription="@string/back"
+            android:focusable="true"
+            android:gravity="center"
+            android:src="@drawable/ic_icon_back"
+            tools:ignore="ImageContrastCheck" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:fontFamily="@font/ubuntu_bolder"
+            android:text="@string/viewRank"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginBottom="2dp"
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:textColor="@color/textBranco01"
+            android:textSize="16sp"
+            android:gravity="center"
+            android:layout_gravity="center|end"
+            tools:ignore="TextContrastCheck"/>
+
+    </LinearLayout>
+
+</LinearLayout>

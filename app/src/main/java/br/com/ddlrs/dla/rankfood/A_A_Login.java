@@ -38,7 +38,7 @@ public class A_A_Login extends AppCompatActivity {
         if(imm.isActive()) imm.toggleSoftInput(InputMethodManager.HIDE_IMPLICIT_ONLY, 0);
 
 
-        // botão de abrir a tela de login do usuário (A_A_Login)
+        // botão para retornar
         ImageView id_ic_login_back = findViewById(R.id.id_ic_login_back);
         id_ic_login_back.setOnClickListener(v -> onBackPressed());
 

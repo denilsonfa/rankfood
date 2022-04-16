@@ -22,7 +22,7 @@ public class A_A_Open extends AppCompatActivity {
         Objects.requireNonNull(getSupportActionBar()).hide(); //esconde a action bar
 
 
-        // botão de abrir a tela de login do usuário (A_A_Login)
+        // botão para retornar
         Button id_btn_open_enter = findViewById(R.id.id_btn_open_enter);
         id_btn_open_enter.setOnClickListener(v -> { // Botão para abrir a tela de login
             Intent i = new Intent(A_A_Open.this, A_A_Login.class);
@@ -43,6 +43,7 @@ public class A_A_Open extends AppCompatActivity {
         id_btn_open_home.setOnClickListener(v -> { // Botão para abrir a tela de login
             Intent i = new Intent(A_A_Open.this, A_A_Menu.class);
             startActivity(i); overridePendingTransition(R.anim.fadein, R.anim.fadeout);
+            finish(); // Finaliza a tela de abertura
         });
     }
 

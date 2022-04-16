@@ -40,7 +40,7 @@ public class A_A_Register extends AppCompatActivity {
         if(imm.isActive()) imm.toggleSoftInput(InputMethodManager.HIDE_IMPLICIT_ONLY, 0);
 
 
-        // botão de abrir a tela de login do usuário (A_A_Login)
+        // botão para retornar
         ImageView id_ic_register_back = findViewById(R.id.id_ic_register_back);
         id_ic_register_back.setOnClickListener(v -> onBackPressed());
 
