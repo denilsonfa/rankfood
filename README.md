@@ -45,6 +45,8 @@ id_ic_open_back = id + icon + a_open + back;
    <img src="https://raw.githubusercontent.com/denilsonfa/rankfood/branch_layout_dfa/images/img02_login.jpg" width="120">
    <img src="https://raw.githubusercontent.com/denilsonfa/rankfood/branch_layout_dfa/images/img03_register.jpg" width="120">
    <img src="https://raw.githubusercontent.com/denilsonfa/rankfood/branch_layout_dfa/images/img04_menu.jpg" width="120">
+ </p>
+ <p align="center">
    <img src="https://raw.githubusercontent.com/denilsonfa/rankfood/branch_layout_dfa/images/img05_m01.jpg" width="120">
    <img src="https://raw.githubusercontent.com/denilsonfa/rankfood/branch_layout_dfa/images/img06_m02.jpg" width="120">
    <img src="https://raw.githubusercontent.com/denilsonfa/rankfood/branch_layout_dfa/images/img07_m03.jpg" width="120">
