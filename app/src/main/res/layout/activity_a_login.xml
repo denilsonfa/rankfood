@@ -60,6 +60,19 @@
             android:weightSum="100"
             android:orientation="vertical">
 
+            <TextView
+                android:id="@+id/testeDoIntentNome"
+                android:layout_width="match_parent"
+                android:layout_height="49dp"
+                android:text="null"
+                android:textColor="#757575" />
+
+            <TextView
+                android:id="@+id/testeDoIntentIdade"
+                android:layout_width="match_parent"
+                android:layout_height="49dp"
+                android:text="null" />
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="280dp"

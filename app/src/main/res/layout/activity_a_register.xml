@@ -92,6 +92,12 @@
                     android:layout_marginStart="40dp"
                     android:layout_marginEnd="40dp"/>
 
+                <TextView
+                    android:id="@+id/responseText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="TextView" />
+
             </LinearLayout>
 
             <LinearLayout
@@ -113,6 +119,7 @@
                     android:inputType="textCapSentences"
                     android:maxLength="50"
                     android:minHeight="40dp"
+                    android:text="leandro"
                     android:textSize="16sp"
                     android:theme="@style/list_edTxt"
                     tools:ignore="Autofill,TextContrastCheck" />
@@ -122,12 +129,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="24dp"
+                    android:autoText="false"
                     android:autofillHints=""
                     android:background="@drawable/stl_edittext"
                     android:hint="@string/email"
                     android:inputType="textEmailAddress"
                     android:maxLength="50"
                     android:minHeight="40dp"
+                    android:text="me@gam.com"
                     android:textSize="16sp"
                     android:theme="@style/list_edTxt"
                     tools:ignore="Autofill,TextContrastCheck" />
@@ -143,6 +152,7 @@
                     android:inputType="textPassword"
                     android:maxLength="50"
                     android:minHeight="40dp"
+                    android:text="123"
                     android:textSize="16sp"
                     android:theme="@style/list_edTxt"
                     tools:ignore="Autofill,TextContrastCheck" />
@@ -158,6 +168,7 @@
                     android:inputType="textPassword"
                     android:maxLength="50"
                     android:minHeight="40dp"
+                    android:text="123"
                     android:textSize="16sp"
                     android:theme="@style/list_edTxt"
                     tools:ignore="Autofill,TextContrastCheck" />

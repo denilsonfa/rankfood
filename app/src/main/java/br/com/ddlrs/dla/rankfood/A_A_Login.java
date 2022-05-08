@@ -1,8 +1,5 @@
 package br.com.ddlrs.dla.rankfood;
 
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
@@ -16,18 +13,28 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+
 import java.util.Objects;
+
+import controller.*;
 
 public class A_A_Login extends AppCompatActivity {
 
     EditText id_edtext_login_edName;    // EditText para o nome de usuário
     EditText id_edtext_login_edSenha;   // EditText para a senha
     Button   id_btn_login_enter;        // Botão para entrar
+    private Data dataInstance = new Data();
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_a_login);
+
+        dataInstance = getIntent().getExtras().getParcelable("data");
 
         // Importantes
         getWindow().setStatusBarColor(Color.rgb(255,68,0)); // Cor da barra de status
@@ -40,7 +47,12 @@ public class A_A_Login extends AppCompatActivity {
 
         // botão para retornar
         ImageView id_ic_login_back = findViewById(R.id.id_ic_login_back);
-        id_ic_login_back.setOnClickListener(v -> onBackPressed());
+        id_ic_login_back.setOnClickListener(v -> {
+            Intent intent = new Intent();
+            intent.putExtra("data", dataInstance);
+            setResult(RESULT_CANCELED, intent);
+            finish();
+        });
 
 
         // botão/texto de abrir a tela de cadastro do usuário (A_A_Register)
@@ -60,8 +72,20 @@ public class A_A_Login extends AppCompatActivity {
         // função do botão de entrar
         id_btn_login_enter.setOnClickListener(v -> { // Botão para entrar
 
-            id_edtext_login_edName.getText();   // pegar texto do EditText
+            String teste = id_edtext_login_edName.getText().toString();   // pegar texto do EditText
             id_edtext_login_edSenha.getText();  // pegar texto do EditText
+
+//            TextView testeNome = findViewById(R.id.testeDoIntentNome);
+//            TextView testeIdade = findViewById(R.id.testeDoIntentIdade);
+//            foo = getIntent().getExtras().getParcelable("test");
+//
+//            testeNome.setText(foo.getValues()[0]);
+//            testeIdade.setText(foo.getValues()[1]);
+//
+//            foo.setValues(teste, 0);
+
+
+
 
             // Zoeira mesmo
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
