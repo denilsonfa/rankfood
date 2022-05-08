@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".A_M03_ViewRank"
+    android:orientation="vertical"
+    android:theme="@android:style/Theme.NoTitleBar">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/cor_laranja"
+        android:minHeight="?attr/actionBarSize"
+        tools:ignore="UselessParent">
+
+        <ImageView
+            android:id="@+id/id_ic_m03_back"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_gravity="center|start"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginBottom="2dp"
+            android:background="@drawable/stl_item_incolor"
+            android:clickable="true"
+            android:contentDescription="@string/back"
+            android:focusable="true"
+            android:gravity="center"
+            android:src="@drawable/ic_icon_back"
+            tools:ignore="ImageContrastCheck,DuplicateSpeakableTextCheck" />
+
+        <TextView
+            android:id="@+id/id_ic_m03_nameRank"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:fontFamily="@font/ubuntu_bolder"
+            android:text="@string/viewRank"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginBottom="2dp"
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:textColor="@color/textBranco01"
+            android:textSize="16sp"
+            android:gravity="center"
+            android:layout_gravity="center|end"
+            tools:ignore="TextContrastCheck"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="280dp"
+        android:gravity="bottom"
+        android:orientation="vertical"
+        tools:ignore="UseCompoundDrawables">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="0dp"
+            android:contentDescription="@string/app_name"
+            android:padding="10dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginEnd="40dp"
+            app:srcCompat="@drawable/ic_img_rank"
+            tools:ignore="ImageContrastCheck" />
+
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="60">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+
+            android:paddingTop="40dp"
+            android:paddingStart="40dp"
+            android:paddingEnd="40dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="24dp">
+
+                <ImageView
+                    android:layout_width="56dp"
+                    android:layout_height="56dp"
+                    android:layout_gravity="center|start"
+                    android:layout_marginEnd="10dp"
+                    android:background="@drawable/stl_item_incolor"
+                    android:clickable="true"
+                    android:contentDescription="@string/back"
+                    android:focusable="true"
+                    android:gravity="center"
+                    android:src="@drawable/ic_rank_1st"
+                    tools:ignore="ImageContrastCheck" />
+
+                <TextView
+                    android:id="@+id/id_text_m03_item01"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fontFamily="@font/ubuntu_bolder"
+                    android:text="@string/first_item"
+                    android:textAlignment="textStart"
+                    android:textColor="@color/cor_laranja"
+                    android:textSize="18sp"
+                    tools:ignore="RtlCompat,TextContrastCheck"
+                    android:gravity="center_vertical"
+                    android:layout_gravity="center"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="24dp">
+
+                <ImageView
+                    android:layout_width="56dp"
+                    android:layout_height="56dp"
+                    android:layout_gravity="center|start"
+                    android:layout_marginEnd="10dp"
+                    android:background="@drawable/stl_item_incolor"
+                    android:clickable="true"
+                    android:contentDescription="@string/back"
+                    android:focusable="true"
+                    android:gravity="center"
+                    android:src="@drawable/ic_rank_2nd"
+                    tools:ignore="ImageContrastCheck" />
+
+                <TextView
+                    android:id="@+id/id_text_m03_item02"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fontFamily="@font/ubuntu_bolder"
+                    android:text="@string/second_item"
+                    android:textAlignment="textStart"
+                    android:textColor="@color/cor_laranja"
+                    android:textSize="18sp"
+                    tools:ignore="RtlCompat,TextContrastCheck"
+                    android:gravity="center_vertical"
+                    android:layout_gravity="center"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="24dp">
+
+                <ImageView
+                    android:layout_width="56dp"
+                    android:layout_height="56dp"
+                    android:layout_gravity="center|start"
+                    android:layout_marginEnd="10dp"
+                    android:background="@drawable/stl_item_incolor"
+                    android:clickable="true"
+                    android:contentDescription="@string/back"
+                    android:focusable="true"
+                    android:gravity="center"
+                    android:src="@drawable/ic_rank_1st"
+                    tools:ignore="ImageContrastCheck" />
+
+                <TextView
+                    android:id="@+id/id_text_m03_item03"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fontFamily="@font/ubuntu_bolder"
+                    android:text="@string/third_item"
+                    android:textAlignment="textStart"
+                    android:textColor="@color/cor_laranja"
+                    android:textSize="18sp"
+                    tools:ignore="RtlCompat,TextContrastCheck"
+                    android:gravity="center_vertical"
+                    android:layout_gravity="center"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="24dp">
+
+                <ImageView
+                    android:layout_width="56dp"
+                    android:layout_height="56dp"
+                    android:layout_gravity="center|start"
+                    android:layout_marginEnd="10dp"
+                    android:background="@drawable/stl_item_incolor"
+                    android:clickable="true"
+                    android:contentDescription="@string/back"
+                    android:focusable="true"
+                    android:gravity="center"
+                    android:src="@drawable/ic_rank_th"
+                    tools:ignore="ImageContrastCheck" />
+
+                <TextView
+                    android:id="@+id/id_text_m03_item04"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fontFamily="@font/ubuntu_bolder"
+                    android:text="@string/others_item"
+                    android:textAlignment="textStart"
+                    android:textColor="@color/cor_laranja"
+                    android:textSize="18sp"
+                    tools:ignore="RtlCompat,TextContrastCheck"
+                    android:gravity="center_vertical"
+                    android:layout_gravity="center"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="24dp">
+
+                <ImageView
+                    android:layout_width="56dp"
+                    android:layout_height="56dp"
+                    android:layout_gravity="center|start"
+                    android:layout_marginEnd="10dp"
+                    android:background="@drawable/stl_item_incolor"
+                    android:clickable="true"
+                    android:contentDescription="@string/back"
+                    android:focusable="true"
+                    android:gravity="center"
+                    android:src="@drawable/ic_rank_th"
+                    tools:ignore="ImageContrastCheck" />
+
+                <TextView
+                    android:id="@+id/id_text_m03_item05"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fontFamily="@font/ubuntu_bolder"
+                    android:text="@string/others_item"
+                    android:textAlignment="textStart"
+                    android:textColor="@color/cor_laranja"
+                    android:textSize="18sp"
+                    tools:ignore="RtlCompat,TextContrastCheck"
+                    android:gravity="center_vertical"
+                    android:layout_gravity="center"/>
+
+            </LinearLayout>
+
+            <!-- Deverá aparecer mais itens apartir daqui -->
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

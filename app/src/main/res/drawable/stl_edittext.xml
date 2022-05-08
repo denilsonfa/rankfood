@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:enterFadeDuration="50"
+    android:exitFadeDuration="200"
+    tools:ignore="MissingDefaultResource">
+
+    <item android:drawable="@drawable/stl_edittext_selec" android:state_pressed="true"/>
+    <item android:drawable="@drawable/stl_edittext_selec" android:state_focused="true"/>
+    <item android:drawable="@drawable/stl_edittext_chek" android:state_enabled="false"/>
+    <item android:drawable="@drawable/stl_edittext_nor"/>
+
+</selector>

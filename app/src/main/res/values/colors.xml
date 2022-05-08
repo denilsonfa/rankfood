@@ -1,10 +1,106 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="purple_200">#FFBB86FC</color>
-    <color name="purple_500">#FF6200EE</color>
-    <color name="purple_700">#FF3700B3</color>
-    <color name="teal_200">#FF03DAC5</color>
-    <color name="teal_700">#FF018786</color>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+    <!-- Cor Sistema -->
+    <color name="colorPrimary">#FFF</color>
+    <color name="colorPrimaryDark">#222</color>
+    <color name="textColorPrimary">#676767</color>
+    <color name="colorAccent">#FF6400</color>
+    <color name="windowBackground">#ffffff</color>
+    <color name="statusBar">#FF0000</color>
+    <color name="NavigationBarColor">#222</color>
+
+    <!-- Cor Tema - Laranja - Degrade -->
+    <color name="cor_laranja">#FF6400</color>
+    <color name="cor_vermelho">#FF270D</color>
+
+    <color name="cor_laranja_1">#FFAC0D</color>
+    <color name="cor_laranja_2">#E8840C</color>
+    <color name="cor_laranja_3">#E8440C</color>
+    <color name="cor_laranja_1_t">#88FFAC0D</color>
+    <color name="cor_laranja_2_t">#88E8840C</color>
+    <color name="cor_laranja_3_t">#88E8440C</color>
+
+    <!-- Cor Tema - Preto -->
+    <color name="textPreto01">#000</color>
+    <color name="textPreto01_t">#9000</color>
+    <color name="textPreto02">#222</color>
+    <color name="textPreto02_t">#9222</color>
+    <color name="textPreto03">#444</color>
+    <color name="textPreto04">#676767</color>
+    <color name="textPreto05">#676767</color>
+    <!--    <color name="textPreto05">#888</color>-->
+    <color name="textPreto05_t">#9888</color>
+    <color name="textPreto06">#777</color>
+    <color name="textPreto06_0">#777</color>
+    <!--    <color name="textPreto06">#AAA</color>-->
+    <color name="textPreto07">#CCC</color>
+    <color name="textPreto08">#DDD</color>
+    <color name="textPreto09">#FFF</color>
+
+    <color name="textPreto10">#2000</color>
+    <color name="textPreto11">#4000</color>
+    <color name="textPreto12">#6000</color>
+    <color name="textPreto13">#8000</color>
+    <color name="textPreto14">#A000</color>
+    <color name="textPreto15">#C000</color>
+    <color name="textPreto16">#D000</color>
+
+    <!-- Cor Tema - Branco -->
+    <color name="textBranco01">#fff</color>
+    <color name="textBranco01_t">#9fff</color>
+    <color name="textBranco02">#ddd</color>
+    <color name="textBranco02_t">#8ddd</color>
+    <color name="textBranco03">#bbb</color>
+    <color name="textBranco04">#eee</color>
+    <color name="textBranco05">#2fff</color>
+    <color name="textBranco06">#f0f0f0</color>
+
+    <color name="textBranco10">#2fff</color>
+    <color name="textBranco11">#4fff</color>
+    <color name="textBranco12">#6fff</color>
+    <color name="textBranco13">#8fff</color>
+    <color name="textBranco14">#Afff</color>
+    <color name="textBranco15">#Cfff</color>
+    <color name="textBranco16">#Dfff</color>
+
+    <color name="transparent">#0000</color>
+
+    <color name="purple_200">#C73DDF</color>
+    <color name="purple_500">#9C27B0</color>
+    <color name="purple_700">#6A1B9A</color>
+    <color name="purple_900">#4A148C</color>
+    <color name="teal_200">#80CBC4</color>
+    <color name="teal_500">#009688</color>
+    <color name="teal_700">#00796B</color>
+    <color name="teal_900">#004D40</color>
+    <color name="teal_A700">#00695C</color>
+    <color name="teal_A100">#A7FFEB</color>
+    <color name="teal_A200">#64FFDA</color>
+    <color name="teal_A400">#1DE9B6</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="light_blue_900">#263238</color>
+    <color name="light_blue_A400">#00BCD4</color>
+    <color name="light_blue_600">#1976D2</color>
+    <color name="light_blue_A200">#64B5F6</color>
+    <color name="black_overlay">#000000</color>
+
+    <!-- Cor Tema - Azul -->
+    <color name="textAzul01">#0064ff</color>
+    <color name="textAzul02">#2187ff</color>
+    <color name="textAzul03">#0E5BB6</color>
+    <color name="textAzul01_t">#880064ff</color>
+    <color name="textAzul02_t">#882187ff</color>
+    <color name="textAzul03_t">#880E5BB6</color>
+
+    <color name="textAzul08">#4199FF</color>
+
+    <!-- Cor Tema - Azul Degrade -->
+    <color name="textAzul04">#2187ff</color>
+    <color name="textAzul04_t">#882187ff</color>
+    <color name="textAzul05">#951095</color>
+    <color name="textAzul05_t">#88951095</color>
+    <color name="textAzul06">#750A75</color>
+    <color name="textAzul07">#003399</color>
+
 </resources>

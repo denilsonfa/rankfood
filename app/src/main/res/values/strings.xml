@@ -1,3 +1,77 @@
 <resources>
+    <!-- System -->
     <string name="app_name">RankFood</string>
+    <string name="app_name_desc">Aplicação para criar e avaliar Ranking de Alimentos</string>
+
+
+    <!-- Menu - Title -->
+    <string name="login">Efetuar Login</string>
+    <string name="register">Registrar-se</string>
+    <string name="createRank">Criar novo Ranking</string>
+    <string name="viewRank">Visualizar Ranking</string>
+    <string name="voteRank">Votação</string>
+    <string name="sobre">Sobre nós</string>
+
+
+    <!-- Text - Activity - A_OPEN / A_LOGIN / A_REGISTER -->
+    <string name="name">Nome</string>
+    <string name="email">Email</string>
+    <string name="password">Senha</string>
+    <string name="confirm_password">Confirmar Senha</string>
+
+    <string name="resgister_1">Não possui conta?</string>
+    <string name="resgister_2">Registre-se!</string>
+
+    <string name="login_1">Já possui conta?</string>
+    <string name="login_2">Faça o Login!</string>
+
+    <string name="nameRank">Nome do Ranking</string>
+    <string name="enterName_item">Adicione os itens</string>
+    <string name="nameFood">Nome do alimento</string>
+    <string name="nameFoodExtra">Nome do alimento extra</string>
+    <string name="select_more_food">Clique no botão (+) para acicionar mais itens ao Ranking</string>
+    <string name="save_list">Salvar Lista</string>
+
+    <string name="voteItem">Selecione apenas um dos itens</string>
+    <string name="nameITem">Nome do item</string>
+
+    <string name="first_item">Primeiro item</string>
+    <string name="second_item">Segundo item</string>
+    <string name="third_item">Terceiro item</string>
+    <string name="others_item">Outros itens</string>
+
+
+    <!-- Menu - Button -->
+    <string name="add">+</string>
+    <string name="enter">Entrar</string>
+    <string name="back">Voltar</string>
+    <string name="home">Tela Inicial</string>
+    <string name="ok">OK</string>
+    <string name="vote">Confirmar Voto</string>
+    <string name="cancel">Cancelar</string>
+    <string name="logout">Sair</string>
+
+    <string name="id_btn_menu_m01CreateRank">Criar\nRanking</string>
+    <string name="id_btn_menu_m02Vote">Votar\nRanking</string>
+    <string name="id_btn_menu_m03ViewRank">Ver\nRanking</string>
+    <string name="id_btn_menu_m04Sobre">Sobre\no app</string>
+
+
+    <!-- Texto -->
+    <string name="voteSuccess">Voto realizado com sucesso!</string>
+    <string name="sobre_text">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer rhoncus pretium vestibulum.
+        Proin faucibus ante augue, ac viverra ligula molestie vel. Vestibulum eros elit, euismod
+        vitae pharetra sed, volutpat vitae est. Donec dapibus diam turpis, eu interdum dui ornare
+        ac. Vivamus nec nisl quis mi interdum pellentesque id ut magna. Aenean tempor odio at ipsum
+        consequat, in rhoncus ipsum dignissim. Vivamus vitae elit dui. Donec a hendrerit elit.
+        Morbi convallis, ipsum ac tristique tincidunt, ipsum nulla sollicitudin orci, vitae
+        convallis lorem magna eget massa. Nulla hendrerit, mauris sit amet eleifend aliquam, elit
+        justo interdum nisi, non sagittis elit ante sed nunc. Fusce porttitor massa magna. Fusce
+        quis condimentum mauris, vitae elementum ex. Phasellus suscipit ac lorem sed placerat.
+    </string>
+
+    <!-- Temp -->
+    <string name="temp">Temp</string>
+
 </resources>
