@@ -50,8 +50,10 @@
         <entry key="app/src/main/res/layout/activity_a_login.xml" value="0.22" />
         <entry key="app/src/main/res/layout/activity_a_m01_createrank.xml" value="0.22" />
         <entry key="app/src/main/res/layout/activity_a_m03_viewrank.xml" value="0.16077898550724637" />
+        <entry key="app/src/main/res/layout/activity_a_menu.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_a_open.xml" value="0.2" />
         <entry key="app/src/main/res/layout/activity_a_register.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/item_pop_alert.xml" value="0.12047101449275362" />
         <entry key="app/src/main/res/layout/item_pop_zoeira.xml" value="0.16077898550724637" />
       </map>
     </option>

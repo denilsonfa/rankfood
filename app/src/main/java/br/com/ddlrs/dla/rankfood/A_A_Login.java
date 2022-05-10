@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
@@ -13,28 +14,47 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.Objects;
 
-import controller.*;
+import controller.Data;
+import controller.User;
+import model.Constants;
 
-public class A_A_Login extends AppCompatActivity {
+public class A_A_Login extends AppCompatActivity implements Constants {
 
-    EditText id_edtext_login_edName;    // EditText para o nome de usuário
+    EditText id_edtext_login_edEmail;    // EditText para o nome de usuário
     EditText id_edtext_login_edSenha;   // EditText para a senha
     Button   id_btn_login_enter;        // Botão para entrar
-    private Data dataInstance = new Data();
+    Data dataInstance;
 
+    private void alert(String massege){
+        android.app.AlertDialog.Builder builder = new android.app.AlertDialog.Builder(this);
+        builder.setPositiveButton(R.string.ok, (dialog, which) -> dialog.dismiss() );
+        LayoutInflater inflater = getLayoutInflater();
+        View dialogLayout = inflater.inflate(R.layout.item_pop_alert, null);
+        TextView titleText = dialogLayout.findViewById(R.id.TitleText);
+        titleText.setText(massege);
+        android.app.AlertDialog dialog = builder.create();
+        dialog.setView(dialogLayout);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.show();
+    }
 
-
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent();
+        intent.putExtra("Data", dataInstance);
+        setResult(RESULT_CANCELED, intent);
+        finish();
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_a_login);
 
-        dataInstance = getIntent().getExtras().getParcelable("data");
+        dataInstance = getIntent().getExtras().getParcelable("Data");
 
         // Importantes
         getWindow().setStatusBarColor(Color.rgb(255,68,0)); // Cor da barra de status
@@ -49,10 +69,12 @@ public class A_A_Login extends AppCompatActivity {
         ImageView id_ic_login_back = findViewById(R.id.id_ic_login_back);
         id_ic_login_back.setOnClickListener(v -> {
             Intent intent = new Intent();
-            intent.putExtra("data", dataInstance);
+            intent.putExtra("Data", dataInstance);
             setResult(RESULT_CANCELED, intent);
             finish();
         });
+
+
 
 
         // botão/texto de abrir a tela de cadastro do usuário (A_A_Register)
@@ -64,7 +86,7 @@ public class A_A_Login extends AppCompatActivity {
 
 
         // pegar id do item
-        id_edtext_login_edName = findViewById(R.id.id_edtext_login_edName);
+        id_edtext_login_edEmail = findViewById(R.id.id_edtext_login_edEmail);
         id_edtext_login_edSenha = findViewById(R.id.id_edtext_login_edSenha);
         id_btn_login_enter = findViewById(R.id.id_btn_login_enter);
 
@@ -72,32 +94,43 @@ public class A_A_Login extends AppCompatActivity {
         // função do botão de entrar
         id_btn_login_enter.setOnClickListener(v -> { // Botão para entrar
 
-            String teste = id_edtext_login_edName.getText().toString();   // pegar texto do EditText
-            id_edtext_login_edSenha.getText();  // pegar texto do EditText
+            String  edEmail = id_edtext_login_edEmail.getText().toString(),     // pegar texto do EditText
+                    edSenha = id_edtext_login_edSenha.getText().toString();     // pegar texto do EditText
 
-//            TextView testeNome = findViewById(R.id.testeDoIntentNome);
-//            TextView testeIdade = findViewById(R.id.testeDoIntentIdade);
-//            foo = getIntent().getExtras().getParcelable("test");
-//
-//            testeNome.setText(foo.getValues()[0]);
-//            testeIdade.setText(foo.getValues()[1]);
-//
-//            foo.setValues(teste, 0);
+            User newUser = new User();
+
+            if(newUser.validadeEmail(edEmail)) {
 
 
+                boolean emailIsUsed = false;
+                int currentUser = 0;
+                for (int i = 0; i < dataInstance.getDataUser().size(); i++) {
+                    if (dataInstance.getDataUser().get(i).UserEmail().equals(edEmail)) {
+                        emailIsUsed = true;
+                        currentUser = i;
+                    }
+                }
 
+                boolean passIsCurrect = newUser.validatePassword(dataInstance.getDataUser().get(currentUser).UserPassword(), edSenha);
+                if (emailIsUsed && passIsCurrect) {
+                    Intent intent = new Intent();
+                    intent.putExtra("Data", dataInstance);
+                    intent.putExtra("UserId", currentUser);
+                    setResult(RESULT_OK, intent);
+                    finish();
+                } else {
+                    // Esse email ou senha incorretos
+                    alert(getString(R.string.informationIncorrect));
+                    Log.d("OperLog" , "Esse email ainda não foi usado");
+                    Log.d("OperSerialize" , dataInstance.serialize());
+                }
 
-            // Zoeira mesmo
-            AlertDialog.Builder builder = new AlertDialog.Builder(this);
-            builder.setPositiveButton(R.string.ok, (dialog, which) -> {
-                dialog.dismiss();   // fechar o dialog
-            });
-            AlertDialog dialog = builder.create();
-            LayoutInflater inflater = getLayoutInflater();
-            View dialogLayout = inflater.inflate(R.layout.item_pop_zoeira, null);
-            dialog.setView(dialogLayout);
-            dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-            dialog.show();
+            } else {
+                // email invalido
+                alert(getString(R.string.invalidEmail));
+                Log.d("OperLog" , "email invalido");
+                Log.d("OperSerialize" , dataInstance.serialize());
+            }
 
         });
 

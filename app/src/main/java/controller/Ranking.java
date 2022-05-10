@@ -7,14 +7,23 @@ import java.util.ArrayList;
 
 public class Ranking implements Parcelable {
     private String name;
+    private String description;
     private final int OwnerUserId;
-    private ArrayList<String[]> itemsOfRanking = new ArrayList();
+    private ArrayList<String> itemsNameOfRanking = new ArrayList();
+    private ArrayList<String> itemsVoteOfRanking = new ArrayList();
 
-    public Ranking(int id){ OwnerUserId = id; }
+    public Ranking(String name, String description, int OwnerUserId){
+        this.name = name;
+        this.description = description;
+        this.OwnerUserId = OwnerUserId;
+    }
 
     protected Ranking(Parcel in) {
         name = in.readString();
+        description = in.readString();
         OwnerUserId = in.readInt();
+        itemsNameOfRanking = in.createStringArrayList();
+        itemsVoteOfRanking = in.createStringArrayList();
     }
 
     public static final Creator<Ranking> CREATOR = new Creator<Ranking>() {
@@ -32,17 +41,19 @@ public class Ranking implements Parcelable {
     public String getName()             { return name;      }
     public void setName(String name)    { this.name = name; }
 
-    public ArrayList<String[]> getItemsOfRanking() { return itemsOfRanking; }
-    public void setItemOfRanking(String itemName, String itemDescription) {
-        itemsOfRanking.add(new String[]{itemName, itemDescription, "0"});
+    public String setDescription()                  { return description;               }
+    public void setDescription(String description)  { this.description = description;   }
+
+    public ArrayList[] getItemsOfRanking() { return new ArrayList[]{ itemsVoteOfRanking, itemsNameOfRanking }; }
+    public void setItemOfRanking(String itemName) {
+        itemsVoteOfRanking.add("0");
+        itemsNameOfRanking.add(itemName);
     }
-    public boolean setItemOfRanking(int i, String itemName, String itemDescription) {
-        if(!itemsOfRanking.contains(i)){
-            itemsOfRanking.set(i, ( new String[]{
-                    itemName,
-                    itemDescription,
-                    itemsOfRanking.get(i)[2]
-                })
+    public boolean setItemOfRanking(int i, String itemName) {
+        if(!itemsNameOfRanking.contains(i)){
+            itemsNameOfRanking.set(
+                    i,
+                    itemName
             );
             return true;
         }
@@ -50,16 +61,35 @@ public class Ranking implements Parcelable {
     }
 
     public boolean vote(int i){
-        if(!itemsOfRanking.contains(i)){
-            itemsOfRanking.set(i , new String[]{
-                    itemsOfRanking.get(i)[0],
-                    itemsOfRanking.get(i)[1],
-                    String.valueOf(Integer.parseInt(itemsOfRanking.get(i)[2]) + 1)
-            });
+        if(!itemsVoteOfRanking.contains(i)){
+            itemsVoteOfRanking.set(
+                    i,
+                    String.valueOf(Integer.parseInt(itemsVoteOfRanking.get(i)) + 1)
+            );
             return true;
         }
 
         return false;
+    }
+
+    public String serialize(){
+        String serialize;
+        serialize = "{" +
+                "\"name\":" + "\"" + name + "\"," +
+                "\"description\":" + "\"" + description + "\"," +
+                "\"OwnerUserId\":" + "\"" + OwnerUserId + "\",";
+
+        serialize += "\"itemsOfRanking\": [";
+
+        for (int i = 0; i< itemsVoteOfRanking.size(); i++){
+            serialize += "["+itemsVoteOfRanking.get(i)+","+itemsNameOfRanking.get(i)+"]";
+            serialize += (itemsVoteOfRanking.size() - 1) == i ? "," : "";
+        }
+
+        serialize += "]";
+
+        serialize += "}";
+        return serialize;
     }
 
 
@@ -71,6 +101,9 @@ public class Ranking implements Parcelable {
     @Override
     public void writeToParcel(Parcel parcel, int i) {
         parcel.writeString(name);
+        parcel.writeString(description);
         parcel.writeInt(OwnerUserId);
+        parcel.writeStringList(itemsNameOfRanking);
+        parcel.writeStringList(itemsVoteOfRanking);
     }
 }

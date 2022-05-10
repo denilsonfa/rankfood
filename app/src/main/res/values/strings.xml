@@ -21,9 +21,13 @@
 
     <string name="resgister_1">Não possui conta?</string>
     <string name="resgister_2">Registre-se!</string>
+    <string name="usedEmail">O endereço de email inserido já está em uso.</string>
+    <string name="incompatiblePass">É a senha inserida no campo "senha" e "confirmar senha" deven ser iguais.</string>
+    <string name="invalidEmail">O endereço de email inserido é inválido</string>
 
     <string name="login_1">Já possui conta?</string>
     <string name="login_2">Faça o Login!</string>
+    <string name="informationIncorrect">Verifique se o email ou senha estão corretas</string>
 
     <string name="nameRank">Nome do Ranking</string>
     <string name="enterName_item">Adicione os itens</string>

@@ -76,6 +76,17 @@ public class User implements Parcelable {
         return values;
     }
 
+    public String serialize(){
+        String serialize;
+        serialize = "{" +
+                "\"userEmail\":" + "\"" + userEmail + "\"," +
+                "\"userName\":" + "\"" + userName + "\"," +
+                "\"userPassword\":" + "\"" + userPassword + "\"," +
+                "\"status\":" + "\"" +  (status == false? "false" : "true") + "\"" +
+                "}";
+        return serialize;
+    }
+
 
     @Override
     public int describeContents() {

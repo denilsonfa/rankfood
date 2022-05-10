@@ -1,9 +1,14 @@
 package br.com.ddlrs.dla.rankfood;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.Window;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
@@ -16,27 +21,44 @@ import java.util.Objects;
 
 import controller.Data;
 import controller.User;
+import model.Constants;
 
-public class A_A_Register extends AppCompatActivity {
+public class A_A_Register extends AppCompatActivity implements Constants {
 
-    private Data dataInstance;
-
+    Data        dataInstance;
     EditText    id_edtext_register_edName;          // Nome do usuário
     EditText    id_edtext_register_edEmail;         // Email do usuário
     EditText    id_edtext_register_edSenha;         // Senha do usuário
     EditText    id_edtext_register_edConfirmSenha;  // Confirmação da senha
     Button      id_btn_register_login;              // Botão de login
-    TextView responseText;
 
+    private void alert(String massege){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setPositiveButton(R.string.ok, (dialog, which) -> dialog.dismiss() );
+        LayoutInflater inflater = getLayoutInflater();
+        View dialogLayout = inflater.inflate(R.layout.item_pop_alert, null);
+        TextView titleText = dialogLayout.findViewById(R.id.TitleText);
+        titleText.setText(massege);
+        AlertDialog dialog = builder.create();
+        dialog.setView(dialogLayout);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.show();
+    }
 
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent();
+        intent.putExtra("Data", dataInstance);
+        setResult(RESULT_CANCELED, intent);
+        finish();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_a_register);
 
-        dataInstance = getIntent().getExtras().getParcelable("data");
-
+        dataInstance = getIntent().getExtras().getParcelable("Data");
 
         // Importantes
         getWindow().setStatusBarColor(Color.rgb(255,68,0)); // Cor da barra de status
@@ -50,10 +72,8 @@ public class A_A_Register extends AppCompatActivity {
         // botão para retornar
         ImageView id_ic_register_back = findViewById(R.id.id_ic_register_back);
         id_ic_register_back.setOnClickListener(v -> {
-            User teste = new User();
-        teste.createUser("leandro","me@sas.com","123");
             Intent intent = new Intent();
-            intent.putExtra("data", dataInstance);
+            intent.putExtra("Data", dataInstance);
             setResult(RESULT_CANCELED, intent);
             finish();
         });
@@ -74,7 +94,6 @@ public class A_A_Register extends AppCompatActivity {
         id_edtext_register_edConfirmSenha = findViewById(R.id.id_edtext_register_edConfirmSenha);
         id_btn_register_login = findViewById(R.id.id_btn_register_login);
 
-        responseText = findViewById(R.id.responseText);
 
         // função do botão de entrar
         id_btn_register_login.setOnClickListener(v -> { // Botão para entrar
@@ -88,7 +107,6 @@ public class A_A_Register extends AppCompatActivity {
 
             if (newUser.validadeEmail(edEmail)){
 
-                responseText.setText(String.valueOf(dataInstance.getDataUser().get(2).UserEmail()));
                 boolean emailIsUsed = false;
                 for (int i = 0; i < dataInstance.getDataUser().size(); i++){
                     if (dataInstance.getDataUser().get(i).UserEmail().equals(edEmail)) emailIsUsed = true;
@@ -98,41 +116,36 @@ public class A_A_Register extends AppCompatActivity {
                     if(newUser.validatePassword(edSenha,edConfirmSenha)){
                         newUser.createUser(edName, edEmail, edSenha);
                         dataInstance.setDataUser(newUser);
-
                         Intent intent = new Intent();
-                        intent.putExtra("data", dataInstance);
-                        setResult(RESULT_OK, intent);
+                        intent.putExtra("NewUser", newUser);
+                        setResult(RESULT_FIRST_USER, intent);
                         finish();
                     }
 
                     else {
                         // senha e senha de confirmação são diferentes
-                        responseText.setText("senha e senha de confirmação são diferentes");
+                        alert(getString(R.string.incompatiblePass));
+                        Log.d("OperLog" , "senha e senha de confirmação são diferentes");
+                        Log.d("OperSerialize" , dataInstance.serialize());
+
                     }
                 }
 
                 else {
                     // O email já foi usado
-                    responseText.setText("O email já foi usado");
+                    alert(getString(R.string.usedEmail));
+                    Log.d("OperLog" , "O email já foi usado");
+                    Log.d("OperSerialize" , dataInstance.serialize());
                 }
             }
 
             else{
                 // email invalido
-                responseText.setText("email invalido");
+                alert(getString(R.string.invalidEmail));
+                Log.d("OperLog" , "email invalido");
+                Log.d("OperSerialize" , dataInstance.serialize());
             }
 
-//            // Zoeira mesmo
-//            AlertDialog.Builder builder = new AlertDialog.Builder(this);
-//            builder.setPositiveButton(R.string.ok, (dialog, which) -> {
-//                dialog.dismiss();   // fechar o dialog
-//            });
-//            AlertDialog dialog = builder.create();
-//            LayoutInflater inflater = getLayoutInflater();
-//            View dialogLayout = inflater.inflate(R.layout.item_pop_zoeira, null);
-//            dialog.setView(dialogLayout);
-//            dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-//            dialog.show();
 
         });
 

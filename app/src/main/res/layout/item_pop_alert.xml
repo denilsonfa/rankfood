@@ -4,18 +4,9 @@
     android:layout_height="match_parent"
     >
 
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="272dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="40dp"
-        android:contentDescription="@string/ok"
-        android:src="@drawable/img_suavez" />
-
     <TextView
         android:id="@+id/TitleText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="ola"
-        android:textSize="48sp" />
+        android:textSize="34sp" />
 </LinearLayout>

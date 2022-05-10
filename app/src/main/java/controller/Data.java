@@ -8,32 +8,37 @@ import java.util.ArrayList;
 public class Data implements Parcelable {
     private ArrayList<User> dataUser = new ArrayList<User>();
     private ArrayList<Ranking> dataRanking = new ArrayList<Ranking>();
-    public boolean activate = false;
-    public boolean guest = false;
+    public boolean guestEnable = false;
     public Integer log = null;
 
 
     public Data(){ initializeValues(); }
 
+    private User TesteUser(String nome, String email, String senha){
+        User user = new User();
+        user.createUser(nome,email,senha);
+        return user;
+    }
+
+    private Ranking TesteRanking(String name, String description, int OwnerUserId){
+        Ranking ranking = new Ranking(name, description, OwnerUserId);
+        return ranking;
+    }
+
     private void initializeValues(){
-        User teste = new User();
-        teste.createUser("leandro","me@sas.com","123");
-        dataUser.add(teste);
+        dataUser.add(TesteUser("OLA","me@Sgam.com","123"));
+        dataUser.add(TesteUser("leandro","me@sas.com","123"));
+        dataUser.add(TesteUser("DSASSSS","me@oal.com","123"));
 
-        User teste2 = new User();
-        teste2.createUser("OLA","me@Sgam.com","123");
-        dataUser.add(teste2);
-
-        User teste3 = new User();
-        teste3.createUser("DSASSSS","me@oal.com","123");
-        dataUser.add(teste3);
+        dataRanking.add(TesteRanking("Pizzas", "Lista De Pizzas", 1));
+        dataRanking.add(TesteRanking("Panquecas", "Lista De Panquecas", 1));
+        dataRanking.add(TesteRanking("Casadas", "Lista De casadas", 1));
     }
 
     protected Data(Parcel in) {
         dataUser = in.createTypedArrayList(User.CREATOR);
         dataRanking = in.createTypedArrayList(Ranking.CREATOR);
-        activate = in.readByte() != 0;
-        guest = in.readByte() != 0;
+        guestEnable = in.readByte() != 0;
         if (in.readByte() == 0) {
             log = null;
         } else {
@@ -45,8 +50,7 @@ public class Data implements Parcelable {
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeTypedList(dataUser);
         dest.writeTypedList(dataRanking);
-        dest.writeByte((byte) (activate ? 1 : 0));
-        dest.writeByte((byte) (guest ? 1 : 0));
+        dest.writeByte((byte) (guestEnable ? 1 : 0));
         if (log == null) {
             dest.writeByte((byte) 0);
         } else {
@@ -73,17 +77,15 @@ public class Data implements Parcelable {
     };
 
 
-    public void setStatusOfinstance(Integer log, boolean activate, boolean guest){
+    public void setStatusOfinstance(Integer log, boolean guestEnable){
         this.log = log;
-        this.activate = activate;
-        this.guest = guest;
+        this.guestEnable = guestEnable;
     }
 
     public void Update(Data updatedData){
         dataUser.clear();
         dataRanking.clear();
-        activate = updatedData.activate;
-        guest = updatedData.guest;
+        guestEnable = updatedData.guestEnable;
         log = updatedData.log;
 
         ArrayList<User> updatedDataUser = updatedData.getDataUser();
@@ -118,6 +120,33 @@ public class Data implements Parcelable {
             return true;
         }
         return false;
+    }
+
+    public String serialize(){
+        String serialize;
+        serialize = "{" +
+                "\"guestEnable\":" + "\"" + (guestEnable ? "true" : "false") + "\"," +
+                "\"log\":" + "\"" + log + "\"," +
+                "\"dataUser\": [";
+        for (int i = 0; i < dataUser.size(); i++){
+            User data = dataUser.get(i);
+            serialize += data.serialize();
+            serialize += (dataUser.size() - 1) == i ? "" : ",";
+        }
+        serialize += "],";
+
+        serialize += "\"dataRanking\": [";
+
+        for (int i = 0; i < dataRanking.size(); i++){
+            Ranking data = dataRanking.get(i);
+            serialize += data.serialize();
+            serialize += (dataRanking.size() - 1) == i ? "" : ",";
+        }
+        serialize += "]";
+
+        serialize += "}";
+
+        return serialize;
     }
 
 }

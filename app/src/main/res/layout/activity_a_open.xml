@@ -109,24 +109,6 @@
                 android:layout_gravity="center|center_vertical"/>
         </LinearLayout>
 
-        <Button
-            android:id="@+id/id_btn_open_home"
-            style="@style/Widget.AppCompat.Button"
-            android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:layout_marginStart="40dp"
-            android:layout_marginEnd="40dp"
-            android:background="@drawable/stl_btn_branco01"
-            android:clickable="true"
-            android:focusable="true"
-            android:fontFamily="@font/ubuntu_regular"
-            android:text="@string/home"
-            android:textAllCaps="false"
-            android:textColor="@color/cor_laranja_3"
-            android:textSize="18sp"
-            app:backgroundTint="@color/colorPrimary"
-            tools:ignore="TextContrastCheck" />
-
     </LinearLayout>
 
 </LinearLayout>

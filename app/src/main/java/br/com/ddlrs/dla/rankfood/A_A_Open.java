@@ -3,6 +3,7 @@ package br.com.ddlrs.dla.rankfood;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -10,11 +11,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.Objects;
 
-import controller.*;
+import controller.Data;
+import controller.User;
+import model.Constants;
 
-public class A_A_Open extends AppCompatActivity {
-    private static final int LOGIN_ACTIVITY_REQUEST_CODE = 0;
-    private static final int REGISTER_ACTIVITY_REQUEST_CODE = 1;
+public class A_A_Open extends AppCompatActivity implements Constants {
 
     private Data dataInstance = new Data();
 
@@ -33,7 +34,7 @@ public class A_A_Open extends AppCompatActivity {
         Button id_btn_open_enter = findViewById(R.id.id_btn_open_enter);
         id_btn_open_enter.setOnClickListener(v -> { // Botão para abrir a tela de login
             Intent i = new Intent(A_A_Open.this, A_A_Login.class);
-            i.putExtra("data", dataInstance);
+            i.putExtra("Data", dataInstance);
             startActivityForResult(i, LOGIN_ACTIVITY_REQUEST_CODE);
             overridePendingTransition(R.anim.fadein, R.anim.fadeout);
         });
@@ -43,19 +44,11 @@ public class A_A_Open extends AppCompatActivity {
         TextView id_text_open_resgister = findViewById(R.id.id_text_open_resgister);
         id_text_open_resgister.setOnClickListener(v -> { // Botão para abrir a tela de login
             Intent i = new Intent(A_A_Open.this, A_A_Register.class);
-            i.putExtra("data", dataInstance);
+            i.putExtra("Data", dataInstance);
             startActivityForResult(i, REGISTER_ACTIVITY_REQUEST_CODE);
             overridePendingTransition(R.anim.fadein, R.anim.fadeout);
         });
 
-
-        // botão de abrir a tela de menu do usuário (A_A_Menu) (temporário)
-        Button id_btn_open_home = findViewById(R.id.id_btn_open_home);
-        id_btn_open_home.setOnClickListener(v -> { // Botão para abrir a tela de login
-            Intent i = new Intent(A_A_Open.this, A_A_Menu.class);
-            startActivity(i); overridePendingTransition(R.anim.fadein, R.anim.fadeout);
-            finish(); // Finaliza a tela de abertura
-        });
     }
 
     // This method is called when the second activity finishes
@@ -63,31 +56,46 @@ public class A_A_Open extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        // Check that it is the SecondActivity with an OK result
         if (requestCode == LOGIN_ACTIVITY_REQUEST_CODE) {
             if (resultCode == RESULT_OK) {
 
-            }if(resultCode == RESULT_CANCELED){
-                dataInstance.Update(data.getExtras().getParcelable("data"));
-            }
-            dataInstance.setStatusOfinstance(null,false,false);
 
-        }else if (requestCode == REGISTER_ACTIVITY_REQUEST_CODE){
-            if (resultCode == RESULT_OK) {
+//                dataInstance.Update(data.getExtras().getParcelable("Data"));
+//                dataInstance.setStatusOfinstance(data.getExtras().getInt("UserId"),false);
+
+                Log.d("OperLog" , "Usuario logado");
+                Log.d("OperSerialize" , dataInstance.serialize());
+                Intent i = new Intent(A_A_Open.this, A_A_Menu.class);
+                i.putExtra("Data", dataInstance);
+                startActivityForResult(i, MENU_ACTIVITY_REQUEST_CODE);
+                overridePendingTransition(R.anim.fadein, R.anim.fadeout);
+
+            }if(resultCode == RESULT_CANCELED){
+//                dataInstance.Update(data.getExtras().getParcelable("Data"));
+//                dataInstance.setStatusOfinstance(null,false);
+            }
+
+        }
+        else if (requestCode == REGISTER_ACTIVITY_REQUEST_CODE){
+            if (resultCode == RESULT_FIRST_USER) {
 
                 User newUser = data.getExtras().getParcelable("NewUser");
                 dataInstance.setDataUser(newUser);
 
+                dataInstance.setStatusOfinstance(null,false);
                 Intent i = new Intent(A_A_Open.this, A_A_Login.class);
-                i.putExtra("data", dataInstance);
+                i.putExtra("Data", dataInstance);
                 startActivityForResult(i, LOGIN_ACTIVITY_REQUEST_CODE);
                 overridePendingTransition(R.anim.fadein, R.anim.fadeout);
 
             }if(resultCode == RESULT_CANCELED){
-                dataInstance.Update(data.getExtras().getParcelable("data"));
+                dataInstance.Update(data.getExtras().getParcelable("Data"));
+                dataInstance.setStatusOfinstance(null,false);
             }
-
-            dataInstance.setStatusOfinstance(null,false,false);
+        }
+        else if (requestCode == MENU_ACTIVITY_REQUEST_CODE){
+            dataInstance.Update(data.getExtras().getParcelable("Data"));
+            dataInstance.setStatusOfinstance(null,false);
         }
     }
 

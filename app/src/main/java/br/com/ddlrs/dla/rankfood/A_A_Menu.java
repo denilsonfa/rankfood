@@ -1,33 +1,44 @@
 package br.com.ddlrs.dla.rankfood;
 
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.view.GravityCompat;
-
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+
 import java.util.Objects;
 
-public class A_A_Menu extends AppCompatActivity {
+import controller.Data;
+import model.Constants;
+
+public class A_A_Menu extends AppCompatActivity implements Constants {
 
     LinearLayout id_btn_menu_m01CreateRank;
     LinearLayout id_btn_menu_m02Vote;
     LinearLayout id_btn_menu_m03ViewRank;
     LinearLayout id_btn_menu_m04Sobre;
     ImageView id_ic_menu_exit;
+    Data dataInstance;
+
+    public void onBackPressed() {
+        Intent intent = new Intent();
+        intent.putExtra("Data", dataInstance);
+        setResult(RESULT_CANCELED, intent);
+        finish();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_a_menu);
+
+        dataInstance = getIntent().getExtras().getParcelable("Data");
 
         // Importantes
         getWindow().setStatusBarColor(Color.rgb(255,68,0)); // Cor da barra de status
