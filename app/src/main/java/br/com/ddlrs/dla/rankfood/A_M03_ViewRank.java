@@ -1,26 +1,56 @@
 package br.com.ddlrs.dla.rankfood;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.graphics.Color;
 import android.os.Bundle;
-import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import java.util.ArrayList;
 import java.util.Objects;
+
+import controller.Data;
+import controller.ViewRankingAdapter;
 
 public class A_M03_ViewRank extends AppCompatActivity {
 
-    TextView id_ic_m03_nameRank;
-    TextView id_text_m03_item01, id_text_m03_item02,
-            id_text_m03_item03, id_text_m03_item04,
-             id_text_m03_item05;
+    Data dataInstance;
+    private ViewRankingAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_a_m03_viewrank);
+        dataInstance = getIntent().getExtras().getParcelable("Data");
+
+        ArrayList[] dataRanking = dataInstance.getDataRanking((dataInstance.getDataRanking().size() - 1 )).getItemsOfRanking();
+
+        ArrayList<Integer> relativeDataRanking = new ArrayList<Integer>();
+        for(int i = 0; i < dataRanking[0].size(); i++)
+            relativeDataRanking.add(Integer.parseInt((String) dataRanking[0].get(i)));
+
+        ArrayList<Integer> rankedDataRanking = new ArrayList<Integer>();
+        int highestPosition = 0;
+
+        for(int i = 0; i < dataRanking[0].size(); i++){
+            highestPosition = 0;
+            for(int e = 0; e < relativeDataRanking.size(); e++)
+                if(relativeDataRanking.get(e) > relativeDataRanking.get(highestPosition)) highestPosition = e;
+
+            rankedDataRanking.add(highestPosition);
+            relativeDataRanking.set(highestPosition,-1);
+        }
+
+
+
+        adapter = new ViewRankingAdapter(new ArrayList<>(rankedDataRanking),new ArrayList<>(dataRanking[1]));
+
+        RecyclerView rv = findViewById(R.id.viewrank_list);
+        rv.setLayoutManager(new LinearLayoutManager(this));
+        rv.setAdapter(adapter);
+
 
         // Importantes
         getWindow().setStatusBarColor(Color.rgb(255,68,0)); // Cor da barra de status
@@ -31,19 +61,7 @@ public class A_M03_ViewRank extends AppCompatActivity {
         ImageView id_ic_viewrank_back = findViewById(R.id.id_ic_m03_back);
         id_ic_viewrank_back.setOnClickListener(v -> onBackPressed());
 
-        // pegar id do item
-        id_ic_m03_nameRank = findViewById(R.id.id_ic_m03_nameRank);
 
-        id_text_m03_item01 = findViewById(R.id.id_text_m03_item01);
-        id_text_m03_item02 = findViewById(R.id.id_text_m03_item02);
-        id_text_m03_item03 = findViewById(R.id.id_text_m03_item03);
-        id_text_m03_item04 = findViewById(R.id.id_text_m03_item04);
-        id_text_m03_item05 = findViewById(R.id.id_text_m03_item05);
-
-        // id_ic_m03_nameRank deve receber o nome do rank
-
-        // Aqui vai o codigo onde entra com os dados referente ao ranking
-        // Além de que se houver mais de 5 itens, deve-se adicionar na activity
 
     }
 }

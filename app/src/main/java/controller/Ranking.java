@@ -12,7 +12,7 @@ public class Ranking implements Parcelable {
     private ArrayList<String> itemsNameOfRanking = new ArrayList();
     private ArrayList<String> itemsVoteOfRanking = new ArrayList();
 
-    public Ranking(String name, String description, int OwnerUserId){
+    public Ranking( int OwnerUserId){
         this.name = name;
         this.description = description;
         this.OwnerUserId = OwnerUserId;
@@ -41,7 +41,7 @@ public class Ranking implements Parcelable {
     public String getName()             { return name;      }
     public void setName(String name)    { this.name = name; }
 
-    public String setDescription()                  { return description;               }
+    public String getDescription()                  { return description;               }
     public void setDescription(String description)  { this.description = description;   }
 
     public ArrayList[] getItemsOfRanking() { return new ArrayList[]{ itemsVoteOfRanking, itemsNameOfRanking }; }
@@ -55,6 +55,14 @@ public class Ranking implements Parcelable {
                     i,
                     itemName
             );
+            return true;
+        }
+        return false;
+    }
+    public boolean removeItemOfRanking(int i) {
+        if(!itemsNameOfRanking.contains(i)){
+            itemsNameOfRanking.remove(i);
+            itemsVoteOfRanking.remove(i);
             return true;
         }
         return false;
@@ -82,8 +90,8 @@ public class Ranking implements Parcelable {
         serialize += "\"itemsOfRanking\": [";
 
         for (int i = 0; i< itemsVoteOfRanking.size(); i++){
-            serialize += "["+itemsVoteOfRanking.get(i)+","+itemsNameOfRanking.get(i)+"]";
-            serialize += (itemsVoteOfRanking.size() - 1) == i ? "," : "";
+            serialize += "["+itemsVoteOfRanking.get(i)+",\""+itemsNameOfRanking.get(i)+"\"]";
+            serialize += (itemsVoteOfRanking.size() - 1) == i ? "" : ",";
         }
 
         serialize += "]";

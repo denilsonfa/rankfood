@@ -3,13 +3,10 @@ package br.com.ddlrs.dla.rankfood;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.Window;
+import android.util.Log;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.Objects;
@@ -55,18 +52,10 @@ public class A_A_Menu extends AppCompatActivity implements Constants {
 
         // função do botão de sair
         id_ic_menu_exit.setOnClickListener(v -> { // Botão para entrar
-
-            // Zoeira mesmo
-            AlertDialog.Builder builder = new AlertDialog.Builder(this);
-            builder.setPositiveButton(R.string.ok, (dialog, which) -> {
-                dialog.dismiss();   // fechar o dialog
-            });
-            AlertDialog dialog = builder.create();
-            LayoutInflater inflater = getLayoutInflater();
-            View dialogLayout = inflater.inflate(R.layout.item_pop_zoeira, null);
-            dialog.setView(dialogLayout);
-            dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-            dialog.show();
+            Intent intent = new Intent();
+            intent.putExtra("Data", dataInstance);
+            setResult(RESULT_CANCELED, intent);
+            finish();
 
         });
 
@@ -74,21 +63,27 @@ public class A_A_Menu extends AppCompatActivity implements Constants {
         // Botão para abrir a tela de criação de rank
         id_btn_menu_m01CreateRank.setOnClickListener(v -> {
             Intent i = new Intent(A_A_Menu.this, A_M01_CreateRank.class);
-            startActivity(i); overridePendingTransition(R.anim.fadein, R.anim.fadeout);
+            i.putExtra("Data", dataInstance);
+            startActivityForResult(i, CREATE_RANK_ACTIVITY_REQUEST_CODE);
+            overridePendingTransition(R.anim.fadein, R.anim.fadeout);
         });
 
 
         // Botão para abrir tela de votação de rank
         id_btn_menu_m02Vote.setOnClickListener(v -> {
             Intent i = new Intent(A_A_Menu.this, A_M02_Vote.class);
-            startActivity(i); overridePendingTransition(R.anim.fadein, R.anim.fadeout);
+            i.putExtra("Data", dataInstance);
+            startActivityForResult(i, VOTE_ACTIVITY_REQUEST_CODE);
+            overridePendingTransition(R.anim.fadein, R.anim.fadeout);
         });
 
 
         // Botão para abrir tela de visualização de rank
         id_btn_menu_m03ViewRank.setOnClickListener(v -> {
             Intent i = new Intent(A_A_Menu.this, A_M03_ViewRank.class);
-            startActivity(i); overridePendingTransition(R.anim.fadein, R.anim.fadeout);
+            i.putExtra("Data", dataInstance);
+            startActivity(i);
+            overridePendingTransition(R.anim.fadein, R.anim.fadeout);
         });
 
 
@@ -99,6 +94,26 @@ public class A_A_Menu extends AppCompatActivity implements Constants {
         });
 
 
+    }
+
+    // This method is called when the second activity finishes
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == CREATE_RANK_ACTIVITY_REQUEST_CODE) {
+            if (resultCode == RESULT_OK) {
+                dataInstance.Update(data.getExtras().getParcelable("Data"));
+                Log.d("OperLog" , "data");
+                Log.d("OperSerialize" , dataInstance.serialize());
+            }
+        } else if(requestCode == VOTE_ACTIVITY_REQUEST_CODE){
+            if (resultCode == RESULT_OK) {
+                dataInstance.Update(data.getExtras().getParcelable("Data"));
+                Log.d("OperLog" , "data");
+                Log.d("OperSerialize" , dataInstance.serialize());
+            }
+        }
     }
 
 //    @Override

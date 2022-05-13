@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:backgroundTint="#00FFFFFF"
+    android:orientation="vertical"
+    android:theme="@android:style/Theme.NoTitleBar"
+    tools:context=".A_M01_CreateRank">
+
+    <EditText
+        android:id="@+id/slot"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:autofillHints=""
+        android:background="@drawable/stl_edittext"
+        android:hint="@string/nameFood"
+        android:inputType="textCapSentences"
+        android:maxLength="50"
+        android:minHeight="40dp"
+        android:textSize="16sp"
+        android:theme="@style/list_edTxt"
+        tools:ignore="Autofill,TextContrastCheck,DuplicateSpeakableTextCheck" />
+
+</androidx.cardview.widget.CardView>

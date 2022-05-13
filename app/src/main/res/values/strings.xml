@@ -78,4 +78,9 @@
     <!-- Temp -->
     <string name="temp">Temp</string>
 
+    <string name="rankingNameIsRequired">O nome do Ranking não foi definido</string>
+    <string name="moreItemsIsRequired">É necessario colocar mais de um item para votação</string>
+
+    <string name="selectAnItem">É necessario seleciona um item para votar</string>
+
 </resources>

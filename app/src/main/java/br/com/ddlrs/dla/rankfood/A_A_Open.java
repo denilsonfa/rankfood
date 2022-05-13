@@ -24,7 +24,6 @@ public class A_A_Open extends AppCompatActivity implements Constants {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_a_open);
 
-
         // Importantes
         getWindow().setStatusBarColor(Color.rgb(255,172,13)); // Cor da barra de status
         Objects.requireNonNull(getSupportActionBar()).hide(); //esconde a action bar
@@ -60,8 +59,8 @@ public class A_A_Open extends AppCompatActivity implements Constants {
             if (resultCode == RESULT_OK) {
 
 
-//                dataInstance.Update(data.getExtras().getParcelable("Data"));
-//                dataInstance.setStatusOfinstance(data.getExtras().getInt("UserId"),false);
+                dataInstance.Update(data.getExtras().getParcelable("Data"));
+                dataInstance.setStatusOfinstance(data.getExtras().getInt("UserId"),false);
 
                 Log.d("OperLog" , "Usuario logado");
                 Log.d("OperSerialize" , dataInstance.serialize());

@@ -1,29 +1,67 @@
 package br.com.ddlrs.dla.rankfood;
 
-import androidx.appcompat.app.AppCompatActivity;
-
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import java.util.ArrayList;
 import java.util.Objects;
+
+import controller.Data;
+import controller.VoteRankingAdapter;
 
 public class A_M02_Vote extends AppCompatActivity {
 
     TextView id_ic_voterank_nameVote;
-    LinearLayout id_linear_m02_item01, id_linear_m02_item02,
-                 id_linear_m02_item03, id_linear_m02_item04,
-                 id_linear_m02_item05;
+    LinearLayout id_linear_m02_item01;
     Button id_btn_m02_savelist;
+    Data dataInstance;
+    private VoteRankingAdapter adapter;
+
+    private void alert(String massege){
+        android.app.AlertDialog.Builder builder = new android.app.AlertDialog.Builder(this);
+        builder.setPositiveButton(R.string.ok, (dialog, which) -> dialog.dismiss() );
+        LayoutInflater inflater = getLayoutInflater();
+        View dialogLayout = inflater.inflate(R.layout.item_pop_alert, null);
+        TextView titleText = dialogLayout.findViewById(R.id.TitleText);
+        titleText.setText(massege);
+        android.app.AlertDialog dialog = builder.create();
+        dialog.setView(dialogLayout);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.show();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_a_m02_vote);
+        dataInstance = getIntent().getExtras().getParcelable("Data");
+
+        adapter = new VoteRankingAdapter(new ArrayList<>(dataInstance.getDataRanking((dataInstance.getDataRanking().size() - 1 )).getItemsOfRanking()[1] ));
+
+        RecyclerView rv = findViewById(R.id.voterank_lista);
+        rv.setLayoutManager(new LinearLayoutManager(this));
+        rv.setAdapter(adapter);
+
+        adapter.setListener(new VoteRankingAdapter.itemActivityListener() {
+            @Override
+            public void onItemClick(int position) {
+                int previousPosition = adapter.setRankingItemsActivity(position);
+                adapter.notifyItemChanged(position);
+                adapter.notifyItemChanged(previousPosition);
+            }
+        });
 
         // Importantes
         getWindow().setStatusBarColor(Color.rgb(255,68,0)); // Cor da barra de status
@@ -39,26 +77,30 @@ public class A_M02_Vote extends AppCompatActivity {
         id_ic_voterank_nameVote = findViewById(R.id.id_ic_m02_nameVote);
 
         id_linear_m02_item01 = findViewById(R.id.id_linear_m02_item01);
-        id_linear_m02_item02 = findViewById(R.id.id_linear_m02_item02);
-        id_linear_m02_item03 = findViewById(R.id.id_linear_m02_item03);
-        id_linear_m02_item04 = findViewById(R.id.id_linear_m02_item04);
-        id_linear_m02_item05 = findViewById(R.id.id_linear_m02_item05);
 
         id_btn_m02_savelist = findViewById(R.id.id_btn_m02_savelist);
 
-        //id_ic_voterank_nameVote deve receber o nome do ranking
-
-        // Deverá haver uma função que adicionar mais itens a lista caso exista mais de 5, a não ser
-        // que fique definido que só existe 5 itens para votação.
-        // mas fica ao critério de vocês, não serei eu que irá fazer mesmo ;)
-
-        // Deverá também haver a função para selecionar apenas um item e anular os outros.
-        // As imagens são R.drawable.id_vote_aprove, R.drawable.id_vote_reprove e R.drawable.id_vote_null
-
-
         id_btn_m02_savelist.setOnClickListener(v -> {
-            Toast.makeText(this, R.string.voteSuccess, Toast.LENGTH_SHORT).show();
+            int size = adapter.RankingItemsActivity().size();
+            int position = adapter.getItemActivity();
+
+            if (position < size){
+                dataInstance.getDataRanking(
+                        (dataInstance.getDataRanking().size() - 1 )
+                ).vote(position);
+
+                Intent intent = new Intent();
+                intent.putExtra("Data", dataInstance);
+                setResult(RESULT_OK, intent);
+                finish();
+            } else {
+                // nenhum item selecionado
+                alert(getString(R.string.selectAnItem));
+            }
+
         });
 
     }
+
+
 }

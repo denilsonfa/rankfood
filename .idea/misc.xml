@@ -47,14 +47,46 @@
         <entry key="..\:/Users/DenilsonFA/AndroidStudioProjects/RankFood_project/app/src/main/res/layout/activity_a_register.xml" value="0.17229585292860197" />
         <entry key="..\:/Users/DenilsonFA/AndroidStudioProjects/RankFood_project/app/src/main/res/layout/activity_a_splash_screen.xml" value="0.33" />
         <entry key="..\:/Users/DenilsonFA/AndroidStudioProjects/RankFood_project/app/src/main/res/layout/item_pop_zoeira.xml" value="0.17229585292860197" />
+        <entry key="app/src/main/res/drawable-v24/ic_launcher_background.xml" value="0.1055" />
+        <entry key="app/src/main/res/drawable/ic_icon_add.xml" value="0.1055" />
+        <entry key="app/src/main/res/drawable/ic_icon_back.xml" value="0.1055" />
+        <entry key="app/src/main/res/drawable/ic_icon_exit.xml" value="0.1055" />
+        <entry key="app/src/main/res/drawable/ic_icon_info.xml" value="0.1055" />
+        <entry key="app/src/main/res/drawable/ic_icon_rank.xml" value="0.1055" />
+        <entry key="app/src/main/res/drawable/ic_icon_star.xml" value="0.1055" />
+        <entry key="app/src/main/res/drawable/ic_img_rank.xml" value="0.1055" />
+        <entry key="app/src/main/res/drawable/ic_launcher_foreground.xml" value="0.1055" />
+        <entry key="app/src/main/res/drawable/ic_logo_branco.xml" value="0.1055" />
+        <entry key="app/src/main/res/drawable/ic_logo_laranja.xml" value="0.1055" />
+        <entry key="app/src/main/res/drawable/ic_logo_preto.xml" value="0.1055" />
+        <entry key="app/src/main/res/drawable/ic_rank_1st.xml" value="0.1055" />
+        <entry key="app/src/main/res/drawable/ic_rank_2nd.xml" value="0.1055" />
+        <entry key="app/src/main/res/drawable/ic_rank_3rd.xml" value="0.1055" />
+        <entry key="app/src/main/res/drawable/ic_vote_aprove.xml" value="0.1055" />
+        <entry key="app/src/main/res/drawable/ic_vote_null.xml" value="0.1055" />
+        <entry key="app/src/main/res/drawable/ic_vote_reprove.xml" value="0.1055" />
         <entry key="app/src/main/res/layout/activity_a_login.xml" value="0.22" />
-        <entry key="app/src/main/res/layout/activity_a_m01_createrank.xml" value="0.22" />
-        <entry key="app/src/main/res/layout/activity_a_m03_viewrank.xml" value="0.16077898550724637" />
+        <entry key="app/src/main/res/layout/activity_a_m01_createrank-save.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_a_m01_createrank.xml" value="0.18" />
+        <entry key="app/src/main/res/layout/activity_a_m01_createrankSave.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_a_m01_createranksave.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_a_m02_vote.xml" value="0.2" />
+        <entry key="app/src/main/res/layout/activity_a_m03_viewrank.xml" value="0.14" />
         <entry key="app/src/main/res/layout/activity_a_menu.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_a_open.xml" value="0.2" />
         <entry key="app/src/main/res/layout/activity_a_register.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_a_teste.xml" value="0.15942028985507245" />
         <entry key="app/src/main/res/layout/item_pop_alert.xml" value="0.12047101449275362" />
+        <entry key="app/src/main/res/layout/item_pop_rank_list_slot.xml" value="0.109375" />
+        <entry key="app/src/main/res/layout/item_pop_teste.xml" value="0.15942028985507245" />
         <entry key="app/src/main/res/layout/item_pop_zoeira.xml" value="0.16077898550724637" />
+        <entry key="app/src/main/res/layout/item_rank_create_list_slot.xml" value="0.1286231884057971" />
+        <entry key="app/src/main/res/layout/item_rank_list_slot.xml" value="0.1286231884057971" />
+        <entry key="app/src/main/res/layout/item_rank_view_list_slot.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/item_rank_view_list_slot2.xml" value="0.1286231884057971" />
+        <entry key="app/src/main/res/layout/item_rank_vote_list_slot.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/testes.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/testesActivity.xml" value="0.16" />
       </map>
     </option>
   </component>

@@ -12,7 +12,7 @@ public class Data implements Parcelable {
     public Integer log = null;
 
 
-    public Data(){ initializeValues(); }
+    public Data(){ /*initializeValues();*/ }
 
     private User TesteUser(String nome, String email, String senha){
         User user = new User();
@@ -21,7 +21,16 @@ public class Data implements Parcelable {
     }
 
     private Ranking TesteRanking(String name, String description, int OwnerUserId){
-        Ranking ranking = new Ranking(name, description, OwnerUserId);
+        Ranking ranking = new Ranking(OwnerUserId);
+        ranking.setName(name);
+        ranking.setDescription(description);
+        ranking.setItemOfRanking("item1");
+        ranking.setItemOfRanking("item2");
+        ranking.setItemOfRanking("item3");
+        ranking.setItemOfRanking("item4");
+        ranking.vote(0);ranking.vote(0);ranking.vote(0);
+        ranking.vote(1);ranking.vote(1);
+        ranking.vote(3);ranking.vote(3);ranking.vote(3);ranking.vote(3);ranking.vote(3);
         return ranking;
     }
 
@@ -31,7 +40,7 @@ public class Data implements Parcelable {
         dataUser.add(TesteUser("DSASSSS","me@oal.com","123"));
 
         dataRanking.add(TesteRanking("Pizzas", "Lista De Pizzas", 1));
-        dataRanking.add(TesteRanking("Panquecas", "Lista De Panquecas", 1));
+        dataRanking.add(TesteRanking("Panquecas", "Lista De Panquecas", 2));
         dataRanking.add(TesteRanking("Casadas", "Lista De casadas", 1));
     }
 
@@ -75,7 +84,6 @@ public class Data implements Parcelable {
             return new Data[size];
         }
     };
-
 
     public void setStatusOfinstance(Integer log, boolean guestEnable){
         this.log = log;
@@ -150,3 +158,4 @@ public class Data implements Parcelable {
     }
 
 }
+

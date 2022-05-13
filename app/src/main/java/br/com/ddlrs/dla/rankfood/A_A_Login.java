@@ -111,8 +111,9 @@ public class A_A_Login extends AppCompatActivity implements Constants {
                     }
                 }
 
-                boolean passIsCurrect = newUser.validatePassword(dataInstance.getDataUser().get(currentUser).UserPassword(), edSenha);
-                if (emailIsUsed && passIsCurrect) {
+
+                boolean currect = emailIsUsed? newUser.validatePassword(dataInstance.getDataUser().get(currentUser).UserPassword(), edSenha) : false;
+                if (currect) {
                     Intent intent = new Intent();
                     intent.putExtra("Data", dataInstance);
                     intent.putExtra("UserId", currentUser);
