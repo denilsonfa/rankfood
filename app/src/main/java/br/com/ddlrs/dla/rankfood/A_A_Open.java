@@ -58,7 +58,6 @@ public class A_A_Open extends AppCompatActivity implements Constants {
         if (requestCode == LOGIN_ACTIVITY_REQUEST_CODE) {
             if (resultCode == RESULT_OK) {
 
-
                 dataInstance.Update(data.getExtras().getParcelable("Data"));
                 dataInstance.setStatusOfinstance(data.getExtras().getInt("UserId"),false);
 
@@ -67,11 +66,18 @@ public class A_A_Open extends AppCompatActivity implements Constants {
                 Intent i = new Intent(A_A_Open.this, A_A_Menu.class);
                 i.putExtra("Data", dataInstance);
                 startActivityForResult(i, MENU_ACTIVITY_REQUEST_CODE);
-                overridePendingTransition(R.anim.fadein, R.anim.fadeout);
 
-            }if(resultCode == RESULT_CANCELED){
-//                dataInstance.Update(data.getExtras().getParcelable("Data"));
-//                dataInstance.setStatusOfinstance(null,false);
+            } else if(resultCode == RESULT_CANCELED){
+
+                dataInstance.Update(data.getExtras().getParcelable("Data"));
+                dataInstance.setStatusOfinstance(null,false);
+
+            } else if(resultCode == RESULT_FIRST_USER){
+
+                Intent i = new Intent(A_A_Open.this, A_A_Register.class);
+                i.putExtra("Data", dataInstance);
+                startActivityForResult(i, REGISTER_ACTIVITY_REQUEST_CODE);
+
             }
 
         }
@@ -80,21 +86,26 @@ public class A_A_Open extends AppCompatActivity implements Constants {
 
                 User newUser = data.getExtras().getParcelable("NewUser");
                 dataInstance.setDataUser(newUser);
-
                 dataInstance.setStatusOfinstance(null,false);
+
                 Intent i = new Intent(A_A_Open.this, A_A_Login.class);
                 i.putExtra("Data", dataInstance);
                 startActivityForResult(i, LOGIN_ACTIVITY_REQUEST_CODE);
-                overridePendingTransition(R.anim.fadein, R.anim.fadeout);
 
-            }if(resultCode == RESULT_CANCELED){
+            } else if(resultCode == RESULT_CANCELED){
                 dataInstance.Update(data.getExtras().getParcelable("Data"));
                 dataInstance.setStatusOfinstance(null,false);
+            } else if(resultCode == RESULT_OK){
+                Intent i = new Intent(A_A_Open.this, A_A_Login.class);
+                i.putExtra("Data", dataInstance);
+                startActivityForResult(i, LOGIN_ACTIVITY_REQUEST_CODE);
             }
         }
         else if (requestCode == MENU_ACTIVITY_REQUEST_CODE){
-            dataInstance.Update(data.getExtras().getParcelable("Data"));
-            dataInstance.setStatusOfinstance(null,false);
+            if (resultCode == RESULT_CANCELED || resultCode== RESULT_OK) {
+                dataInstance.Update(data.getExtras().getParcelable("Data"));
+                dataInstance.setStatusOfinstance(null, false);
+            }
         }
     }
 

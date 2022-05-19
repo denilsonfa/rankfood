@@ -12,7 +12,7 @@ public class Data implements Parcelable {
     public Integer log = null;
 
 
-    public Data(){ /*initializeValues();*/ }
+    public Data(){ initializeValues(); }
 
     private User TesteUser(String nome, String email, String senha){
         User user = new User();
@@ -41,7 +41,7 @@ public class Data implements Parcelable {
 
         dataRanking.add(TesteRanking("Pizzas", "Lista De Pizzas", 1));
         dataRanking.add(TesteRanking("Panquecas", "Lista De Panquecas", 2));
-        dataRanking.add(TesteRanking("Casadas", "Lista De casadas", 1));
+        dataRanking.add(TesteRanking("Lasanha", "Lista De casadas", 1));
     }
 
     protected Data(Parcel in) {
@@ -129,6 +129,7 @@ public class Data implements Parcelable {
         }
         return false;
     }
+    public int getQuantityVotes(int i)  {return dataRanking.get(i).quantityVotes();}
 
     public String serialize(){
         String serialize;

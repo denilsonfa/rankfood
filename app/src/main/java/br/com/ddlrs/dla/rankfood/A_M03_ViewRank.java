@@ -17,15 +17,17 @@ import controller.ViewRankingAdapter;
 public class A_M03_ViewRank extends AppCompatActivity {
 
     Data dataInstance;
-    private ViewRankingAdapter adapter;
+    Integer rankPosition;
+    ViewRankingAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_a_m03_viewrank);
         dataInstance = getIntent().getExtras().getParcelable("Data");
+        rankPosition = Integer.parseInt(getIntent().getStringExtra("RankPosition"));
 
-        ArrayList[] dataRanking = dataInstance.getDataRanking((dataInstance.getDataRanking().size() - 1 )).getItemsOfRanking();
+        ArrayList[] dataRanking = dataInstance.getDataRanking(rankPosition).getItemsOfRanking();
 
         ArrayList<Integer> relativeDataRanking = new ArrayList<Integer>();
         for(int i = 0; i < dataRanking[0].size(); i++)

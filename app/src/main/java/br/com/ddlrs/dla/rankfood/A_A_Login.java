@@ -79,9 +79,10 @@ public class A_A_Login extends AppCompatActivity implements Constants {
 
         // botão/texto de abrir a tela de cadastro do usuário (A_A_Register)
         TextView id_text_login_register = findViewById(R.id.id_text_login_register);
-        id_text_login_register.setOnClickListener(v -> { // Botão para abrir a tela de login
-            Intent i = new Intent(A_A_Login.this, A_A_Register.class);
-            startActivity(i); overridePendingTransition(R.anim.fadein, R.anim.fadeout);
+        id_text_login_register.setOnClickListener(v -> {
+            Intent intent = new Intent();
+            setResult(RESULT_FIRST_USER, intent);
+            finish();
         });
 
 

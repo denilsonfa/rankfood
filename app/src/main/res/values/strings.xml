@@ -38,6 +38,7 @@
 
     <string name="voteItem">Selecione apenas um dos itens</string>
     <string name="nameITem">Nome do item</string>
+    <string name="voteAccountingITem">votos</string>
 
     <string name="first_item">Primeiro item</string>
     <string name="second_item">Segundo item</string>
@@ -82,5 +83,6 @@
     <string name="moreItemsIsRequired">É necessario colocar mais de um item para votação</string>
 
     <string name="selectAnItem">É necessario seleciona um item para votar</string>
+    <string name="_0">0</string>
 
 </resources>

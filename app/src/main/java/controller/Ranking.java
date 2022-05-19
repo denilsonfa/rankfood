@@ -80,6 +80,16 @@ public class Ranking implements Parcelable {
         return false;
     }
 
+    public int quantityVotes(){
+
+        int counter = 0;
+        for (int i = 0; i< itemsVoteOfRanking.size(); i++)
+            counter += Integer.parseInt(itemsVoteOfRanking.get(i));
+
+        return counter;
+    }
+
+
     public String serialize(){
         String serialize;
         serialize = "{" +

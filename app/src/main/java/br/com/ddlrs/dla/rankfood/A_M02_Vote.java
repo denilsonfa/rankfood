@@ -27,7 +27,8 @@ public class A_M02_Vote extends AppCompatActivity {
     LinearLayout id_linear_m02_item01;
     Button id_btn_m02_savelist;
     Data dataInstance;
-    private VoteRankingAdapter adapter;
+    Integer rankPosition;
+    VoteRankingAdapter adapter;
 
     private void alert(String massege){
         android.app.AlertDialog.Builder builder = new android.app.AlertDialog.Builder(this);
@@ -47,6 +48,7 @@ public class A_M02_Vote extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_a_m02_vote);
         dataInstance = getIntent().getExtras().getParcelable("Data");
+        rankPosition = Integer.parseInt(getIntent().getStringExtra("RankPosition"));
 
         adapter = new VoteRankingAdapter(new ArrayList<>(dataInstance.getDataRanking((dataInstance.getDataRanking().size() - 1 )).getItemsOfRanking()[1] ));
 
@@ -74,7 +76,7 @@ public class A_M02_Vote extends AppCompatActivity {
 
 
         // pegar id do item
-        id_ic_voterank_nameVote = findViewById(R.id.id_ic_m02_nameVote);
+
 
         id_linear_m02_item01 = findViewById(R.id.id_linear_m02_item01);
 
@@ -85,12 +87,12 @@ public class A_M02_Vote extends AppCompatActivity {
             int position = adapter.getItemActivity();
 
             if (position < size){
-                dataInstance.getDataRanking(
-                        (dataInstance.getDataRanking().size() - 1 )
-                ).vote(position);
+                dataInstance.getDataRanking(rankPosition).vote(position);
 
                 Intent intent = new Intent();
                 intent.putExtra("Data", dataInstance);
+                intent.putExtra("RankPosition", Integer.toString(rankPosition));
+                intent.putExtra("RankVotePosition", Integer.toString(position));
                 setResult(RESULT_OK, intent);
                 finish();
             } else {

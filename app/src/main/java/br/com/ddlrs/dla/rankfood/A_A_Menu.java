@@ -23,12 +23,14 @@ public class A_A_Menu extends AppCompatActivity implements Constants {
     ImageView id_ic_menu_exit;
     Data dataInstance;
 
-    public void onBackPressed() {
+    private void exite(){
         Intent intent = new Intent();
         intent.putExtra("Data", dataInstance);
         setResult(RESULT_CANCELED, intent);
         finish();
     }
+
+    public void onBackPressed() { exite(); }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,13 +53,7 @@ public class A_A_Menu extends AppCompatActivity implements Constants {
 
 
         // função do botão de sair
-        id_ic_menu_exit.setOnClickListener(v -> { // Botão para entrar
-            Intent intent = new Intent();
-            intent.putExtra("Data", dataInstance);
-            setResult(RESULT_CANCELED, intent);
-            finish();
-
-        });
+        id_ic_menu_exit.setOnClickListener(v -> exite());
 
 
         // Botão para abrir a tela de criação de rank
@@ -71,18 +67,20 @@ public class A_A_Menu extends AppCompatActivity implements Constants {
 
         // Botão para abrir tela de votação de rank
         id_btn_menu_m02Vote.setOnClickListener(v -> {
-            Intent i = new Intent(A_A_Menu.this, A_M02_Vote.class);
+            Intent i = new Intent(A_A_Menu.this, A_M05_ListaRanksTemporaria.class);
             i.putExtra("Data", dataInstance);
-            startActivityForResult(i, VOTE_ACTIVITY_REQUEST_CODE);
+            i.putExtra("Operation", String.valueOf(VOTE_ACTIVITY_REQUEST_CODE));
+            startActivityForResult(i, LIST_RANKS_ACTIVITY_REQUEST_CODE);
             overridePendingTransition(R.anim.fadein, R.anim.fadeout);
         });
 
 
         // Botão para abrir tela de visualização de rank
         id_btn_menu_m03ViewRank.setOnClickListener(v -> {
-            Intent i = new Intent(A_A_Menu.this, A_M03_ViewRank.class);
+            Intent i = new Intent(A_A_Menu.this, A_M05_ListaRanksTemporaria.class);
             i.putExtra("Data", dataInstance);
-            startActivity(i);
+            i.putExtra("Operation",String.valueOf(VIEW_RANK_ACTIVITY_REQUEST_CODE));
+            startActivityForResult(i, LIST_RANKS_ACTIVITY_REQUEST_CODE);
             overridePendingTransition(R.anim.fadein, R.anim.fadeout);
         });
 
@@ -107,7 +105,7 @@ public class A_A_Menu extends AppCompatActivity implements Constants {
                 Log.d("OperLog" , "data");
                 Log.d("OperSerialize" , dataInstance.serialize());
             }
-        } else if(requestCode == VOTE_ACTIVITY_REQUEST_CODE){
+        } else if(requestCode == LIST_RANKS_ACTIVITY_REQUEST_CODE){
             if (resultCode == RESULT_OK) {
                 dataInstance.Update(data.getExtras().getParcelable("Data"));
                 Log.d("OperLog" , "data");

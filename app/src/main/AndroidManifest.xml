@@ -2,7 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="br.com.ddlrs.dla.rankfood">
 
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -10,16 +9,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.RankFood">
-
+        <activity
+            android:name=".A_M05_ListaRanksTemporaria"
+            android:exported="false" />
         <!-- Anuncios adMOD (ID APP) -->
         <!-- Codigo adMob: ca-app-pub-7912320570829252~2229761022 -->
         <!-- Para Testes: ca-app-pub-3940256099942544~3347511713 -->
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-3940256099942544~3347511713"/>
-
-
-        <!-- Activity principal -->
+            android:value="ca-app-pub-3940256099942544~3347511713" /> <!-- Activity principal -->
         <activity
             android:name=".A_A_Open"
             android:exported="true"
@@ -29,70 +27,45 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-
-
-        <!-- Activity de login -->
+        </activity> <!-- Activity de login -->
         <activity
             android:name=".A_A_Login"
             android:exported="false"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden" />
-
-
-        <!-- Activity de cadastro -->
+            android:windowSoftInputMode="stateHidden" /> <!-- Activity de cadastro -->
         <activity
             android:name=".A_A_Register"
             android:exported="false"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden" />
-
-
-        <!-- Activity de home -->
+            android:windowSoftInputMode="stateHidden" /> <!-- Activity de home -->
         <activity
             android:name=".A_A_Menu"
             android:exported="false"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden" />
-
-
-        <!-- Activity de CreateRank -->
+            android:windowSoftInputMode="stateHidden" /> <!-- Activity de CreateRank -->
         <activity
             android:name=".A_M01_CreateRank"
             android:exported="false"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden" />
-
-
-        <!-- Activity de VoteRank -->
+            android:windowSoftInputMode="stateHidden" /> <!-- Activity de VoteRank -->
         <activity
             android:name=".A_M02_Vote"
             android:exported="false"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden" />
-
-
-        <!-- Activity de ViewRank -->
+            android:windowSoftInputMode="stateHidden" /> <!-- Activity de ViewRank -->
         <activity
             android:name=".A_M03_ViewRank"
             android:exported="false"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden" />
-
-
-        <!-- Activity de SobreApp -->
+            android:windowSoftInputMode="stateHidden" /> <!-- Activity de SobreApp -->
         <activity
             android:name=".A_M04_Sobre"
             android:exported="false"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden"  />
-
-
-        <!-- Não faço ideia do que é isso -->
+            android:windowSoftInputMode="stateHidden" /> <!-- Não faço ideia do que é isso -->
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
-
     </application>
 
 </manifest>
