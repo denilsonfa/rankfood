@@ -1,0 +1,32 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/item_menu01"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/ubuntu_regular"
+        android:padding="20dp"
+        android:paddingTop="16dp"
+        android:paddingBottom="16dp"
+        android:text="@string/Perfil"
+        android:textAlignment="textStart"
+        android:textColor="@color/cor_laranja"
+        android:textSize="18sp"/>
+
+    <TextView
+        android:id="@+id/item_menu02"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/ubuntu_regular"
+        android:padding="20dp"
+        android:paddingTop="16dp"
+        android:paddingBottom="16dp"
+        android:text="@string/logout"
+        android:textAlignment="textStart"
+        android:textColor="@color/cor_laranja"
+        android:textSize="18sp"/>
+
+</LinearLayout>

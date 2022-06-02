@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -38,6 +39,12 @@ public class A_A_Open extends AppCompatActivity implements Constants {
             overridePendingTransition(R.anim.fadein, R.anim.fadeout);
         });
 
+        // botão para modo Guest
+        Button id_btn_open_guest = findViewById(R.id.id_btn_open_guest);
+        id_btn_open_guest.setOnClickListener(v -> {
+
+            Toast.makeText(this, "Entrar no como Anônimo", Toast.LENGTH_SHORT).show();
+        });
 
         // Texto para abrir a tela de registro do usuário (A_A_Register)
         TextView id_text_open_resgister = findViewById(R.id.id_text_open_resgister);

@@ -4,9 +4,15 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.Window;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
+import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.Objects;
@@ -49,11 +55,35 @@ public class A_A_Menu extends AppCompatActivity implements Constants {
         id_btn_menu_m02Vote = findViewById(R.id.id_btn_menu_m02Vote);
         id_btn_menu_m03ViewRank = findViewById(R.id.id_btn_menu_m03ViewRank);
         id_btn_menu_m04Sobre = findViewById(R.id.id_btn_menu_m04Sobre);
-        id_ic_menu_exit = findViewById(R.id.id_ic_menu_exit);
+        id_ic_menu_exit = findViewById(R.id.id_ic_menu);
 
 
         // função do botão de sair
-        id_ic_menu_exit.setOnClickListener(v -> exite());
+        //id_ic_menu_exit.setOnClickListener(v -> exite());
+        id_ic_menu_exit.setOnClickListener(v -> {
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+//            builder.setPositiveButton(R.string.cancel, (dialog, which) -> {
+//                dialog.dismiss();   // fechar o dialog
+//            });
+            AlertDialog dialog = builder.create();
+            LayoutInflater inflater = getLayoutInflater();
+            View dialogLayout = inflater.inflate(R.layout.item_pop_menu, null);
+            TextView item_menu01 = dialogLayout.findViewById(R.id.item_menu01); //Perfil
+            TextView item_menu02 = dialogLayout.findViewById(R.id.item_menu02); //Sair
+
+            //Função do botão ver perfil
+            item_menu01.setOnClickListener(x -> {
+                Toast.makeText(this, "Ver perfil", Toast.LENGTH_SHORT).show();
+            });
+
+            //Função do botão sair
+            item_menu02.setOnClickListener(y -> exite());
+
+            dialog.setView(dialogLayout);
+            dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+            dialog.show();
+
+        });
 
 
         // Botão para abrir a tela de criação de rank

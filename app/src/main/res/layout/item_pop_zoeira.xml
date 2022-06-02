@@ -16,6 +16,13 @@
         android:id="@+id/TitleText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="ola"
-        android:textSize="48sp" />
+        android:layout_gravity="center|center_vertical"
+        android:fontFamily="@font/ubuntu_regular"
+        android:padding="20dp"
+        android:paddingTop="16dp"
+        android:paddingBottom="16dp"
+        android:text="@string/temp"
+        android:textAlignment="center"
+        android:textColor="@color/cor_laranja"
+        android:textSize="18sp"/>
 </LinearLayout>

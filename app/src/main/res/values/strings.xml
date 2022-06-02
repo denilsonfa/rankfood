@@ -1,7 +1,7 @@
 <resources>
     <!-- System -->
-    <string name="app_name">RankFood</string>
-    <string name="app_name_desc">Aplicação para criar e avaliar Ranking de Alimentos</string>
+    <string name="app_name">Rank Of Things</string>
+    <string name="app_name_desc">Aplicação para criar e avaliar Ranking</string>
 
 
     <!-- Menu - Title -->
@@ -31,8 +31,8 @@
 
     <string name="nameRank">Nome do Ranking</string>
     <string name="enterName_item">Adicione os itens</string>
-    <string name="nameFood">Nome do alimento</string>
-    <string name="nameFoodExtra">Nome do alimento extra</string>
+    <string name="nameFood">Nome do item</string>
+    <string name="nameFoodExtra">Nome do item extra</string>
     <string name="select_more_food">Clique no botão (+) para acicionar mais itens ao Ranking</string>
     <string name="save_list">Salvar Lista</string>
 
@@ -54,7 +54,11 @@
     <string name="ok">OK</string>
     <string name="vote">Confirmar Voto</string>
     <string name="cancel">Cancelar</string>
+    <string name="login_menu">Login</string>
+    <string name="guest">Modo anônimo</string>
+    <string name="Perfil">Ver perfil</string>
     <string name="logout">Sair</string>
+    <string name="menu">Menu</string>
 
     <string name="id_btn_menu_m01CreateRank">Criar\nRanking</string>
     <string name="id_btn_menu_m02Vote">Votar\nRanking</string>
