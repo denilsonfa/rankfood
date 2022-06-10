@@ -33,20 +33,21 @@
             tools:ignore="ImageContrastCheck" />
 
         <TextView
+            android:id="@+id/id_title_m05"
             android:layout_width="match_parent"
             android:layout_height="48dp"
-            android:fontFamily="@font/ubuntu_bolder"
-            android:text="@string/sobre"
-            android:layout_marginEnd="20dp"
+            android:layout_gravity="center|end"
             android:layout_marginTop="2dp"
+            android:layout_marginEnd="20dp"
             android:layout_marginBottom="2dp"
+            android:fontFamily="@font/ubuntu_bolder"
+            android:gravity="center"
+            android:text="titulo"
             android:textAlignment="center"
             android:textAllCaps="true"
             android:textColor="@color/textBranco01"
             android:textSize="16sp"
-            android:gravity="center"
-            android:layout_gravity="center|end"
-            tools:ignore="TextContrastCheck"/>
+            tools:ignore="TextContrastCheck" />
 
     </LinearLayout>
 

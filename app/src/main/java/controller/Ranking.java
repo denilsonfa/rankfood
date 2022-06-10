@@ -8,6 +8,7 @@ import java.util.ArrayList;
 public class Ranking implements Parcelable {
     private String name;
     private String description;
+    private boolean publicRanking;
     private final int OwnerUserId;
     private ArrayList<String> itemsNameOfRanking = new ArrayList();
     private ArrayList<String> itemsVoteOfRanking = new ArrayList();
@@ -21,6 +22,7 @@ public class Ranking implements Parcelable {
     protected Ranking(Parcel in) {
         name = in.readString();
         description = in.readString();
+        publicRanking = in.readByte() != 0;
         OwnerUserId = in.readInt();
         itemsNameOfRanking = in.createStringArrayList();
         itemsVoteOfRanking = in.createStringArrayList();
@@ -95,6 +97,7 @@ public class Ranking implements Parcelable {
         serialize = "{" +
                 "\"name\":" + "\"" + name + "\"," +
                 "\"description\":" + "\"" + description + "\"," +
+                "\"publicRanking\":" + "\"" + (publicRanking ? "true" : "false") + "\"," +
                 "\"OwnerUserId\":" + "\"" + OwnerUserId + "\",";
 
         serialize += "\"itemsOfRanking\": [";
@@ -120,6 +123,7 @@ public class Ranking implements Parcelable {
     public void writeToParcel(Parcel parcel, int i) {
         parcel.writeString(name);
         parcel.writeString(description);
+        parcel.writeByte((byte) (publicRanking ? 1 : 0));
         parcel.writeInt(OwnerUserId);
         parcel.writeStringList(itemsNameOfRanking);
         parcel.writeStringList(itemsVoteOfRanking);

@@ -1,27 +1,35 @@
 package br.com.ddlrs.dla.rankfood;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.text.InputType;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.TimePicker;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Collections;
+import java.util.GregorianCalendar;
 import java.util.Objects;
 
 import controller.Data;
@@ -30,13 +38,16 @@ import controller.CreateRankingAdapter;
 
 public class A_M01_CreateRank extends AppCompatActivity {
 
-    EditText id_edtext_m01_edName;
-    EditText id_edtext_m01_namefood05;
+    EditText id_edtext_m01_edName, id_edtext_m01_namefood05, id_edtext_m01_dateRank;
     TextView id_text_m01_addExtra;
+    LinearLayout id_checkbox_public, id_linear_m01_dateRank;
+    ImageView option_public, option_date;
     Button id_btn_m01_savelist;
     Data dataInstance;
     int added = 0;
     int position;
+
+    boolean option_date_check = false;
 
     private CreateRankingAdapter adapter;
 
@@ -80,11 +91,16 @@ public class A_M01_CreateRank extends AppCompatActivity {
 
         // pegar id do item
         id_edtext_m01_edName = findViewById(R.id.id_edtext_m01_edName);
+        id_edtext_m01_dateRank = findViewById(R.id.id_edtext_m01_dateRank);
 
         id_edtext_m01_namefood05 = findViewById(R.id.id_edtext_m01_namefood05);
 
         id_text_m01_addExtra = findViewById(R.id.id_text_m01_addExtra);
         id_btn_m01_savelist = findViewById(R.id.id_btn_m01_savelist);
+
+        id_checkbox_public = findViewById(R.id.id_checkbox_public);
+        id_linear_m01_dateRank = findViewById(R.id.id_linear_m01_dateRank);
+        option_public = findViewById(R.id.option_public);
 
         ItemTouchHelper helper = new ItemTouchHelper(
                 new ItemTouchHandler(
@@ -94,25 +110,63 @@ public class A_M01_CreateRank extends AppCompatActivity {
 
         helper.attachToRecyclerView(rv);
 
-        // Função dos botões
+        // Função visibilidade de rank
+        id_checkbox_public.setOnClickListener(v -> {
+
+            //Demonstração de função -> de bobeira mesmo
+            int a = 0;
+            if(a == 0){
+                option_public.setImageResource(R.drawable.ic_vote_aprove);
+                a = 1;
+            } else {
+                option_public.setImageResource(R.drawable.ic_vote_null);
+                a = 0;
+            }
+        });
+
+        id_linear_m01_dateRank.setOnClickListener(v -> {
+            if(!option_date_check) {
+                option_date.setImageDrawable(getResources().getDrawable(R.drawable.ic_vote_aprove));
+                option_date_check = true;
+
+            } else {
+                option_date.setImageDrawable(getResources().getDrawable(R.drawable.ic_vote_null));
+                option_date_check = false;
+            }
+
+        });
+
+        // Função dos botões addExtra
         id_text_m01_addExtra.setOnClickListener(v -> { // Adicionar mais um item
 
             String newItem = id_edtext_m01_namefood05.getText().toString();
 
-            if (added == 0){
-                position = dataInstance.getDataRanking().size();
-                Ranking newRanking = new Ranking(dataInstance.log);
-                dataInstance.setDataRanking(newRanking);
+            if(newItem.isEmpty()){
+                alert(getString(R.string.alert_empty_item));
+            } else {
+
+                if (added == 0){
+                    position = dataInstance.getDataRanking().size();
+                    Ranking newRanking = new Ranking(dataInstance.log);
+                    dataInstance.setDataRanking(newRanking);
+                }
+
+                adapter.getRankingItems().add(newItem);
+                adapter.notifyItemInserted((adapter.getRankingItems().size() - 1));
+                dataInstance.getDataRanking(position)
+                        .setItemOfRanking(newItem);
+                added++;
+
+                //Limpa o campo de texto
+                id_edtext_m01_namefood05.setText("");
+
+                //Enconder teclado ao clicar em botão
+                if(imm.isActive()) imm.toggleSoftInput(InputMethodManager.HIDE_IMPLICIT_ONLY, 0);
+
+                //Logs
+                Log.d("OperLog" , "um item foi criado");
+                Log.d("OperSerialize" , dataInstance.serialize());
             }
-
-            adapter.getRankingItems().add(newItem);
-            adapter.notifyItemInserted((adapter.getRankingItems().size() - 1));
-            dataInstance.getDataRanking(position)
-                    .setItemOfRanking(newItem);
-            added++;
-
-            Log.d("OperLog" , "um item foi criado");
-            Log.d("OperSerialize" , dataInstance.serialize());
         });
 
         id_btn_m01_savelist.setOnClickListener(v -> { // Salvar lista
@@ -166,4 +220,5 @@ public class A_M01_CreateRank extends AppCompatActivity {
             Log.d("OperSerialize" , dataInstance.getDataRanking().get(dataInstance.log).serialize());
         }
     }
+
 }

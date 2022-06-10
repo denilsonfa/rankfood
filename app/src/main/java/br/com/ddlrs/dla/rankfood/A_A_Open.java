@@ -42,8 +42,12 @@ public class A_A_Open extends AppCompatActivity implements Constants {
         // botão para modo Guest
         Button id_btn_open_guest = findViewById(R.id.id_btn_open_guest);
         id_btn_open_guest.setOnClickListener(v -> {
-
-            Toast.makeText(this, "Entrar no como Anônimo", Toast.LENGTH_SHORT).show();
+            dataInstance.setStatusOfinstance(null, true);
+            Intent i = new Intent(A_A_Open.this, A_M05_ListaRanksTemporaria.class);
+            i.putExtra("Data", dataInstance);
+            i.putExtra("Operation", String.valueOf(GUEST_MODE_ACTIVITY_REQUEST_CODE));
+            startActivityForResult(i, GUEST_MODE_ACTIVITY_REQUEST_CODE);
+            overridePendingTransition(R.anim.fadein, R.anim.fadeout);
         });
 
         // Texto para abrir a tela de registro do usuário (A_A_Register)
@@ -109,6 +113,12 @@ public class A_A_Open extends AppCompatActivity implements Constants {
             }
         }
         else if (requestCode == MENU_ACTIVITY_REQUEST_CODE){
+            if (resultCode == RESULT_CANCELED || resultCode== RESULT_OK) {
+                dataInstance.Update(data.getExtras().getParcelable("Data"));
+                dataInstance.setStatusOfinstance(null, false);
+            }
+        }
+        else if (requestCode == GUEST_MODE_ACTIVITY_REQUEST_CODE){
             if (resultCode == RESULT_CANCELED || resultCode== RESULT_OK) {
                 dataInstance.Update(data.getExtras().getParcelable("Data"));
                 dataInstance.setStatusOfinstance(null, false);

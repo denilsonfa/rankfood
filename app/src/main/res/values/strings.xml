@@ -10,6 +10,7 @@
     <string name="createRank">Criar novo Ranking</string>
     <string name="viewRank">Visualizar Ranking</string>
     <string name="voteRank">Votação</string>
+    <string name="anonymous">Modo anonimo</string>
     <string name="sobre">Sobre nós</string>
 
 
@@ -30,11 +31,16 @@
     <string name="informationIncorrect">Verifique se o email ou senha estão corretas</string>
 
     <string name="nameRank">Nome do Ranking</string>
+    <string name="dataRank">Data de expiração</string>
+    <string name="dataRank_time">Entre com o numero de horas</string>
     <string name="enterName_item">Adicione os itens</string>
     <string name="nameFood">Nome do item</string>
     <string name="nameFoodExtra">Nome do item extra</string>
     <string name="select_more_food">Clique no botão (+) para acicionar mais itens ao Ranking</string>
     <string name="save_list">Salvar Lista</string>
+    <string name="rank_public">Definir como Rank publico</string>
+    <string name="rank_private">Definir como Rank privado</string>
+    <string name="alert_empty_item">Para adicionar um novo item, a caixa de texto não pode estar vazia</string>
 
     <string name="voteItem">Selecione apenas um dos itens</string>
     <string name="nameITem">Nome do item</string>

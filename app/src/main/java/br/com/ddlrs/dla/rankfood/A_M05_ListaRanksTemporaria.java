@@ -5,6 +5,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -23,6 +24,7 @@ public class A_M05_ListaRanksTemporaria extends AppCompatActivity implements Con
     Data dataInstance;
     Integer operation;
     ListaRankingAdapter adapter;
+    TextView title;
 
     private void exite(){
         Intent intent = new Intent();
@@ -39,6 +41,11 @@ public class A_M05_ListaRanksTemporaria extends AppCompatActivity implements Con
         setContentView(R.layout.activity_a_m05_listarankstemporaria);
         dataInstance = getIntent().getExtras().getParcelable("Data");
         operation = Integer.parseInt(getIntent().getStringExtra("Operation"));
+        title = findViewById(R.id.id_title_m05);
+
+        if(operation == VOTE_ACTIVITY_REQUEST_CODE){ title.setText(R.string.voteRank); }
+        else if(operation == VIEW_RANK_ACTIVITY_REQUEST_CODE){ title.setText(R.string.viewRank); }
+        else if(operation == GUEST_MODE_ACTIVITY_REQUEST_CODE){ title.setText(R.string.anonymous); }
 
         adapter = new ListaRankingAdapter(new ArrayList<Ranking>(dataInstance.getDataRanking()));
 
@@ -50,7 +57,7 @@ public class A_M05_ListaRanksTemporaria extends AppCompatActivity implements Con
             @Override
             public void onItemClick(int position) {
                 boolean eventOperation = operation == VOTE_ACTIVITY_REQUEST_CODE;
-
+                
                 Intent i = new Intent(A_M05_ListaRanksTemporaria.this, eventOperation?A_M02_Vote.class:A_M03_ViewRank.class);
                 i.putExtra("RankPosition", Integer.toString(position));
                 i.putExtra("Data", dataInstance);
