@@ -51,6 +51,12 @@
     <string name="third_item">Terceiro item</string>
     <string name="others_item">Outros itens</string>
 
+    <string name="profile">Perfil</string>
+    <string name="nome_usuario">Nome do usuário</string>
+    <string name="email_usuario">Email do usuário</string>
+    <string name="add_friend">Adicionar amigo</string>
+    <string name="remove_friend">Remover amigo</string>
+
 
     <!-- Menu - Button -->
     <string name="add">+</string>
