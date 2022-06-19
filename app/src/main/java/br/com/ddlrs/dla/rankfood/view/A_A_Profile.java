@@ -1,8 +1,10 @@
-package br.com.ddlrs.dla.rankfood;
+package br.com.ddlrs.dla.rankfood.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import br.com.ddlrs.dla.rankfood.R;
 
 public class A_A_Profile extends AppCompatActivity {
 

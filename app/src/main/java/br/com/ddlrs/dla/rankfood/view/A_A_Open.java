@@ -1,4 +1,4 @@
-package br.com.ddlrs.dla.rankfood;
+package br.com.ddlrs.dla.rankfood.view;
 
 import android.content.Intent;
 import android.graphics.Color;
@@ -6,15 +6,15 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.Objects;
 
-import controller.Data;
-import controller.User;
-import model.Constants;
+import br.com.ddlrs.dla.rankfood.R;
+import br.com.ddlrs.dla.rankfood.controller.Data;
+import br.com.ddlrs.dla.rankfood.controller.User;
+import br.com.ddlrs.dla.rankfood.model.Constants;
 
 public class A_A_Open extends AppCompatActivity implements Constants {
 

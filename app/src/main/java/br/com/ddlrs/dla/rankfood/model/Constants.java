@@ -1,4 +1,4 @@
-package model;
+package br.com.ddlrs.dla.rankfood.model;
 
 public interface Constants {
     int LOGIN_ACTIVITY_REQUEST_CODE = 0;

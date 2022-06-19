@@ -20,7 +20,7 @@
 
         <!-- Activity principal -->
         <activity
-            android:name=".A_A_Open"
+            android:name=".view.A_A_Open"
             android:exported="true"
             android:screenOrientation="portrait">
             <intent-filter>
@@ -32,63 +32,63 @@
 
         <!-- Activity de login -->
         <activity
-            android:name=".A_A_Login"
+            android:name=".view.A_A_Login"
             android:exported="false"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" />
 
         <!-- Activity de cadastro -->
         <activity
-            android:name=".A_A_Register"
+            android:name=".view.A_A_Register"
             android:exported="false"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" />
 
         <!-- Activity de home -->
         <activity
-            android:name=".A_A_Menu"
+            android:name=".view.A_A_Menu"
             android:exported="false"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" />
 
         <!-- Activity de CreateRank -->
         <activity
-            android:name=".A_M01_CreateRank"
+            android:name=".view.A_M01_CreateRank"
             android:exported="false"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" />
 
         <!-- Activity de VoteRank -->
         <activity
-            android:name=".A_M02_Vote"
+            android:name=".view.A_M02_Vote"
             android:exported="false"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" />
 
         <!-- Activity de ViewRank -->
         <activity
-            android:name=".A_M03_ViewRank"
+            android:name=".view.A_M03_ViewRank"
             android:exported="false"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" />
 
         <!-- Activity de SobreApp -->
         <activity
-            android:name=".A_M04_Sobre"
+            android:name=".view.A_M04_Sobre"
             android:exported="false"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" />
 
         <!-- Activity de Lista de Ranks Temporaria -->
         <activity
-            android:name=".A_M05_ListaRanksTemporaria"
+            android:name=".view.A_M05_ListaRanksTemporaria"
             android:exported="false"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" />
 
         <!-- Activity Perfil -->
         <activity
-            android:name=".A_A_Profile"
+            android:name=".view.A_A_Profile"
             android:exported="false"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" />

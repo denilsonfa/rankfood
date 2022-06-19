@@ -1,6 +1,5 @@
-package controller;
+package br.com.ddlrs.dla.rankfood.controller;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;

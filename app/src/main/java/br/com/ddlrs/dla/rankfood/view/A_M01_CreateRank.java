@@ -1,40 +1,34 @@
-package br.com.ddlrs.dla.rankfood;
+package br.com.ddlrs.dla.rankfood.view;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.text.InputType;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
-import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.TimePicker;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Collections;
-import java.util.GregorianCalendar;
 import java.util.Objects;
 
-import controller.Data;
-import controller.Ranking;
-import controller.CreateRankingAdapter;
+import br.com.ddlrs.dla.rankfood.R;
+import br.com.ddlrs.dla.rankfood.controller.Data;
+import br.com.ddlrs.dla.rankfood.controller.Ranking;
+import br.com.ddlrs.dla.rankfood.controller.CreateRankingAdapter;
 
 public class A_M01_CreateRank extends AppCompatActivity {
 
@@ -91,7 +85,6 @@ public class A_M01_CreateRank extends AppCompatActivity {
 
         // pegar id do item
         id_edtext_m01_edName = findViewById(R.id.id_edtext_m01_edName);
-        id_edtext_m01_dateRank = findViewById(R.id.id_edtext_m01_dateRank);
 
         id_edtext_m01_namefood05 = findViewById(R.id.id_edtext_m01_namefood05);
 
@@ -99,7 +92,6 @@ public class A_M01_CreateRank extends AppCompatActivity {
         id_btn_m01_savelist = findViewById(R.id.id_btn_m01_savelist);
 
         id_checkbox_public = findViewById(R.id.id_checkbox_public);
-        id_linear_m01_dateRank = findViewById(R.id.id_linear_m01_dateRank);
         option_public = findViewById(R.id.option_public);
 
         ItemTouchHelper helper = new ItemTouchHelper(
@@ -122,18 +114,6 @@ public class A_M01_CreateRank extends AppCompatActivity {
                 option_public.setImageResource(R.drawable.ic_vote_null);
                 a = 0;
             }
-        });
-
-        id_linear_m01_dateRank.setOnClickListener(v -> {
-            if(!option_date_check) {
-                option_date.setImageDrawable(getResources().getDrawable(R.drawable.ic_vote_aprove));
-                option_date_check = true;
-
-            } else {
-                option_date.setImageDrawable(getResources().getDrawable(R.drawable.ic_vote_null));
-                option_date_check = false;
-            }
-
         });
 
         // Função dos botões addExtra

@@ -1,8 +1,9 @@
-package br.com.ddlrs.dla.rankfood;
+package br.com.ddlrs.dla.rankfood.view;
 
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
@@ -18,8 +19,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 import java.util.Objects;
 
-import controller.Data;
-import controller.VoteRankingAdapter;
+import br.com.ddlrs.dla.rankfood.R;
+import br.com.ddlrs.dla.rankfood.controller.Data;
+import br.com.ddlrs.dla.rankfood.controller.VoteRankingAdapter;
 
 public class A_M02_Vote extends AppCompatActivity {
 
@@ -87,7 +89,15 @@ public class A_M02_Vote extends AppCompatActivity {
             int position = adapter.getItemActivity();
 
             if (position < size){
-                dataInstance.getDataRanking(rankPosition).vote(position);
+                if(!dataInstance.guestEnable){
+                    dataInstance.getDataRanking(rankPosition).vote(position, dataInstance.log);
+                    Log.d("OperSerialize" , "oi meu chapa");
+                } else {
+                    dataInstance.getDataRanking(rankPosition).vote(position);
+                    Log.d("OperSerialize" , "lexa go");
+                }
+
+                Log.d("OperSerialize" , dataInstance.serialize());
 
                 Intent intent = new Intent();
                 intent.putExtra("Data", dataInstance);

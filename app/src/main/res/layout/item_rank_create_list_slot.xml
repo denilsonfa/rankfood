@@ -11,7 +11,7 @@
     android:backgroundTint="#00FFFFFF"
     android:orientation="vertical"
     android:theme="@android:style/Theme.NoTitleBar"
-    tools:context=".A_M01_CreateRank">
+    tools:context=".view.A_M01_CreateRank">
 
     <EditText
         android:id="@+id/slot"

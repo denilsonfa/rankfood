@@ -1,4 +1,4 @@
-package controller;
+package br.com.ddlrs.dla.rankfood.controller;
 
 import android.os.Parcel;
 import android.os.Parcelable;
@@ -20,10 +20,11 @@ public class Data implements Parcelable {
         return user;
     }
 
-    private Ranking TesteRanking(String name, String description, int OwnerUserId){
+    private Ranking TesteRanking(String name, String description, Boolean visibility, int OwnerUserId){
         Ranking ranking = new Ranking(OwnerUserId);
         ranking.setName(name);
         ranking.setDescription(description);
+        ranking.setVisibility(visibility);
         ranking.setItemOfRanking("item1");
         ranking.setItemOfRanking("item2");
         ranking.setItemOfRanking("item3");
@@ -39,9 +40,9 @@ public class Data implements Parcelable {
         dataUser.add(TesteUser("leandro","me@sas.com","123"));
         dataUser.add(TesteUser("DSASSSS","me@oal.com","123"));
 
-        dataRanking.add(TesteRanking("Pizzas", "Lista De Pizzas", 1));
-        dataRanking.add(TesteRanking("Panquecas", "Lista De Panquecas", 2));
-        dataRanking.add(TesteRanking("Lasanha", "Lista De casadas", 1));
+        dataRanking.add(TesteRanking("Pizzas", "Lista De Pizzas", true, 1));
+        dataRanking.add(TesteRanking("Panquecas", "Lista De Panquecas", false, 2));
+        dataRanking.add(TesteRanking("Lasanha", "Lista De casadas", true, 1));
     }
 
     protected Data(Parcel in) {

@@ -1,4 +1,4 @@
-package br.com.ddlrs.dla.rankfood;
+package br.com.ddlrs.dla.rankfood.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.widget.ImageView;
 
 import java.util.Objects;
+
+import br.com.ddlrs.dla.rankfood.R;
 
 public class A_M04_Sobre extends AppCompatActivity {
 

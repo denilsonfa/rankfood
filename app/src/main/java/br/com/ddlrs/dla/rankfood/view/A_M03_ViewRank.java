@@ -1,7 +1,8 @@
-package br.com.ddlrs.dla.rankfood;
+package br.com.ddlrs.dla.rankfood.view;
 
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,8 +12,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 import java.util.Objects;
 
-import controller.Data;
-import controller.ViewRankingAdapter;
+import br.com.ddlrs.dla.rankfood.R;
+import br.com.ddlrs.dla.rankfood.controller.Data;
+import br.com.ddlrs.dla.rankfood.controller.ViewRankingAdapter;
+import br.com.ddlrs.dla.rankfood.model.SortList.RankTree;
 
 public class A_M03_ViewRank extends AppCompatActivity {
 
@@ -28,26 +31,14 @@ public class A_M03_ViewRank extends AppCompatActivity {
         rankPosition = Integer.parseInt(getIntent().getStringExtra("RankPosition"));
 
         ArrayList[] dataRanking = dataInstance.getDataRanking(rankPosition).getItemsOfRanking();
+        RankTree rankTree = new RankTree();
 
-        ArrayList<Integer> relativeDataRanking = new ArrayList<Integer>();
-        for(int i = 0; i < dataRanking[0].size(); i++)
-            relativeDataRanking.add(Integer.parseInt((String) dataRanking[0].get(i)));
+        for (int i = 0; i < dataRanking[0].size(); i++)
+            rankTree.add(i, Integer.parseInt((String) dataRanking[0].get(i)));
 
-        ArrayList<Integer> rankedDataRanking = new ArrayList<Integer>();
-        int highestPosition = 0;
+        ArrayList<Integer> sortDataRanking = new ArrayList<>(rankTree.getSort());
 
-        for(int i = 0; i < dataRanking[0].size(); i++){
-            highestPosition = 0;
-            for(int e = 0; e < relativeDataRanking.size(); e++)
-                if(relativeDataRanking.get(e) > relativeDataRanking.get(highestPosition)) highestPosition = e;
-
-            rankedDataRanking.add(highestPosition);
-            relativeDataRanking.set(highestPosition,-1);
-        }
-
-
-
-        adapter = new ViewRankingAdapter(new ArrayList<>(rankedDataRanking),new ArrayList<>(dataRanking[1]));
+        adapter = new ViewRankingAdapter(new ArrayList<>(sortDataRanking),new ArrayList<>(dataRanking[1]));
 
         RecyclerView rv = findViewById(R.id.viewrank_list);
         rv.setLayoutManager(new LinearLayoutManager(this));

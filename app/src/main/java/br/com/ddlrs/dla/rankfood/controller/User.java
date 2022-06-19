@@ -1,4 +1,4 @@
-package controller;
+package br.com.ddlrs.dla.rankfood.controller;
 
 import android.os.Parcel;
 import android.os.Parcelable;

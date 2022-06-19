@@ -1,4 +1,4 @@
-package br.com.ddlrs.dla.rankfood;
+package br.com.ddlrs.dla.rankfood.view;
 
 import android.content.Intent;
 import android.graphics.Color;
@@ -17,8 +17,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.Objects;
 
-import controller.Data;
-import model.Constants;
+import br.com.ddlrs.dla.rankfood.R;
+import br.com.ddlrs.dla.rankfood.controller.Data;
+import br.com.ddlrs.dla.rankfood.model.Constants;
 
 public class A_A_Menu extends AppCompatActivity implements Constants {
 

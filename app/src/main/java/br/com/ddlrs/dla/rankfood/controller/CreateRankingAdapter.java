@@ -1,4 +1,4 @@
-package controller;
+package br.com.ddlrs.dla.rankfood.controller;
 
 import android.view.LayoutInflater;
 import android.view.View;

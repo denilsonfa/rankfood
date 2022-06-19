@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:theme="@android:style/Theme.NoTitleBar"
-    tools:context=".A_M03_ViewRank">
+    tools:context=".view.A_M03_ViewRank">
 
     <LinearLayout
         android:layout_width="match_parent"

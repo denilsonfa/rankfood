@@ -1,5 +1,6 @@
-package controller;
+package br.com.ddlrs.dla.rankfood.controller;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,20 +12,42 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 
 import br.com.ddlrs.dla.rankfood.R;
+import br.com.ddlrs.dla.rankfood.model.Constants;
 
-public class ListaRankingAdapter extends RecyclerView.Adapter<ListaRankingAdapter.RankingViewHolder> {
+public class ListaRankingAdapter extends RecyclerView.Adapter<ListaRankingAdapter.RankingViewHolder> implements Constants {
 
     private itemActivityListener listener;
 
     private final ArrayList<Ranking> rankingList;
 
-    public ListaRankingAdapter(ArrayList<Ranking> rankingList) {
-        this.rankingList = rankingList;
+    public ListaRankingAdapter(ArrayList<Ranking> rankingList, Integer operation, Integer log) {
+
+        ArrayList<Ranking> allowedrankingList = new ArrayList<>();
+        for (int i = 0; i < rankingList.size(); i++){
+            Ranking item = rankingList.get(i);
+            Boolean verify = true;
+
+            if(operation == VOTE_ACTIVITY_REQUEST_CODE){
+                if(item.repeatVote(log)) verify = false;
+            } else if (operation == VIEW_RANK_ACTIVITY_REQUEST_CODE){
+                if(item.getVisibility()) verify = false;
+            } else if (operation == GUEST_MODE_ACTIVITY_REQUEST_CODE)
+                if(item.getVisibility()) verify = false;
+
+            Log.d("OperSerialize" , item.serialize());
+            if(verify) allowedrankingList.add(item);
+        }
+
+        this.rankingList = allowedrankingList;
     }
 
     public void vote(int position, int vote) {
         rankingList.get(position).vote(vote);
     }
+
+    public ArrayList<Ranking> getRankingItems() { return rankingList; }
+
+    public void remove() { rankingList.remove(getItemCount() - 1); }
 
     public void setListener(itemActivityListener listener) {
         this.listener = listener;
@@ -41,6 +64,7 @@ public class ListaRankingAdapter extends RecyclerView.Adapter<ListaRankingAdapte
 
     @Override
     public void onBindViewHolder(@NonNull RankingViewHolder holder, int position) {
+
         Ranking item = rankingList.get(position);
         holder.bind(item);
 

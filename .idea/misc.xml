@@ -90,7 +90,7 @@
         <entry key="app/src/main/res/drawable/ic_vote_reprove.xml" value="0.1055" />
         <entry key="app/src/main/res/layout/activity_a_login.xml" value="0.22" />
         <entry key="app/src/main/res/layout/activity_a_m01_createrank-save.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/activity_a_m01_createrank.xml" value="0.18" />
+        <entry key="app/src/main/res/layout/activity_a_m01_createrank.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_a_m01_createrankSave.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_a_m01_createranksave.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_a_m02_vote.xml" value="0.2" />

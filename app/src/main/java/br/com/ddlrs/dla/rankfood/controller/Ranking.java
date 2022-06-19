@@ -1,4 +1,4 @@
-package controller;
+package br.com.ddlrs.dla.rankfood.controller;
 
 import android.os.Parcel;
 import android.os.Parcelable;
@@ -12,10 +12,9 @@ public class Ranking implements Parcelable {
     private final int OwnerUserId;
     private ArrayList<String> itemsNameOfRanking = new ArrayList();
     private ArrayList<String> itemsVoteOfRanking = new ArrayList();
+    private ArrayList<String> userVoteInRanking = new ArrayList();
 
     public Ranking( int OwnerUserId){
-        this.name = name;
-        this.description = description;
         this.OwnerUserId = OwnerUserId;
     }
 
@@ -26,6 +25,7 @@ public class Ranking implements Parcelable {
         OwnerUserId = in.readInt();
         itemsNameOfRanking = in.createStringArrayList();
         itemsVoteOfRanking = in.createStringArrayList();
+        userVoteInRanking = in.createStringArrayList();
     }
 
     public static final Creator<Ranking> CREATOR = new Creator<Ranking>() {
@@ -46,7 +46,10 @@ public class Ranking implements Parcelable {
     public String getDescription()                  { return description;               }
     public void setDescription(String description)  { this.description = description;   }
 
-    public ArrayList[] getItemsOfRanking() { return new ArrayList[]{ itemsVoteOfRanking, itemsNameOfRanking }; }
+    public Boolean getVisibility()                    { return publicRanking;               }
+    public void setVisibility(Boolean publicRanking)  { this.publicRanking = publicRanking;   }
+
+    public ArrayList[] getItemsOfRanking() { return new ArrayList[]{ itemsVoteOfRanking, itemsNameOfRanking, userVoteInRanking }; }
     public void setItemOfRanking(String itemName) {
         itemsVoteOfRanking.add("0");
         itemsNameOfRanking.add(itemName);
@@ -70,6 +73,19 @@ public class Ranking implements Parcelable {
         return false;
     }
 
+    public boolean vote(int i, int e){
+        if(!itemsVoteOfRanking.contains(i)){
+            itemsVoteOfRanking.set(
+                    i,
+                    String.valueOf(Integer.parseInt(itemsVoteOfRanking.get(i)) + 1)
+            );
+
+            userVoteInRanking.add(String.valueOf(e));
+            return true;
+        }
+
+        return false;
+    }
     public boolean vote(int i){
         if(!itemsVoteOfRanking.contains(i)){
             itemsVoteOfRanking.set(
@@ -91,6 +107,15 @@ public class Ranking implements Parcelable {
         return counter;
     }
 
+    public Boolean repeatVote(int log){
+        Boolean res = false;
+
+        for(int i = 0; i < userVoteInRanking.size(); i++)
+            if (Integer.parseInt(userVoteInRanking.get(i)) == log) res = true;
+
+        return res;
+    }
+
 
     public String serialize(){
         String serialize;
@@ -98,7 +123,8 @@ public class Ranking implements Parcelable {
                 "\"name\":" + "\"" + name + "\"," +
                 "\"description\":" + "\"" + description + "\"," +
                 "\"publicRanking\":" + "\"" + (publicRanking ? "true" : "false") + "\"," +
-                "\"OwnerUserId\":" + "\"" + OwnerUserId + "\",";
+                "\"OwnerUserId\":" + "\"" + OwnerUserId + "\"," +
+                "\"UserVoteInRanking\":" + "\"" + userVoteInRanking + "\",";
 
         serialize += "\"itemsOfRanking\": [";
 
@@ -127,5 +153,6 @@ public class Ranking implements Parcelable {
         parcel.writeInt(OwnerUserId);
         parcel.writeStringList(itemsNameOfRanking);
         parcel.writeStringList(itemsVoteOfRanking);
+        parcel.writeStringList(userVoteInRanking);
     }
 }

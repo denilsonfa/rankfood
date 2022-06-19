@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".A_M01_CreateRank"
+    tools:context=".view.A_M01_CreateRank"
     android:orientation="vertical"
     android:theme="@android:style/Theme.NoTitleBar">
 
@@ -79,69 +79,6 @@
                 android:textSize="16sp"
                 android:theme="@style/list_edTxt"
                 tools:ignore="Autofill,TextContrastCheck" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:minHeight="40dp"
-                android:layout_marginBottom="24dp"
-                android:orientation="horizontal"
-                android:background="@drawable/stl_edittext"
-                android:clickable="true"
-                android:focusable="true"
-                android:baselineAligned="false">
-
-                <LinearLayout
-                    android:id="@+id/id_linear_m01_dateRank"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_weight="20"
-                    android:paddingTop="10dp"
-                    android:paddingBottom="10dp"
-                    android:gravity="center"
-                    android:layout_gravity="center">
-
-                    <ImageView
-                        android:id="@+id/option_date"
-                        android:layout_width="32dp"
-                        android:layout_height="32dp"
-                        android:layout_gravity="center"
-                        android:layout_marginEnd="10dp"
-                        android:background="@drawable/stl_item_incolor"
-                        android:contentDescription="@string/back"
-                        android:gravity="center"
-                        android:src="@drawable/ic_vote_null"
-                        android:clickable="false"
-                        android:focusable="false"
-                        tools:ignore="TouchTargetSizeCheck,ImageContrastCheck" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_weight="80"
-                    android:orientation="horizontal">
-
-                    <EditText
-                        android:id="@+id/id_edtext_m01_dateRank"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:autofillHints=""
-                        android:background="@drawable/stl_edittext_line"
-                        android:hint="@string/dataRank_time"
-                        android:inputType="numberDecimal"
-                        android:maxLength="50"
-                        android:minHeight="40dp"
-                        android:textSize="16sp"
-                        android:theme="@style/list_edTxt"
-                        tools:ignore="Autofill,TextContrastCheck,TextFields"
-                        android:visibility="visible" />
-
-                </LinearLayout>
-
-
-            </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/id_checkbox_public"
