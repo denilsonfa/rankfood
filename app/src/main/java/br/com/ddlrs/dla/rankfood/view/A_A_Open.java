@@ -43,7 +43,7 @@ public class A_A_Open extends AppCompatActivity implements Constants {
         Button id_btn_open_guest = findViewById(R.id.id_btn_open_guest);
         id_btn_open_guest.setOnClickListener(v -> {
             dataInstance.setStatusOfinstance(null, true);
-            Intent i = new Intent(A_A_Open.this, A_M05_ListaRanksTemporaria.class);
+            Intent i = new Intent(A_A_Open.this, A_M05_ListaRanks.class);
             i.putExtra("Data", dataInstance);
             i.putExtra("Operation", String.valueOf(GUEST_MODE_ACTIVITY_REQUEST_CODE));
             startActivityForResult(i, GUEST_MODE_ACTIVITY_REQUEST_CODE);

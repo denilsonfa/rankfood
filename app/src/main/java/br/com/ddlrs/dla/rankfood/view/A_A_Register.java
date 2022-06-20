@@ -31,7 +31,10 @@ public class A_A_Register extends AppCompatActivity implements Constants {
     EditText    id_edtext_register_edEmail;         // Email do usuário
     EditText    id_edtext_register_edSenha;         // Senha do usuário
     EditText    id_edtext_register_edConfirmSenha;  // Confirmação da senha
+    ImageView   id_profile_picture;                 // Foto de perfil
+    ImageView   id_change_btn;                      // Botão de troca
     Button      id_btn_register_login;              // Botão de login
+    int         pictureOption = 0;
 
     private void alert(String massege){
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -95,8 +98,16 @@ public class A_A_Register extends AppCompatActivity implements Constants {
         id_edtext_register_edEmail = findViewById(R.id.id_edtext_register_edEmail);
         id_edtext_register_edSenha = findViewById(R.id.id_edtext_register_edSenha);
         id_edtext_register_edConfirmSenha = findViewById(R.id.id_edtext_register_edConfirmSenha);
+        id_profile_picture = findViewById(R.id.id_profile_picture);
+        id_change_btn = findViewById(R.id.id_change_btn);
         id_btn_register_login = findViewById(R.id.id_btn_register_login);
 
+
+        id_change_btn.setOnClickListener(v -> {
+            pictureOption = (pictureOption == 5)?0:pictureOption + 1;
+
+            id_profile_picture.setImageResource(IMAGE_OPTIONS[pictureOption]);
+        });
 
         // função do botão de entrar
         id_btn_register_login.setOnClickListener(v -> { // Botão para entrar
@@ -117,7 +128,7 @@ public class A_A_Register extends AppCompatActivity implements Constants {
 
                 if(!emailIsUsed){
                     if(newUser.validatePassword(edSenha,edConfirmSenha)){
-                        newUser.createUser(edName, edEmail, edSenha);
+                        newUser.createUser(edName, edEmail, edSenha, pictureOption);
                         dataInstance.setDataUser(newUser);
                         Intent intent = new Intent();
                         intent.putExtra("NewUser", newUser);

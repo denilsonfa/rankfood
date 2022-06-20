@@ -54,7 +54,10 @@
     <string name="profile">Perfil</string>
     <string name="nome_usuario">Nome do usuário</string>
     <string name="email_usuario">Email do usuário</string>
+    <string name="list_friends">Lista de Amigos</string>
     <string name="add_friend">Adicionar amigo</string>
+    <string name="add_friend_placeholder">Digite o nome do seu amigo</string>
+    <string name="add_friend_message">Clique no item de um usuário para adicioná-lo.</string>
     <string name="remove_friend">Remover amigo</string>
 
 

@@ -71,8 +71,7 @@ public class ListaRankingAdapter extends RecyclerView.Adapter<ListaRankingAdapte
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                if(listener == null)
-                    listener.onItemClick(position);
+                listener.onItemClick(position);
             }
         });
     }

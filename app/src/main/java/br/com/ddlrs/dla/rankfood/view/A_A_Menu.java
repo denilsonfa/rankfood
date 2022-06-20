@@ -98,7 +98,7 @@ public class A_A_Menu extends AppCompatActivity implements Constants {
 
         // Botão para abrir tela de votação de rank
         id_btn_menu_m02Vote.setOnClickListener(v -> {
-            Intent i = new Intent(A_A_Menu.this, A_M05_ListaRanksTemporaria.class);
+            Intent i = new Intent(A_A_Menu.this, A_M05_ListaRanks.class);
             i.putExtra("Data", dataInstance);
             i.putExtra("Operation", String.valueOf(VOTE_ACTIVITY_REQUEST_CODE));
             startActivityForResult(i, LIST_RANKS_ACTIVITY_REQUEST_CODE);
@@ -108,7 +108,7 @@ public class A_A_Menu extends AppCompatActivity implements Constants {
 
         // Botão para abrir tela de visualização de rank
         id_btn_menu_m03ViewRank.setOnClickListener(v -> {
-            Intent i = new Intent(A_A_Menu.this, A_M05_ListaRanksTemporaria.class);
+            Intent i = new Intent(A_A_Menu.this, A_M05_ListaRanks.class);
             i.putExtra("Data", dataInstance);
             i.putExtra("Operation",String.valueOf(VIEW_RANK_ACTIVITY_REQUEST_CODE));
             startActivityForResult(i, LIST_RANKS_ACTIVITY_REQUEST_CODE);

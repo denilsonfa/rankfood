@@ -69,7 +69,7 @@
                 tools:ignore="UseCompoundDrawables">
 
                 <ImageView
-                    android:id="@+id/imageView"
+                    android:id="@+id/id_profile_picture"
                     android:layout_width="180dp"
                     android:layout_height="180dp"
                     android:contentDescription="@string/app_name"
@@ -79,21 +79,22 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="1.0"
-                    app:srcCompat="@drawable/img_avatar"
+                    app:srcCompat="@drawable/danusa"
                     tools:ignore="ImageContrastCheck" />
 
                 <ImageView
+                    android:id="@+id/id_change_btn"
                     android:layout_width="48dp"
                     android:layout_height="48dp"
                     android:background="@drawable/stl_btn_color"
                     android:contentDescription="@string/app_name"
-                    android:padding="10dp"
 
-                    app:layout_constraintBottom_toBottomOf="@+id/imageView"
-                    app:layout_constraintEnd_toEndOf="@+id/imageView"
+                    android:padding="10dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/id_profile_picture"
+                    app:layout_constraintEnd_toEndOf="@+id/id_profile_picture"
                     app:layout_constraintHorizontal_bias="1.0"
-                    app:layout_constraintStart_toStartOf="@+id/imageView"
-                    app:layout_constraintTop_toTopOf="@+id/imageView"
+                    app:layout_constraintStart_toStartOf="@+id/id_profile_picture"
+                    app:layout_constraintTop_toTopOf="@+id/id_profile_picture"
                     app:layout_constraintVertical_bias="1.0"
                     app:srcCompat="@drawable/ic_icon_chager"
                     tools:ignore="ImageContrastCheck" />

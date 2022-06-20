@@ -25,7 +25,7 @@ import br.com.ddlrs.dla.rankfood.controller.ListaRankingAdapter;
 import br.com.ddlrs.dla.rankfood.controller.Ranking;
 import br.com.ddlrs.dla.rankfood.model.Constants;
 
-public class A_M05_ListaRanksTemporaria extends AppCompatActivity implements Constants {
+public class A_M05_ListaRanks extends AppCompatActivity implements Constants {
 
     Data dataInstance;
     Integer operation;
@@ -44,7 +44,7 @@ public class A_M05_ListaRanksTemporaria extends AppCompatActivity implements Con
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_a_m05_listarankstemporaria);
+        setContentView(R.layout.activity_a_m05_listaranks);
         dataInstance = getIntent().getExtras().getParcelable("Data");
         operation = Integer.parseInt(getIntent().getStringExtra("Operation"));
         title = findViewById(R.id.id_title_m05);
@@ -63,11 +63,8 @@ public class A_M05_ListaRanksTemporaria extends AppCompatActivity implements Con
             @Override
             public void onItemClick(int position) {
 
-                if(operation == GUEST_MODE_ACTIVITY_REQUEST_CODE){
-                    AlertDialog.Builder builder = new AlertDialog.Builder(A_M05_ListaRanksTemporaria.this);
-//            builder.setPositiveButton(R.string.cancel, (dialog, which) -> {
-//                dialog.dismiss();   // fechar o dialog
-//            });
+                if (operation == GUEST_MODE_ACTIVITY_REQUEST_CODE){
+                    AlertDialog.Builder builder = new AlertDialog.Builder(A_M05_ListaRanks.this);
                     AlertDialog dialog = builder.create();
                     LayoutInflater inflater = getLayoutInflater();
                     View dialogLayout = inflater.inflate(R.layout.item_pop_menu, null);
@@ -76,9 +73,10 @@ public class A_M05_ListaRanksTemporaria extends AppCompatActivity implements Con
 
                     item_menu01.setText(R.string.voteRank);
                     item_menu02.setText(R.string.viewRank);
+
                     //Função do botão ver perfil
                     item_menu01.setOnClickListener(x -> {
-                        Intent i = new Intent(A_M05_ListaRanksTemporaria.this, A_M02_Vote.class);
+                        Intent i = new Intent(A_M05_ListaRanks.this, A_M02_Vote.class);
                         i.putExtra("RankPosition", Integer.toString(position));
                         i.putExtra("Data", dataInstance);
                         startActivityForResult(i, VOTE_ACTIVITY_REQUEST_CODE);
@@ -87,7 +85,7 @@ public class A_M05_ListaRanksTemporaria extends AppCompatActivity implements Con
 
                     //Função do botão sair
                     item_menu02.setOnClickListener(y -> {
-                        Intent i = new Intent(A_M05_ListaRanksTemporaria.this, A_M03_ViewRank.class);
+                        Intent i = new Intent(A_M05_ListaRanks.this, A_M03_ViewRank.class);
                         i.putExtra("RankPosition", Integer.toString(position));
                         i.putExtra("Data", dataInstance);
                         startActivityForResult(i, VIEW_RANK_ACTIVITY_REQUEST_CODE);
@@ -97,16 +95,16 @@ public class A_M05_ListaRanksTemporaria extends AppCompatActivity implements Con
                     dialog.setView(dialogLayout);
                     dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
                     dialog.show();
-                } else {
+                }
+                else {
                     boolean eventOperation = operation == VOTE_ACTIVITY_REQUEST_CODE;
 
-                    Intent i = new Intent(A_M05_ListaRanksTemporaria.this, eventOperation?A_M02_Vote.class:A_M03_ViewRank.class);
+                    Intent i = new Intent(A_M05_ListaRanks.this, eventOperation ? A_M02_Vote.class : A_M03_ViewRank.class);
                     i.putExtra("RankPosition", Integer.toString(position));
                     i.putExtra("Data", dataInstance);
-                    startActivityForResult(i, eventOperation?VOTE_ACTIVITY_REQUEST_CODE:VIEW_RANK_ACTIVITY_REQUEST_CODE);
+                    startActivityForResult(i, eventOperation ? VOTE_ACTIVITY_REQUEST_CODE : VIEW_RANK_ACTIVITY_REQUEST_CODE);
                     overridePendingTransition(R.anim.fadein, R.anim.fadeout);
                 }
-
             }
         });
 
@@ -129,16 +127,15 @@ public class A_M05_ListaRanksTemporaria extends AppCompatActivity implements Con
                 Integer rankPosition = Integer.parseInt(data.getStringExtra("RankPosition"));
                 Integer rankVotePosition = Integer.parseInt(data.getStringExtra("RankVotePosition"));
 
-                if(operation == GUEST_MODE_ACTIVITY_REQUEST_CODE){
+                if (operation == GUEST_MODE_ACTIVITY_REQUEST_CODE){
                     adapter.vote(rankPosition,rankVotePosition);
                     adapter.notifyItemChanged(rankPosition);
                 } else {
                     adapter.getRankingItems().remove(rankPosition);
-                    adapter.notifyItemRemoved(rankPosition);
                     adapter.remove();
+                    adapter.notifyItemRemoved(rankPosition);
                 }
 
-                Log.d("OperLog" , "A_M05_ListaRanksTemporaria");
                 Log.d("OperSerialize" , dataInstance.serialize());
                 Log.d("RankPosition" , Integer.toString(rankPosition));
                 Log.d("RankVotePosition" , Integer.toString(rankVotePosition));
