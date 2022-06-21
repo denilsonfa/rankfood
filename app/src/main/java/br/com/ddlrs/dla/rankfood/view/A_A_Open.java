@@ -15,6 +15,7 @@ import br.com.ddlrs.dla.rankfood.R;
 import br.com.ddlrs.dla.rankfood.controller.Data;
 import br.com.ddlrs.dla.rankfood.controller.User;
 import br.com.ddlrs.dla.rankfood.model.Constants;
+import br.com.ddlrs.dla.rankfood.model.UserPointer;
 
 public class A_A_Open extends AppCompatActivity implements Constants {
 
@@ -26,9 +27,8 @@ public class A_A_Open extends AppCompatActivity implements Constants {
         setContentView(R.layout.activity_a_open);
 
         // Importantes
-        getWindow().setStatusBarColor(Color.rgb(255,172,13)); // Cor da barra de status
+        getWindow().setStatusBarColor(Color.rgb(255,100,0)); // Cor da barra de status
         Objects.requireNonNull(getSupportActionBar()).hide(); //esconde a action bar
-
 
         // botão para retornar
         Button id_btn_open_enter = findViewById(R.id.id_btn_open_enter);

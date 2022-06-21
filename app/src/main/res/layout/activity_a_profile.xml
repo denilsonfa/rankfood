@@ -82,6 +82,23 @@
                     app:srcCompat="@drawable/danusa"
                     tools:ignore="ImageContrastCheck" />
 
+                <ImageView
+                    android:id="@+id/id_change_btn_perfile"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:background="@drawable/stl_btn_color"
+                    android:contentDescription="@string/app_name"
+
+                    android:padding="10dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/id_profile_picture"
+                    app:layout_constraintEnd_toEndOf="@+id/id_profile_picture"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="@+id/id_profile_picture"
+                    app:layout_constraintTop_toTopOf="@+id/id_profile_picture"
+                    app:layout_constraintVertical_bias="1.0"
+                    app:srcCompat="@drawable/ic_icon_chager"
+                    tools:ignore="ImageContrastCheck" />
+
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <LinearLayout
@@ -93,28 +110,58 @@
                 android:orientation="vertical">
 
                 <TextView
+                    android:id="@+id/id_text_profile_friends2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:fontFamily="@font/ubuntu_regular"
+                    android:paddingTop="16dp"
+                    android:paddingBottom="3dp"
+                    android:text="@string/nome_usuario"
+                    android:textAlignment="textStart"
+                    android:textColor="@color/cor_laranja"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    tools:ignore="TextContrastCheck" />
+
+                <TextView
                     android:id="@+id/id_text_profile_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="20dp"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginBottom="10dp"
                     android:fontFamily="@font/ubuntu_regular"
-                    android:paddingTop="16dp"
+                    android:paddingTop="3dp"
                     android:paddingBottom="16dp"
-                    android:text="@string/nome_usuario"
                     android:textAlignment="textStart"
                     android:textColor="@color/cor_laranja"
                     android:textSize="18sp"
                     tools:ignore="TextContrastCheck" />
 
                 <TextView
+                    android:id="@+id/id_text_profile_friends3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:fontFamily="@font/ubuntu_regular"
+                    android:paddingTop="16dp"
+                    android:paddingBottom="3dp"
+                    android:text="@string/email_usuario"
+                    android:textAlignment="textStart"
+                    android:textColor="@color/cor_laranja"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    tools:ignore="TextContrastCheck" />
+
+                <TextView
                     android:id="@+id/id_text_profile_email"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="20dp"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginBottom="10dp"
                     android:fontFamily="@font/ubuntu_regular"
-                    android:paddingTop="16dp"
+                    android:paddingTop="3dp"
                     android:paddingBottom="16dp"
-                    android:text="@string/email_usuario"
                     android:textAlignment="textStart"
                     android:textColor="@color/cor_laranja"
                     android:textSize="18sp"
@@ -127,7 +174,7 @@
                     android:layout_marginBottom="5dp"
                     android:fontFamily="@font/ubuntu_regular"
                     android:paddingTop="16dp"
-                    android:paddingBottom="16dp"
+                    android:paddingBottom="3dp"
                     android:text="@string/list_friends"
                     android:textAlignment="textStart"
                     android:textColor="@color/cor_laranja"
@@ -135,14 +182,31 @@
                     android:textStyle="bold"
                     tools:ignore="TextContrastCheck" />
 
+                <TextView
+                    android:id="@+id/id_not_friend_message"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_gravity="center|center_vertical"
+                    android:layout_marginStart="18dp"
+                    android:layout_marginEnd="18dp"
+                    android:layout_weight="50"
+                    android:fontFamily="@font/ubuntu_regular"
+                    android:paddingTop="16dp"
+                    android:paddingBottom="16dp"
+                    android:text="@string/not_friend_message"
+                    android:textAlignment="center"
+                    android:textColor="@color/cor_laranja"
+                    android:textSize="14sp"
+                    tools:ignore="TextContrastCheck" />
+
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/friend_list"
                     android:layout_width="302dp"
-                    android:layout_height="94dp"
+                    android:layout_height="125dp"
                     android:layout_marginStart="20dp"
-                    android:layout_marginBottom="20dp"
                     android:padding="5dp"
-                    android:paddingBottom="0dp">
+                    android:paddingStart="3dp"
+                    android:paddingEnd="3dp">
 
                 </androidx.recyclerview.widget.RecyclerView>
 
@@ -150,10 +214,11 @@
                     android:id="@+id/id_text_profile_add_friend"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
                     android:layout_marginBottom="5dp"
                     android:fontFamily="@font/ubuntu_regular"
                     android:paddingTop="16dp"
-                    android:paddingBottom="16dp"
+                    android:paddingBottom="8dp"
                     android:text="@string/add_friend"
                     android:textAlignment="textStart"
                     android:textColor="@color/cor_laranja"
@@ -179,6 +244,7 @@
                     tools:ignore="Autofill,TextContrastCheck" />
 
                 <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/profile_list"
                     android:layout_width="match_parent"
                     android:layout_height="92dp"
                     android:layout_marginStart="20dp"
@@ -189,7 +255,7 @@
                 <TextView
                     android:id="@+id/id_add_friend_message"
                     android:layout_width="match_parent"
-                    android:layout_height="0dp"
+                    android:layout_height="match_parent"
                     android:layout_gravity="center|center_vertical"
                     android:layout_marginStart="18dp"
                     android:layout_marginTop="10dp"
@@ -203,6 +269,7 @@
                     android:textAlignment="center"
                     android:textColor="@color/cor_laranja"
                     android:textSize="14sp"
+                    android:visibility="visible"
                     tools:ignore="TextContrastCheck" />
 
             </LinearLayout>

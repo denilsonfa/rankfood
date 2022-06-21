@@ -43,11 +43,10 @@ public class A_A_Menu extends AppCompatActivity implements Constants {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_a_menu);
-
         dataInstance = getIntent().getExtras().getParcelable("Data");
 
         // Importantes
-        getWindow().setStatusBarColor(Color.rgb(255,68,0)); // Cor da barra de status
+        getWindow().setStatusBarColor(Color.rgb(255,100,0)); // Cor da barra de status
         Objects.requireNonNull(getSupportActionBar()).hide(); //esconde a action bar
 
 
@@ -63,9 +62,6 @@ public class A_A_Menu extends AppCompatActivity implements Constants {
         //id_ic_menu_exit.setOnClickListener(v -> exite());
         id_ic_menu_exit.setOnClickListener(v -> {
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
-//            builder.setPositiveButton(R.string.cancel, (dialog, which) -> {
-//                dialog.dismiss();   // fechar o dialog
-//            });
             AlertDialog dialog = builder.create();
             LayoutInflater inflater = getLayoutInflater();
             View dialogLayout = inflater.inflate(R.layout.item_pop_menu, null);
@@ -74,7 +70,10 @@ public class A_A_Menu extends AppCompatActivity implements Constants {
 
             //Função do botão ver perfil
             item_menu01.setOnClickListener(x -> {
-                Toast.makeText(this, "Ver perfil", Toast.LENGTH_SHORT).show();
+                Intent i = new Intent(A_A_Menu.this, A_A_Profile.class);
+                i.putExtra("Data", dataInstance);
+                startActivityForResult(i, PROFILE_ACTIVITY_REQUEST_CODE);
+                overridePendingTransition(R.anim.fadein, R.anim.fadeout);
             });
 
             //Função do botão sair
@@ -137,6 +136,12 @@ public class A_A_Menu extends AppCompatActivity implements Constants {
                 Log.d("OperSerialize" , dataInstance.serialize());
             }
         } else if(requestCode == LIST_RANKS_ACTIVITY_REQUEST_CODE){
+            if (resultCode == RESULT_OK) {
+                dataInstance.Update(data.getExtras().getParcelable("Data"));
+                Log.d("OperLog" , "data");
+                Log.d("OperSerialize" , dataInstance.serialize());
+            }
+        } else if(requestCode == PROFILE_ACTIVITY_REQUEST_CODE){
             if (resultCode == RESULT_OK) {
                 dataInstance.Update(data.getExtras().getParcelable("Data"));
                 Log.d("OperLog" , "data");

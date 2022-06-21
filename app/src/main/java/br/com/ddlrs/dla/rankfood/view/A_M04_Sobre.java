@@ -18,7 +18,7 @@ public class A_M04_Sobre extends AppCompatActivity {
         setContentView(R.layout.activity_a_m04_sobre);
 
         // Importantes
-        getWindow().setStatusBarColor(Color.rgb(255,68,0)); // Cor da barra de status
+        getWindow().setStatusBarColor(Color.rgb(255,100,0)); // Cor da barra de status
         Objects.requireNonNull(getSupportActionBar()).hide(); //esconde a action bar
 
 

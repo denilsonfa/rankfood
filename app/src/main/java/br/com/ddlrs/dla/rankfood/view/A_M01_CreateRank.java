@@ -70,8 +70,16 @@ public class A_M01_CreateRank extends AppCompatActivity {
         rv.setLayoutManager(new LinearLayoutManager(this));
         rv.setAdapter(adapter);
 
+        ItemTouchHelper helper = new ItemTouchHelper(
+                new ItemTouchHandler(
+                        ItemTouchHelper.UP | ItemTouchHelper.DOWN,
+                        ItemTouchHelper.LEFT
+                ));
+
+        helper.attachToRecyclerView(rv);
+
         // Importantes
-        getWindow().setStatusBarColor(Color.rgb(255,68,0)); // Cor da barra de status
+        getWindow().setStatusBarColor(Color.rgb(255,100,0)); // Cor da barra de status
         Objects.requireNonNull(getSupportActionBar()).hide(); //esconde a action bar
 
         // Esconte o teclado quando a tela é iniciada
@@ -93,14 +101,6 @@ public class A_M01_CreateRank extends AppCompatActivity {
 
         id_checkbox_public = findViewById(R.id.id_checkbox_public);
         option_public = findViewById(R.id.option_public);
-
-        ItemTouchHelper helper = new ItemTouchHelper(
-                new ItemTouchHandler(
-                ItemTouchHelper.UP | ItemTouchHelper.DOWN,
-                ItemTouchHelper.LEFT
-        ));
-
-        helper.attachToRecyclerView(rv);
 
         // Função visibilidade de rank
         id_checkbox_public.setOnClickListener(v -> {

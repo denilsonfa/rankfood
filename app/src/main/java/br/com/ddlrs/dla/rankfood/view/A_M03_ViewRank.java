@@ -19,9 +19,10 @@ import br.com.ddlrs.dla.rankfood.model.SortList.RankTree;
 
 public class A_M03_ViewRank extends AppCompatActivity {
 
-    Data dataInstance;
-    Integer rankPosition;
-    ViewRankingAdapter adapter;
+    Data                dataInstance;
+    Integer             rankPosition;
+    Integer             rankListPosition;
+    ViewRankingAdapter  adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +30,11 @@ public class A_M03_ViewRank extends AppCompatActivity {
         setContentView(R.layout.activity_a_m03_viewrank);
         dataInstance = getIntent().getExtras().getParcelable("Data");
         rankPosition = Integer.parseInt(getIntent().getStringExtra("RankPosition"));
+        rankListPosition = Integer.parseInt(getIntent().getStringExtra("RankListPosition"));
+
+
+        Log.d("rankPosition" , Integer.toString(rankPosition));
+        Log.d("rankListPosition" , Integer.toString(rankListPosition));
 
         ArrayList[] dataRanking = dataInstance.getDataRanking(rankPosition).getItemsOfRanking();
         RankTree rankTree = new RankTree();
@@ -46,7 +52,7 @@ public class A_M03_ViewRank extends AppCompatActivity {
 
 
         // Importantes
-        getWindow().setStatusBarColor(Color.rgb(255,68,0)); // Cor da barra de status
+        getWindow().setStatusBarColor(Color.rgb(255,100,0)); // Cor da barra de status
         Objects.requireNonNull(getSupportActionBar()).hide(); //esconde a action bar
 
 

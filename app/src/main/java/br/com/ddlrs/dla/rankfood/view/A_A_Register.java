@@ -65,7 +65,7 @@ public class A_A_Register extends AppCompatActivity implements Constants {
         dataInstance = getIntent().getExtras().getParcelable("Data");
 
         // Importantes
-        getWindow().setStatusBarColor(Color.rgb(255,68,0)); // Cor da barra de status
+        getWindow().setStatusBarColor(Color.rgb(255,100,0)); // Cor da barra de status
         Objects.requireNonNull(getSupportActionBar()).hide(); //esconde a action bar
 
         // Esconte o teclado quando a tela é iniciada
@@ -134,9 +134,7 @@ public class A_A_Register extends AppCompatActivity implements Constants {
                         intent.putExtra("NewUser", newUser);
                         setResult(RESULT_FIRST_USER, intent);
                         finish();
-                    }
-
-                    else {
+                    } else {
                         // senha e senha de confirmação são diferentes
                         alert(getString(R.string.incompatiblePass));
                         Log.d("OperLog" , "senha e senha de confirmação são diferentes");

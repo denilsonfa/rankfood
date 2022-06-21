@@ -11,6 +11,7 @@ public interface Constants {
     int VOTE_ACTIVITY_REQUEST_CODE = 5;
     int VIEW_RANK_ACTIVITY_REQUEST_CODE = 6;
     int GUEST_MODE_ACTIVITY_REQUEST_CODE = 7;
+    int PROFILE_ACTIVITY_REQUEST_CODE = 5;
     int[] IMAGE_OPTIONS = new int[]{
             R.drawable.danusa,
             R.drawable.denilson,
@@ -19,4 +20,5 @@ public interface Constants {
             R.drawable.ruan,
             R.drawable.nulo
     };
+
 }

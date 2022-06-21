@@ -58,7 +58,7 @@ public class A_A_Login extends AppCompatActivity implements Constants {
         dataInstance = getIntent().getExtras().getParcelable("Data");
 
         // Importantes
-        getWindow().setStatusBarColor(Color.rgb(255,68,0)); // Cor da barra de status
+        getWindow().setStatusBarColor(Color.rgb(255,100,0)); // Cor da barra de status
         Objects.requireNonNull(getSupportActionBar()).hide(); //esconde a action bar
 
         // Esconte o teclado quando a tela é iniciada

@@ -2,24 +2,53 @@ package br.com.ddlrs.dla.rankfood.controller;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.util.Log;
 
 import java.util.ArrayList;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+import br.com.ddlrs.dla.rankfood.model.RelationshipPointer;
+import br.com.ddlrs.dla.rankfood.model.UserPointer;
 
 public class Data implements Parcelable {
     private ArrayList<User> dataUser = new ArrayList<User>();
     private ArrayList<Ranking> dataRanking = new ArrayList<Ranking>();
+    private ArrayList<Relationship> dataRelationship = new ArrayList<Relationship>();
     public boolean guestEnable = false;
     public Integer log = null;
 
-
     public Data(){ initializeValues(); }
+
+    protected Data(Parcel in) {
+        dataUser = in.createTypedArrayList(User.CREATOR);
+        dataRanking = in.createTypedArrayList(Ranking.CREATOR);
+        dataRelationship = in.createTypedArrayList(Relationship.CREATOR);
+        guestEnable = in.readByte() != 0;
+        if (in.readByte() == 0) {
+            log = null;
+        } else {
+            log = in.readInt();
+        }
+    }
+
+    public static final Creator<Data> CREATOR = new Creator<Data>() {
+        @Override
+        public Data createFromParcel(Parcel in) {
+            return new Data(in);
+        }
+
+        @Override
+        public Data[] newArray(int size) {
+            return new Data[size];
+        }
+    };
 
     private User TesteUser(String nome, String email, String senha, int pictureOption){
         User user = new User();
         user.createUser(nome,email,senha,pictureOption);
         return user;
     }
-
     private Ranking TesteRanking(String name, String description, Boolean visibility, int OwnerUserId){
         Ranking ranking = new Ranking(OwnerUserId);
         ranking.setName(name);
@@ -35,79 +64,118 @@ public class Data implements Parcelable {
         return ranking;
     }
 
+    private Relationship TesteRelationship(int id1, int id2){
+        Relationship relationship = new Relationship(id1, id2);
+        return relationship;
+    }
+
     private void initializeValues(){
         dataUser.add(TesteUser("OLA","me@Sgam.com","123", 0));
         dataUser.add(TesteUser("leandro","me@sas.com","123", 3));
-        dataUser.add(TesteUser("DSASSSS","me@oal.com","123", 2));
+        dataUser.add(TesteUser("SAS","me@oal.com","123", 2));
+        dataUser.add(TesteUser("SASs1","me4@oal.com","123", 2));
+        dataUser.add(TesteUser("SASd2","me1@oal.com","123", 5));
+        dataUser.add(TesteUser("SASf3","me5@oal.com","123", 4));
+        dataUser.add(TesteUser("SASr4","me7@oal.com","123", 1));
 
         dataRanking.add(TesteRanking("Pizzas", "Lista De Pizzas", true, 1));
         dataRanking.add(TesteRanking("Panquecas", "Lista De Panquecas", false, 2));
         dataRanking.add(TesteRanking("Lasanha", "Lista De casadas", true, 1));
+
+        dataRelationship.add(TesteRelationship(1, 2));
+        dataRelationship.add(TesteRelationship(1, 0));
+        dataRelationship.add(TesteRelationship(0, 2));
     }
-
-    protected Data(Parcel in) {
-        dataUser = in.createTypedArrayList(User.CREATOR);
-        dataRanking = in.createTypedArrayList(Ranking.CREATOR);
-        guestEnable = in.readByte() != 0;
-        if (in.readByte() == 0) {
-            log = null;
-        } else {
-            log = in.readInt();
-        }
-    }
-
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeTypedList(dataUser);
-        dest.writeTypedList(dataRanking);
-        dest.writeByte((byte) (guestEnable ? 1 : 0));
-        if (log == null) {
-            dest.writeByte((byte) 0);
-        } else {
-            dest.writeByte((byte) 1);
-            dest.writeInt(log);
-        }
-    }
-
-    @Override
-    public int describeContents() {
-        return 0;
-    }
-
-    public static final Creator<Data> CREATOR = new Creator<Data>() {
-        @Override
-        public Data createFromParcel(Parcel in) {
-            return new Data(in);
-        }
-
-        @Override
-        public Data[] newArray(int size) {
-            return new Data[size];
-        }
-    };
 
     public void setStatusOfinstance(Integer log, boolean guestEnable){
         this.log = log;
         this.guestEnable = guestEnable;
     }
 
+    public ArrayList<UserPointer> searchWithName(String name){
+        ArrayList<UserPointer> userPointer = new ArrayList<>();
+        String lowerName;
+        name = name.toLowerCase();
+
+        if (name.equals("")) return userPointer;
+
+        for (int i = 0; i < dataUser.size(); i++) {
+            lowerName = dataUser.get(i).UserName().toLowerCase();
+
+            if((lowerName.split(name).length > 1 || lowerName.equals(name)) && dataRelationship(i)){
+                userPointer.add(new UserPointer(i, dataUser.get(i)));
+            }
+        }
+
+        return userPointer;
+    }
+
+    public void ProfileImage(int i){ dataUser.get(log).ProfileImage(i); }
+
     public void Update(Data updatedData){
         dataUser.clear();
         dataRanking.clear();
+        dataRelationship.clear();
         guestEnable = updatedData.guestEnable;
         log = updatedData.log;
 
         ArrayList<User> updatedDataUser = updatedData.getDataUser();
         ArrayList<Ranking> updatedDataRanking = updatedData.getDataRanking();
+        ArrayList<Relationship> updatedDataRelationship = updatedData.getDataRelationship();
 
-        for (int i = 0; i < updatedDataUser.size(); i++){
+        for (int i = 0; i < updatedDataUser.size(); i++)
             dataUser.add(updatedDataUser.get(i));
+
+
+        for (int i = 0; i < updatedDataRanking.size(); i++)
+            dataRanking.add(updatedDataRanking.get(i));
+
+
+        for (int i = 0; i < updatedDataRanking.size(); i++)
+            dataRelationship.add(updatedDataRelationship.get(i));
+
+    }
+
+    public ArrayList<Relationship> getDataRelationship()    { return dataRelationship; }
+    public RelationshipPointer setDataRelationship(int id){
+        int position = dataRelationship.size();
+
+        dataRelationship.add(new Relationship(log, id));
+
+        return new RelationshipPointer(log,dataUser.get(id),position);
+    }
+    public ArrayList<RelationshipPointer> dataRelationship(){
+        ArrayList<RelationshipPointer> RelationshipPointer = new ArrayList<>();
+        Relationship targetRelationship;
+        Integer friendId;
+        for (int i = 0; i < dataRelationship.size(); i++) {
+            targetRelationship = dataRelationship.get(i);
+            friendId = targetRelationship.getRelationship(log);
+            if(friendId != null){
+                RelationshipPointer.add(new RelationshipPointer(
+                        friendId,
+                        dataUser.get(friendId),
+                        RelationshipPointer.size()
+                ));
+            }
+        }
+        return RelationshipPointer;
+    }
+    public boolean dataRelationship(int id){
+        Relationship targetRelationship;
+        Integer friendId;
+        boolean res = true;
+
+        for (int i = 0; i < dataRelationship.size(); i++) {
+            targetRelationship = dataRelationship.get(i);
+            friendId = targetRelationship.getRelationship(log);
+            if(friendId != null)
+                if(friendId == id){res = false;}
         }
 
-        for (int i = 0; i < updatedDataRanking.size(); i++){
-            dataRanking.add(updatedDataRanking.get(i));
-        }
+        return res;
     }
+    public void blockDataRelationship(int i){ dataRelationship.get(i).block(); }
 
     public ArrayList<User> getDataUser()    { return dataUser;              }
     public User getDataUser(int i)          { return dataUser.get(i);       }
@@ -152,6 +220,15 @@ public class Data implements Parcelable {
             serialize += data.serialize();
             serialize += (dataRanking.size() - 1) == i ? "" : ",";
         }
+        serialize += "],";
+
+        serialize += "\"dataRelationship\": [";
+
+        for (int i = 0; i < dataRelationship.size(); i++){
+            Relationship data = dataRelationship.get(i);
+            serialize += data.serialize();
+            serialize += (dataRelationship.size() - 1) == i ? "" : ",";
+        }
         serialize += "]";
 
         serialize += "}";
@@ -159,5 +236,23 @@ public class Data implements Parcelable {
         return serialize;
     }
 
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeTypedList(dataUser);
+        parcel.writeTypedList(dataRanking);
+        parcel.writeTypedList(dataRelationship);
+        parcel.writeByte((byte) (guestEnable ? 1 : 0));
+        if (log == null) {
+            parcel.writeByte((byte) 0);
+        } else {
+            parcel.writeByte((byte) 1);
+            parcel.writeInt(log);
+        }
+    }
 }
 

@@ -19,15 +19,18 @@ public class ListaRankingAdapter extends RecyclerView.Adapter<ListaRankingAdapte
     private itemActivityListener listener;
 
     private final ArrayList<Ranking> rankingList;
+    private final ArrayList<Integer> rankingListId;
 
     public ListaRankingAdapter(ArrayList<Ranking> rankingList, Integer operation, Integer log) {
 
-        ArrayList<Ranking> allowedrankingList = new ArrayList<>();
+        ArrayList<Integer> allowedRankingListId = new ArrayList<>();
+        ArrayList<Ranking> allowedRankingList = new ArrayList<>();
         for (int i = 0; i < rankingList.size(); i++){
             Ranking item = rankingList.get(i);
             Boolean verify = true;
 
             if(operation == VOTE_ACTIVITY_REQUEST_CODE){
+                if(item.getVisibility()) verify = false;
                 if(item.repeatVote(log)) verify = false;
             } else if (operation == VIEW_RANK_ACTIVITY_REQUEST_CODE){
                 if(item.getVisibility()) verify = false;
@@ -35,10 +38,14 @@ public class ListaRankingAdapter extends RecyclerView.Adapter<ListaRankingAdapte
                 if(item.getVisibility()) verify = false;
 
             Log.d("OperSerialize" , item.serialize());
-            if(verify) allowedrankingList.add(item);
+            if(verify) {
+                allowedRankingList.add(item);
+                allowedRankingListId.add(i);
+            }
         }
 
-        this.rankingList = allowedrankingList;
+        this.rankingListId = allowedRankingListId;
+        this.rankingList = allowedRankingList;
     }
 
     public void vote(int position, int vote) {
@@ -71,7 +78,7 @@ public class ListaRankingAdapter extends RecyclerView.Adapter<ListaRankingAdapte
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                listener.onItemClick(position);
+                listener.onItemClick(rankingListId.get(position),position);
             }
         });
     }
@@ -79,9 +86,6 @@ public class ListaRankingAdapter extends RecyclerView.Adapter<ListaRankingAdapte
     @Override
     public int getItemCount() {
         return rankingList.size();
-    }
-
-    public void setListener(VoteRankingAdapter.itemActivityListener data) {
     }
 
     class RankingViewHolder extends RecyclerView.ViewHolder{
@@ -102,6 +106,6 @@ public class ListaRankingAdapter extends RecyclerView.Adapter<ListaRankingAdapte
     }
 
     public interface itemActivityListener{
-        void onItemClick(int position);
+        void onItemClick(int listPosition, int position);
     }
 }

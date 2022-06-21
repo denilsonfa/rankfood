@@ -47,10 +47,10 @@ public class User implements Parcelable {
     public String UserPassword()    { return userPassword;          }
     public int    ProfileImage()    { return profileImage;          }
 
-    public void UserName(String name)       { this.userName = name;             }
-    public void UserPassword(String pass)   { this.userPassword = pass;         }
-    public void deactivateUser()            { this.status = false;              }
-    public void ProfileImage(int i)         { this.profileImage = profileImage; }
+    public void UserName(String name)           { this.userName = name;             }
+    public void UserPassword(String pass)       { this.userPassword = pass;         }
+    public void deactivateUser()                { this.status = false;              }
+    public void ProfileImage(int profileImage)  { this.profileImage = profileImage; }
     public boolean UserEmail(String e){
         if (!validadeEmail(e)) return false;
         userEmail = e;
@@ -84,10 +84,11 @@ public class User implements Parcelable {
     public String serialize(){
         String serialize;
         serialize = "{" +
-                "\"userEmail\":" + "\"" + userEmail + "\"," +
-                "\"userName\":" + "\"" + userName + "\"," +
-                "\"userPassword\":" + "\"" + userPassword + "\"," +
-                "\"status\":" + "\"" +  (status == false? "false" : "true") + "\"" +
+                "\"userEmail\":" + "\"" + userEmail + "\", " +
+                "\"userName\":" + "\"" + userName + "\", " +
+                "\"userPassword\":" + "\"" + userPassword + "\", " +
+                "\"status\":" + "\"" +  (status == false? "false" : "true") + "\", " +
+                "\"profileImage\":" + " " + profileImage +
                 "}";
         return serialize;
     }

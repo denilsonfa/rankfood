@@ -52,13 +52,17 @@
     <string name="others_item">Outros itens</string>
 
     <string name="profile">Perfil</string>
-    <string name="nome_usuario">Nome do usuário</string>
-    <string name="email_usuario">Email do usuário</string>
+    <string name="nome_usuario">Nome do usuário:</string>
+    <string name="email_usuario">Email do usuário:</string>
     <string name="list_friends">Lista de Amigos</string>
+    <string name="not_friend_message">Você não tem amigos.</string>
     <string name="add_friend">Adicionar amigo</string>
     <string name="add_friend_placeholder">Digite o nome do seu amigo</string>
     <string name="add_friend_message">Clique no item de um usuário para adicioná-lo.</string>
-    <string name="remove_friend">Remover amigo</string>
+    <string name="block_massage">Você realmente deseja bloquear esse amigo?</string>
+    <string name="block_friend">Sim</string>
+    <string name="cancel_block_friend">Não</string>
+
 
 
     <!-- Menu - Button -->
@@ -84,15 +88,7 @@
     <!-- Texto -->
     <string name="voteSuccess">Voto realizado com sucesso!</string>
     <string name="sobre_text">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer rhoncus pretium vestibulum.
-        Proin faucibus ante augue, ac viverra ligula molestie vel. Vestibulum eros elit, euismod
-        vitae pharetra sed, volutpat vitae est. Donec dapibus diam turpis, eu interdum dui ornare
-        ac. Vivamus nec nisl quis mi interdum pellentesque id ut magna. Aenean tempor odio at ipsum
-        consequat, in rhoncus ipsum dignissim. Vivamus vitae elit dui. Donec a hendrerit elit.
-        Morbi convallis, ipsum ac tristique tincidunt, ipsum nulla sollicitudin orci, vitae
-        convallis lorem magna eget massa. Nulla hendrerit, mauris sit amet eleifend aliquam, elit
-        justo interdum nisi, non sagittis elit ante sed nunc. Fusce porttitor massa magna. Fusce
-        quis condimentum mauris, vitae elementum ex. Phasellus suscipit ac lorem sed placerat.
+        O desafio principal do projeto é desenvolver uma aplicação que cria um sistema de rankings enquanto utiliza a memória principal da máquina (dispositivo) para o armazenamento dos dados. Ideia do projeto é ter uma aplicação Android que crie, compartilhe e gerencie rankings, focando na liberdade de utilização. Permitindo o imaginário e a expressão do usuário.
     </string>
 
     <!-- Temp -->

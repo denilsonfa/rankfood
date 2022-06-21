@@ -25,12 +25,13 @@ import br.com.ddlrs.dla.rankfood.controller.VoteRankingAdapter;
 
 public class A_M02_Vote extends AppCompatActivity {
 
-    TextView id_ic_voterank_nameVote;
-    LinearLayout id_linear_m02_item01;
-    Button id_btn_m02_savelist;
-    Data dataInstance;
-    Integer rankPosition;
-    VoteRankingAdapter adapter;
+    TextView            id_ic_voterank_nameVote;
+    LinearLayout        id_linear_m02_item01;
+    Button              id_btn_m02_savelist;
+    Data                dataInstance;
+    Integer             rankPosition;
+    Integer             rankListPosition;
+    VoteRankingAdapter  adapter;
 
     private void alert(String massege){
         android.app.AlertDialog.Builder builder = new android.app.AlertDialog.Builder(this);
@@ -51,8 +52,13 @@ public class A_M02_Vote extends AppCompatActivity {
         setContentView(R.layout.activity_a_m02_vote);
         dataInstance = getIntent().getExtras().getParcelable("Data");
         rankPosition = Integer.parseInt(getIntent().getStringExtra("RankPosition"));
+        rankListPosition = Integer.parseInt(getIntent().getStringExtra("RankListPosition"));
 
-        adapter = new VoteRankingAdapter(new ArrayList<>(dataInstance.getDataRanking((dataInstance.getDataRanking().size() - 1 )).getItemsOfRanking()[1] ));
+
+        Log.d("rankPosition" , Integer.toString(rankPosition));
+        Log.d("rankListPosition" , Integer.toString(rankListPosition));
+
+        adapter = new VoteRankingAdapter(new ArrayList<>(dataInstance.getDataRanking(rankPosition).getItemsOfRanking()[1] ));
 
         RecyclerView rv = findViewById(R.id.voterank_lista);
         rv.setLayoutManager(new LinearLayoutManager(this));
@@ -68,7 +74,7 @@ public class A_M02_Vote extends AppCompatActivity {
         });
 
         // Importantes
-        getWindow().setStatusBarColor(Color.rgb(255,68,0)); // Cor da barra de status
+        getWindow().setStatusBarColor(Color.rgb(255,100,0)); // Cor da barra de status
         Objects.requireNonNull(getSupportActionBar()).hide(); //esconde a action bar
 
 
@@ -102,6 +108,7 @@ public class A_M02_Vote extends AppCompatActivity {
                 Intent intent = new Intent();
                 intent.putExtra("Data", dataInstance);
                 intent.putExtra("RankPosition", Integer.toString(rankPosition));
+                intent.putExtra("RankListPosition", Integer.toString(rankListPosition));
                 intent.putExtra("RankVotePosition", Integer.toString(position));
                 setResult(RESULT_OK, intent);
                 finish();

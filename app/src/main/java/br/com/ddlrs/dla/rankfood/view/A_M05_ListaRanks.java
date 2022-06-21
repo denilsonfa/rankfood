@@ -61,7 +61,7 @@ public class A_M05_ListaRanks extends AppCompatActivity implements Constants {
 
         adapter.setListener(new ListaRankingAdapter.itemActivityListener() {
             @Override
-            public void onItemClick(int position) {
+            public void onItemClick(int listPosition, int position) {
 
                 if (operation == GUEST_MODE_ACTIVITY_REQUEST_CODE){
                     AlertDialog.Builder builder = new AlertDialog.Builder(A_M05_ListaRanks.this);
@@ -77,7 +77,8 @@ public class A_M05_ListaRanks extends AppCompatActivity implements Constants {
                     //Função do botão ver perfil
                     item_menu01.setOnClickListener(x -> {
                         Intent i = new Intent(A_M05_ListaRanks.this, A_M02_Vote.class);
-                        i.putExtra("RankPosition", Integer.toString(position));
+                        i.putExtra("RankPosition", Integer.toString(listPosition));
+                        i.putExtra("RankListPosition", Integer.toString(position));
                         i.putExtra("Data", dataInstance);
                         startActivityForResult(i, VOTE_ACTIVITY_REQUEST_CODE);
                         overridePendingTransition(R.anim.fadein, R.anim.fadeout);
@@ -86,7 +87,8 @@ public class A_M05_ListaRanks extends AppCompatActivity implements Constants {
                     //Função do botão sair
                     item_menu02.setOnClickListener(y -> {
                         Intent i = new Intent(A_M05_ListaRanks.this, A_M03_ViewRank.class);
-                        i.putExtra("RankPosition", Integer.toString(position));
+                        i.putExtra("RankPosition", Integer.toString(listPosition));
+                        i.putExtra("RankListPosition", Integer.toString(position));
                         i.putExtra("Data", dataInstance);
                         startActivityForResult(i, VIEW_RANK_ACTIVITY_REQUEST_CODE);
                         overridePendingTransition(R.anim.fadein, R.anim.fadeout);
@@ -100,7 +102,8 @@ public class A_M05_ListaRanks extends AppCompatActivity implements Constants {
                     boolean eventOperation = operation == VOTE_ACTIVITY_REQUEST_CODE;
 
                     Intent i = new Intent(A_M05_ListaRanks.this, eventOperation ? A_M02_Vote.class : A_M03_ViewRank.class);
-                    i.putExtra("RankPosition", Integer.toString(position));
+                    i.putExtra("RankPosition", Integer.toString(listPosition));
+                    i.putExtra("RankListPosition", Integer.toString(position));
                     i.putExtra("Data", dataInstance);
                     startActivityForResult(i, eventOperation ? VOTE_ACTIVITY_REQUEST_CODE : VIEW_RANK_ACTIVITY_REQUEST_CODE);
                     overridePendingTransition(R.anim.fadein, R.anim.fadeout);
@@ -109,7 +112,7 @@ public class A_M05_ListaRanks extends AppCompatActivity implements Constants {
         });
 
         // Importantes
-        getWindow().setStatusBarColor(Color.rgb(255,68,0)); // Cor da barra de status
+        getWindow().setStatusBarColor(Color.rgb(255,100,0)); // Cor da barra de status
         Objects.requireNonNull(getSupportActionBar()).hide(); //esconde a action bar
 
         // botão para retornar
@@ -126,14 +129,15 @@ public class A_M05_ListaRanks extends AppCompatActivity implements Constants {
                 dataInstance.Update(data.getExtras().getParcelable("Data"));
                 Integer rankPosition = Integer.parseInt(data.getStringExtra("RankPosition"));
                 Integer rankVotePosition = Integer.parseInt(data.getStringExtra("RankVotePosition"));
+                Integer rankListPosition = Integer.parseInt(data.getStringExtra("RankListPosition"));
 
                 if (operation == GUEST_MODE_ACTIVITY_REQUEST_CODE){
-                    adapter.vote(rankPosition,rankVotePosition);
-                    adapter.notifyItemChanged(rankPosition);
+                    adapter.vote(rankListPosition,rankVotePosition);
+                    adapter.notifyItemChanged(rankListPosition);
                 } else {
-                    adapter.getRankingItems().remove(rankPosition);
+                    adapter.getRankingItems().remove(rankListPosition);
                     adapter.remove();
-                    adapter.notifyItemRemoved(rankPosition);
+                    adapter.notifyItemRemoved(rankListPosition);
                 }
 
                 Log.d("OperSerialize" , dataInstance.serialize());
