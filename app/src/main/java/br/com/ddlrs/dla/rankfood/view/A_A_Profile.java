@@ -91,6 +91,7 @@ public class A_A_Profile extends AppCompatActivity implements Constants {
         // Definindo dados
         dataInstance = getIntent().getExtras().getParcelable("Data");
         userTarget = dataInstance.getDataUser(dataInstance.log);
+        searchProfile = findViewById(R.id.id_edtext_register_edName2);
 
         // Campos das listas
         RecyclerView friendList     = findViewById(R.id.friend_list);
@@ -127,8 +128,8 @@ public class A_A_Profile extends AppCompatActivity implements Constants {
                 notifyFriendInvit = dataInstance.getInvalidRelationship();
                 if(notifyFriendInvit == null) findViewById(R.id.id_ic_bell).setVisibility(INVISIBLE);
 
-                not_friend.setVisibility(VISIBLE);
-                friendList.setVisibility(GONE);
+                not_friend.setVisibility(GONE);
+                friendList.setVisibility(VISIBLE);
 
                 Toast.makeText(getApplicationContext(), R.string.add_friend_success, Toast.LENGTH_SHORT).show();
                 dialog.cancel();
@@ -253,7 +254,6 @@ public class A_A_Profile extends AppCompatActivity implements Constants {
         change_btn = findViewById(R.id.id_change_btn_perfile);
         profile_picture = findViewById(R.id.id_profile_picture);
         register_back = findViewById(R.id.id_ic_register_back);
-        searchProfile = findViewById(R.id.id_edtext_register_edName2);
 
         profile_picture.setImageResource(IMAGE_OPTIONS[userTarget.ProfileImage()]);
         profile_name.setText(userTarget.UserName());

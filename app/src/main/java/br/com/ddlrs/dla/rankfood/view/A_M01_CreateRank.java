@@ -39,6 +39,7 @@ public class A_M01_CreateRank extends AppCompatActivity {
     Button id_btn_m01_savelist;
     Data dataInstance;
     int added = 0;
+    boolean publicRank = false;
     int position;
 
     boolean option_date_check = false;
@@ -106,13 +107,12 @@ public class A_M01_CreateRank extends AppCompatActivity {
         id_checkbox_public.setOnClickListener(v -> {
 
             //Demonstração de função -> de bobeira mesmo
-            int a = 0;
-            if(a == 0){
+            if(!publicRank){
                 option_public.setImageResource(R.drawable.ic_vote_aprove);
-                a = 1;
+                publicRank = true;
             } else {
                 option_public.setImageResource(R.drawable.ic_vote_null);
-                a = 0;
+                publicRank = false;
             }
         });
 
@@ -157,6 +157,7 @@ public class A_M01_CreateRank extends AppCompatActivity {
                 if(!nameText.equals("")){
                     dataInstance.getDataRanking(position)
                             .setName(nameText);
+                    dataInstance.getDataRanking(position).setVisibility(publicRank);
                     Intent intent = new Intent();
                     intent.putExtra("Data", dataInstance);
                     setResult(RESULT_OK, intent);

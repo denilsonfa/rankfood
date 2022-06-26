@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 
 import br.com.ddlrs.dla.rankfood.R;
+import br.com.ddlrs.dla.rankfood.controller.Data;
 import br.com.ddlrs.dla.rankfood.controller.Ranking;
 import br.com.ddlrs.dla.rankfood.model.Constants;
 
@@ -22,21 +23,44 @@ public class ListaRankingAdapter extends RecyclerView.Adapter<ListaRankingAdapte
     private final ArrayList<Ranking> rankingList;
     private final ArrayList<Integer> rankingListId;
 
-    public ListaRankingAdapter(ArrayList<Ranking> rankingList, Integer operation, Integer log) {
+    public ListaRankingAdapter(ArrayList<Ranking> rankingList, Integer operation, Data dataInstance) {
 
         ArrayList<Integer> allowedRankingListId = new ArrayList<>();
         ArrayList<Ranking> allowedRankingList = new ArrayList<>();
+        Integer log = dataInstance.log;
+
         for (int i = 0; i < rankingList.size(); i++){
             Ranking item = rankingList.get(i);
             Boolean verify = true;
 
-            if(operation == VOTE_ACTIVITY_REQUEST_CODE){
-                if(item.getVisibility()) verify = false;
-                if(item.repeatVote(log)) verify = false;
-            } else if (operation == VIEW_RANK_ACTIVITY_REQUEST_CODE){
-                if(item.getVisibility()) verify = false;
-            } else if (operation == GUEST_MODE_ACTIVITY_REQUEST_CODE)
-                if(item.getVisibility()) verify = false;
+            if (operation == GUEST_MODE_ACTIVITY_REQUEST_CODE) {
+                if (!item.getVisibility()) verify = false;
+                Log.d("OperSerialize" , "GUEST_MODE_ACTIVITY_REQUEST_CODE");
+            }
+            else {
+                if(!item.getVisibility()){
+                    Log.d("OperSerialize" , "RANKI PRIVADO " +  item.getName() );
+                    if (dataInstance.dataRelationship(item.getOwnerUserId(), false)){
+                        verify = false;
+                        Log.d("OperSerialize" , dataInstance.getDataUser(log).UserName() + " não é amigo de " +  dataInstance.getDataUser(item.getOwnerUserId()).UserName() );
+                    }
+                }
+
+                if (operation == VOTE_ACTIVITY_REQUEST_CODE){
+                    Log.d("OperSerialize" , "VOTE_ACTIVITY_REQUEST_CODE");
+                    if(item.repeatVote(log)) {
+                        verify = false;
+                        Log.d("OperSerialize" , "já voto aqui");
+                    }
+
+                } else if (operation == VIEW_RANK_ACTIVITY_REQUEST_CODE){
+                    Log.d("OperSerialize" , "VIEW_RANK_ACTIVITY_REQUEST_CODE");
+                    if(!item.repeatVote(log)) {
+                        verify = false;
+                        Log.d("OperSerialize" , "não voto aqui");
+                    }
+                }
+            }
 
             Log.d("OperSerialize" , item.serialize());
             if(verify) {

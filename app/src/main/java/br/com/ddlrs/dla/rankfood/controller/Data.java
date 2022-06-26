@@ -5,9 +5,11 @@ import android.os.Parcelable;
 import android.util.Log;
 
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import br.com.ddlrs.dla.rankfood.R;
 import br.com.ddlrs.dla.rankfood.model.RelationshipPointer;
 import br.com.ddlrs.dla.rankfood.model.UserPointer;
 
@@ -50,18 +52,18 @@ public class Data implements Parcelable {
         user.createUser(nome,email,senha,pictureOption);
         return user;
     }
-    private Ranking TesteRanking(String name, String description, Boolean visibility, int OwnerUserId){
+    private Ranking TesteRanking(String name, String description, Boolean visibility, int OwnerUserId, String[] items){
         Ranking ranking = new Ranking(OwnerUserId);
         ranking.setName(name);
         ranking.setDescription(description);
         ranking.setVisibility(visibility);
-        ranking.setItemOfRanking("item1");
-        ranking.setItemOfRanking("item2");
-        ranking.setItemOfRanking("item3");
-        ranking.setItemOfRanking("item4");
-        ranking.vote(0);ranking.vote(0);ranking.vote(0);
-        ranking.vote(1);ranking.vote(1);
-        ranking.vote(3);ranking.vote(3);ranking.vote(3);ranking.vote(3);ranking.vote(3);
+        for ( String item: items ) ranking.setItemOfRanking(item);
+
+        for (int i = 0; i < items.length; i++) {
+            for (int j = 0; j < new Random().nextInt(9); j++) {
+                ranking.vote(i);
+            }
+        }
         return ranking;
     }
 
@@ -72,21 +74,65 @@ public class Data implements Parcelable {
     }
 
     private void initializeValues(){
-        dataUser.add(TesteUser("OLA","me@Sgam.com","123", 0));
-        dataUser.add(TesteUser("leandro","me@sas.com","123", 3));
-        dataUser.add(TesteUser("SAS","me@oal.com","123", 2));
-        dataUser.add(TesteUser("SASs1","me4@oal.com","123", 2));
-        dataUser.add(TesteUser("SASd2","me1@oal.com","123", 5));
-        dataUser.add(TesteUser("SASf3","me5@oal.com","123", 4));
-        dataUser.add(TesteUser("SASr4","me7@oal.com","123", 1));
+        dataUser.add(TesteUser("Danusa","danusa@gmail.com","123", 0));
+        dataUser.add(TesteUser("Denilson","denilson@gmail.com","123", 1));
+        dataUser.add(TesteUser("Sara","sara@gmail.com","123", 2));
+        dataUser.add(TesteUser("Leandro","leandro@gmail.com","123", 3));
 
-        dataRanking.add(TesteRanking("Pizzas", "Lista De Pizzas", true, 1));
-        dataRanking.add(TesteRanking("Panquecas", "Lista De Panquecas", false, 2));
-        dataRanking.add(TesteRanking("Lasanha", "Lista De casadas", true, 1));
+        dataRanking.add(TesteRanking(
+                "Pizzas",
+                "Lista De Pizzas",
+                true,
+                1,
+                new String[]{
+                        "Calabresa",
+                        "4 Queijos",
+                        "Catupiry"
+                }
+        ));
+        dataRanking.add(TesteRanking(
+                "Melhores Marcas de Carros",
+                "Lista De Carros",
+                false,
+                2,
+                new String[]{
+                        "Audi",
+                        "BYD",
+                        "BMW",
+                        "Chevrolet",
+                        "Bentley"
+                }
+        ));
+        dataRanking.add(TesteRanking(
+                "Filmes",
+                "Lista De Filmes",
+                true,
+                3,
+                new String[]{
+                        "Amnésia",
+                        "Senhor dos Anéis",
+                        "Homem Aranha",
+                        "Doutor Estranho",
+                        "Duro de Matar"
+                }
+        ));
+        dataRanking.add(TesteRanking(
+                "Canais de Televisão",
+                "Lista De Canais de Televisão",
+                false,
+                3,
+                new String[]{
+                        "SBT",
+                        "Globo",
+                        "Record",
+                        "Band"
+                }
+        ));
 
         dataRelationship.add(TesteRelationship(1, 2, true));
         dataRelationship.add(TesteRelationship(0, 1, false));
         dataRelationship.add(TesteRelationship(0, 2, true));
+        dataRelationship.add(TesteRelationship(3, 1, false));
     }
 
     public void setStatusOfinstance(Integer log, boolean guestEnable){

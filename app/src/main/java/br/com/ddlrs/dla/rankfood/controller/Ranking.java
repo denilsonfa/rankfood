@@ -16,6 +16,7 @@ public class Ranking implements Parcelable {
 
     public Ranking( int OwnerUserId){
         this.OwnerUserId = OwnerUserId;
+        this.userVoteInRanking.add(String.valueOf(OwnerUserId));
     }
 
     protected Ranking(Parcel in) {
@@ -46,8 +47,10 @@ public class Ranking implements Parcelable {
     public String getDescription()                  { return description;               }
     public void setDescription(String description)  { this.description = description;   }
 
-    public Boolean getVisibility()                    { return publicRanking;               }
+    public Boolean getVisibility()                    { return publicRanking;                 }
     public void setVisibility(Boolean publicRanking)  { this.publicRanking = publicRanking;   }
+
+    public int getOwnerUserId() { return OwnerUserId; }
 
     public ArrayList[] getItemsOfRanking() { return new ArrayList[]{ itemsVoteOfRanking, itemsNameOfRanking, userVoteInRanking }; }
     public void setItemOfRanking(String itemName) {

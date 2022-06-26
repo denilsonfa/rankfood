@@ -52,7 +52,7 @@ public class A_M05_ListaRanks extends AppCompatActivity implements Constants {
         else if(operation == VIEW_RANK_ACTIVITY_REQUEST_CODE){ title.setText(R.string.viewRank); }
         else if(operation == GUEST_MODE_ACTIVITY_REQUEST_CODE){ title.setText(R.string.anonymous); }
 
-        adapter = new ListaRankingAdapter(new ArrayList<Ranking>(dataInstance.getDataRanking()), operation, dataInstance.log);
+        adapter = new ListaRankingAdapter(new ArrayList<Ranking>(dataInstance.getDataRanking()), operation, dataInstance);
 
         RecyclerView rv = findViewById(R.id.view_list_of_rank);
         rv.setLayoutManager(new LinearLayoutManager(this));

@@ -113,7 +113,7 @@
                     android:inputType="textCapSentences"
                     android:maxLength="50"
                     android:minHeight="40dp"
-                    android:text="me@sas.com"
+                    android:text="denilson@gmail.com"
                     android:textSize="16sp"
                     android:theme="@style/list_edTxt"
                     tools:ignore="Autofill" />
