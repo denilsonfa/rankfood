@@ -14,7 +14,7 @@ import java.util.Objects;
 
 import br.com.ddlrs.dla.rankfood.R;
 import br.com.ddlrs.dla.rankfood.controller.Data;
-import br.com.ddlrs.dla.rankfood.controller.ViewRankingAdapter;
+import br.com.ddlrs.dla.rankfood.model.Adapter.ViewRankingAdapter;
 import br.com.ddlrs.dla.rankfood.model.SortList.RankTree;
 
 public class A_M03_ViewRank extends AppCompatActivity {

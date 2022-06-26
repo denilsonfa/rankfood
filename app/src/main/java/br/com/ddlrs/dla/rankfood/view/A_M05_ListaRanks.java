@@ -9,7 +9,6 @@ import android.view.View;
 import android.view.Window;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -21,7 +20,7 @@ import java.util.Objects;
 
 import br.com.ddlrs.dla.rankfood.R;
 import br.com.ddlrs.dla.rankfood.controller.Data;
-import br.com.ddlrs.dla.rankfood.controller.ListaRankingAdapter;
+import br.com.ddlrs.dla.rankfood.model.Adapter.ListaRankingAdapter;
 import br.com.ddlrs.dla.rankfood.controller.Ranking;
 import br.com.ddlrs.dla.rankfood.model.Constants;
 

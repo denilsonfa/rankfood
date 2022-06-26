@@ -1,4 +1,4 @@
-package br.com.ddlrs.dla.rankfood.controller;
+package br.com.ddlrs.dla.rankfood.model.Adapter;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 
 import br.com.ddlrs.dla.rankfood.R;
+import br.com.ddlrs.dla.rankfood.controller.Ranking;
 import br.com.ddlrs.dla.rankfood.model.Constants;
 
 public class ListaRankingAdapter extends RecyclerView.Adapter<ListaRankingAdapter.RankingViewHolder> implements Constants {

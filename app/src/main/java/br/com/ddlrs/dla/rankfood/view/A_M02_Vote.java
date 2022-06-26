@@ -21,7 +21,7 @@ import java.util.Objects;
 
 import br.com.ddlrs.dla.rankfood.R;
 import br.com.ddlrs.dla.rankfood.controller.Data;
-import br.com.ddlrs.dla.rankfood.controller.VoteRankingAdapter;
+import br.com.ddlrs.dla.rankfood.model.Adapter.VoteRankingAdapter;
 
 public class A_M02_Vote extends AppCompatActivity {
 

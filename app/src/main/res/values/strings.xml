@@ -56,13 +56,19 @@
     <string name="email_usuario">Email do usuário:</string>
     <string name="list_friends">Lista de Amigos</string>
     <string name="not_friend_message">Você não tem amigos.</string>
+    <string name="add_massage">Você deseja adicionar como amigo?</string>
+    <string name="add_success">Solicitação enviada</string>
     <string name="add_friend">Adicionar amigo</string>
     <string name="add_friend_placeholder">Digite o nome do seu amigo</string>
     <string name="add_friend_message">Clique no item de um usuário para adicioná-lo.</string>
+    <string name="add_friend_success">Amigo adicionado com sucesso.</string>
+    <string name="add_friend_cancel">Amigo rejeitado com sucesso.</string>
     <string name="block_massage">Você realmente deseja bloquear esse amigo?</string>
+    <string name="notify_friend_massage1">O usuário " </string>
+    <string name="notify_friend_massage2"> " te mandou uma solicitação de amizade, você aceita a sua solicitação?</string>
     <string name="block_friend">Sim</string>
     <string name="cancel_block_friend">Não</string>
-
+    notifyFriendInvit
 
 
     <!-- Menu - Button -->

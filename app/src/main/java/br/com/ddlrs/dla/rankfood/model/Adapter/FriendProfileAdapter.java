@@ -1,4 +1,4 @@
-package br.com.ddlrs.dla.rankfood.controller;
+package br.com.ddlrs.dla.rankfood.model.Adapter;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,39 +14,38 @@ import java.util.ArrayList;
 import br.com.ddlrs.dla.rankfood.R;
 import br.com.ddlrs.dla.rankfood.model.Constants;
 import br.com.ddlrs.dla.rankfood.model.RelationshipPointer;
-import br.com.ddlrs.dla.rankfood.model.UserPointer;
 
-public class ProfileAdapter extends RecyclerView.Adapter<ProfileAdapter.FriendProfileHolder> implements Constants {
+public class FriendProfileAdapter extends RecyclerView.Adapter<FriendProfileAdapter.FriendProfileHolder> implements Constants {
 
     private itemActivityListener listener;
 
-    ArrayList<UserPointer> dataUserPointer;
+    ArrayList<RelationshipPointer> dataRelationship;
 
-    public ProfileAdapter(ArrayList<UserPointer> dataUserPointer) {
-        this.dataUserPointer = dataUserPointer;
+    public FriendProfileAdapter(ArrayList<RelationshipPointer> dataRelationship) {
+        this.dataRelationship = dataRelationship;
     }
 
-    public ArrayList<UserPointer> getUserPointerItems() { return dataUserPointer; }
+    public ArrayList<RelationshipPointer> getRelationshipItems() { return dataRelationship; }
 
-    public void remove() { dataUserPointer.remove(getItemCount() - 1); }
+    public void remove() { dataRelationship.remove(getItemCount() - 1); }
 
-    public void clear() { dataUserPointer.clear(); }
+    public void clear() { dataRelationship.clear(); }
 
     public void setListener(itemActivityListener listener) { this.listener = listener; }
 
     @NonNull
     @Override
-    public ProfileAdapter.FriendProfileHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public FriendProfileAdapter.FriendProfileHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(
                 R.layout.item_profile_friend_list_slot, parent,false
         );
-        return new ProfileAdapter.FriendProfileHolder(view);
+        return new FriendProfileAdapter.FriendProfileHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ProfileAdapter.FriendProfileHolder holder, int position) {
+    public void onBindViewHolder(@NonNull FriendProfileAdapter.FriendProfileHolder holder, int position) {
 
-        UserPointer item = dataUserPointer.get(position);
+        RelationshipPointer item = dataRelationship.get(position);
         holder.bind(item);
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -59,7 +58,7 @@ public class ProfileAdapter extends RecyclerView.Adapter<ProfileAdapter.FriendPr
 
     @Override
     public int getItemCount() {
-        return dataUserPointer.size();
+        return dataRelationship.size();
     }
 
     class FriendProfileHolder extends RecyclerView.ViewHolder{
@@ -73,13 +72,13 @@ public class ProfileAdapter extends RecyclerView.Adapter<ProfileAdapter.FriendPr
             profileName = itemView.findViewById(R.id.name_profile);
         }
 
-        public void bind(UserPointer item) {
+        public void bind(RelationshipPointer item) {
             profileName.setText(item.user.UserName());
             profileImage.setImageResource(IMAGE_OPTIONS[item.user.ProfileImage()]);
         }
     }
 
     public interface itemActivityListener{
-        void onItemClick(UserPointer item,int position);
+        void onItemClick(RelationshipPointer item,int position);
     }
 }

@@ -28,7 +28,7 @@ import java.util.Objects;
 import br.com.ddlrs.dla.rankfood.R;
 import br.com.ddlrs.dla.rankfood.controller.Data;
 import br.com.ddlrs.dla.rankfood.controller.Ranking;
-import br.com.ddlrs.dla.rankfood.controller.CreateRankingAdapter;
+import br.com.ddlrs.dla.rankfood.model.Adapter.CreateRankingAdapter;
 
 public class A_M01_CreateRank extends AppCompatActivity {
 

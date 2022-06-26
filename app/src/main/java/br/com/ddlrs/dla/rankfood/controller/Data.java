@@ -11,6 +11,7 @@ import java.util.regex.Pattern;
 import br.com.ddlrs.dla.rankfood.model.RelationshipPointer;
 import br.com.ddlrs.dla.rankfood.model.UserPointer;
 
+
 public class Data implements Parcelable {
     private ArrayList<User> dataUser = new ArrayList<User>();
     private ArrayList<Ranking> dataRanking = new ArrayList<Ranking>();
@@ -64,8 +65,9 @@ public class Data implements Parcelable {
         return ranking;
     }
 
-    private Relationship TesteRelationship(int id1, int id2){
+    private Relationship TesteRelationship(int id1, int id2, boolean vilid){
         Relationship relationship = new Relationship(id1, id2);
+        if(vilid) relationship.validate();
         return relationship;
     }
 
@@ -82,9 +84,9 @@ public class Data implements Parcelable {
         dataRanking.add(TesteRanking("Panquecas", "Lista De Panquecas", false, 2));
         dataRanking.add(TesteRanking("Lasanha", "Lista De casadas", true, 1));
 
-        dataRelationship.add(TesteRelationship(1, 2));
-        dataRelationship.add(TesteRelationship(1, 0));
-        dataRelationship.add(TesteRelationship(0, 2));
+        dataRelationship.add(TesteRelationship(1, 2, true));
+        dataRelationship.add(TesteRelationship(0, 1, false));
+        dataRelationship.add(TesteRelationship(0, 2, true));
     }
 
     public void setStatusOfinstance(Integer log, boolean guestEnable){
@@ -99,13 +101,15 @@ public class Data implements Parcelable {
 
         if (name.equals("")) return userPointer;
 
-        for (int i = 0; i < dataUser.size(); i++) {
-            lowerName = dataUser.get(i).UserName().toLowerCase();
+        for (int i = 0; i < dataUser.size(); i++)
+            if (log != null)
+                if (log != i){
+                    lowerName = dataUser.get(i).UserName().toLowerCase();
 
-            if((lowerName.split(name).length > 1 || lowerName.equals(name)) && dataRelationship(i)){
-                userPointer.add(new UserPointer(i, dataUser.get(i)));
-            }
-        }
+                    if ((lowerName.split(name).length > 1 || lowerName.equals(name)) && dataRelationship(i, true))
+                        userPointer.add(new UserPointer(i, dataUser.get(i)));
+                }
+
 
         return userPointer;
     }
@@ -131,18 +135,22 @@ public class Data implements Parcelable {
             dataRanking.add(updatedDataRanking.get(i));
 
 
-        for (int i = 0; i < updatedDataRanking.size(); i++)
+        for (int i = 0; i < updatedDataRelationship.size(); i++)
             dataRelationship.add(updatedDataRelationship.get(i));
 
     }
 
     public ArrayList<Relationship> getDataRelationship()    { return dataRelationship; }
-    public RelationshipPointer setDataRelationship(int id){
-        int position = dataRelationship.size();
-
-        dataRelationship.add(new Relationship(log, id));
-
-        return new RelationshipPointer(log,dataUser.get(id),position);
+    public RelationshipPointer getDataRelationship(int id){
+        if (id < dataRelationship.size()){
+            Integer friendId = dataRelationship.get(id).pureRelationship(log);
+            return new RelationshipPointer( friendId, dataUser.get(friendId), id);
+        }
+        return null;
+    }
+    public void setDataRelationship(int id){
+        if (dataRelationship(id, true))
+            dataRelationship.add(new Relationship(log, id));
     }
     public ArrayList<RelationshipPointer> dataRelationship(){
         ArrayList<RelationshipPointer> RelationshipPointer = new ArrayList<>();
@@ -152,30 +160,47 @@ public class Data implements Parcelable {
             targetRelationship = dataRelationship.get(i);
             friendId = targetRelationship.getRelationship(log);
             if(friendId != null){
+                Log.d("dataRelationship Log" , String.valueOf(friendId));
+                Log.d("dataRelationship Use" , dataUser.get(friendId).serialize());
+                Log.d("dataRelationship In" , String.valueOf(i));
                 RelationshipPointer.add(new RelationshipPointer(
                         friendId,
                         dataUser.get(friendId),
-                        RelationshipPointer.size()
+                        i
                 ));
             }
         }
         return RelationshipPointer;
     }
-    public boolean dataRelationship(int id){
+    public boolean dataRelationship(int id, boolean pure){
         Relationship targetRelationship;
         Integer friendId;
         boolean res = true;
 
         for (int i = 0; i < dataRelationship.size(); i++) {
             targetRelationship = dataRelationship.get(i);
-            friendId = targetRelationship.getRelationship(log);
+            friendId = pure?targetRelationship.pureRelationship(log):targetRelationship.getRelationship(log);
             if(friendId != null)
                 if(friendId == id){res = false;}
         }
 
         return res;
     }
-    public void blockDataRelationship(int i){ dataRelationship.get(i).block(); }
+    public RelationshipPointer getInvalidRelationship(){
+        Relationship targetRelationship;
+        Integer friendId;
+
+        for (int i = 0; i < dataRelationship.size(); i++) {
+            targetRelationship = dataRelationship.get(i);
+            friendId = targetRelationship.getInvalid(log);
+            if(friendId != null)
+                return new RelationshipPointer( friendId, dataUser.get(friendId), i);
+        }
+
+        return null;
+    }
+    public void blockDataRelationship(int i){ dataRelationship.get(i).block();      }
+    public void validDataRelationship(int i){ dataRelationship.get(i).validate();   }
 
     public ArrayList<User> getDataUser()    { return dataUser;              }
     public User getDataUser(int i)          { return dataUser.get(i);       }

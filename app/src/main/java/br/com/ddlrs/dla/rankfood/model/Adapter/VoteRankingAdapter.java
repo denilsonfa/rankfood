@@ -1,4 +1,4 @@
-package br.com.ddlrs.dla.rankfood.controller;
+package br.com.ddlrs.dla.rankfood.model.Adapter;
 
 import android.view.LayoutInflater;
 import android.view.View;
