@@ -44,7 +44,7 @@ public class A_M03_ViewRank extends AppCompatActivity {
 
         ArrayList<Integer> sortDataRanking = new ArrayList<>(rankTree.getSort());
 
-        adapter = new ViewRankingAdapter(new ArrayList<>(sortDataRanking),new ArrayList<>(dataRanking[1]));
+        adapter = new ViewRankingAdapter(new ArrayList<>(sortDataRanking), new ArrayList<>(dataRanking[1]), new ArrayList<>(dataRanking[0]));
 
         RecyclerView rv = findViewById(R.id.viewrank_list);
         rv.setLayoutManager(new LinearLayoutManager(this));

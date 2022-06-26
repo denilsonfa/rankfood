@@ -93,8 +93,8 @@ public class Data implements Parcelable {
         dataRanking.add(TesteRanking(
                 "Melhores Marcas de Carros",
                 "Lista De Carros",
-                false,
-                2,
+                true,
+                1,
                 new String[]{
                         "Audi",
                         "BYD",
@@ -107,7 +107,7 @@ public class Data implements Parcelable {
                 "Filmes",
                 "Lista De Filmes",
                 true,
-                3,
+                0,
                 new String[]{
                         "Amnésia",
                         "Senhor dos Anéis",
@@ -119,7 +119,7 @@ public class Data implements Parcelable {
         dataRanking.add(TesteRanking(
                 "Canais de Televisão",
                 "Lista De Canais de Televisão",
-                false,
+                true,
                 3,
                 new String[]{
                         "SBT",
@@ -129,10 +129,7 @@ public class Data implements Parcelable {
                 }
         ));
 
-        dataRelationship.add(TesteRelationship(1, 2, true));
         dataRelationship.add(TesteRelationship(0, 1, false));
-        dataRelationship.add(TesteRelationship(0, 2, true));
-        dataRelationship.add(TesteRelationship(3, 1, false));
     }
 
     public void setStatusOfinstance(Integer log, boolean guestEnable){

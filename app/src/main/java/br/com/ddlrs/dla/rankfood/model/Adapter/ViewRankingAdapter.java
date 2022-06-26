@@ -10,6 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 import br.com.ddlrs.dla.rankfood.R;
 
@@ -17,10 +18,12 @@ public class ViewRankingAdapter extends RecyclerView.Adapter<ViewRankingAdapter.
 
     private final ArrayList<Integer> rankingItems;
     private final ArrayList<String> rankingItemsNames;
+    private final ArrayList<String> rankingItemsVotes;
 
-    public ViewRankingAdapter(ArrayList<Integer> rankingItems, ArrayList<String> rankingItemsNames) {
+    public ViewRankingAdapter(ArrayList<Integer> rankingItems, ArrayList<String> rankingItemsNames, ArrayList<String> rankingItemsVotes) {
         this.rankingItems = rankingItems;
         this.rankingItemsNames = rankingItemsNames;
+        this.rankingItemsVotes = rankingItemsVotes;
     }
 
     @NonNull
@@ -47,23 +50,31 @@ public class ViewRankingAdapter extends RecyclerView.Adapter<ViewRankingAdapter.
 
         TextView id_text;
         ImageView id_image;
+        TextView valor_colocacao;
 
         public RankingViewHolder(@NonNull View itemView) {
             super(itemView);
             id_text = itemView.findViewById(R.id.id_text_rating);
             id_image = itemView.findViewById(R.id.id_image_rating);
+            valor_colocacao = itemView.findViewById(R.id.valor_voto_colocacao);
         }
 
         public void bind(Integer item, int position) {
 
             id_text.setText(rankingItemsNames.get(item));
 
-            if (position == 0){
-                id_image.setImageResource(R.drawable.ic_rank_3rd);
-            } else if (position == 1){
-                id_image.setImageResource(R.drawable.ic_rank_2nd);
-            } else if (position == 2){
-                id_image.setImageResource(R.drawable.ic_rank_1st);
+            valor_colocacao.setText(rankingItemsVotes.get(item));
+
+            if (!Objects.equals(rankingItemsVotes.get(item), "0")){
+                if (position == 0) {
+                    id_image.setImageResource(R.drawable.ic_rank_3rd);
+                } else if (position == 1) {
+                    id_image.setImageResource(R.drawable.ic_rank_2nd);
+                } else if (position == 2) {
+                    id_image.setImageResource(R.drawable.ic_rank_1st);
+                } else {
+                    id_image.setImageResource(R.drawable.ic_rank_th);
+                }
             } else {
                 id_image.setImageResource(R.drawable.ic_rank_th);
             }

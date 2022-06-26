@@ -59,10 +59,11 @@ public class ListaRankingAdapter extends RecyclerView.Adapter<ListaRankingAdapte
                         verify = false;
                         Log.d("OperSerialize" , "não voto aqui");
                     }
+                    if(item.getOwnerUserId() == log){ verify = true; }
                 }
             }
 
-            Log.d("OperSerialize" , item.serialize());
+            Log.d( verify + "for" , item.serialize());
             if(verify) {
                 allowedRankingList.add(item);
                 allowedRankingListId.add(i);

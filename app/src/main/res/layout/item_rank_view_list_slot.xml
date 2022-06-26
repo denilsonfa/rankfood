@@ -29,7 +29,7 @@
 
         <TextView
             android:id="@+id/id_text_rating"
-            android:layout_width="match_parent"
+            android:layout_width="248dp"
             android:layout_height="match_parent"
             android:layout_gravity="center"
             android:fontFamily="@font/ubuntu_bolder"
@@ -37,6 +37,41 @@
             android:text="@string/first_item"
             android:textColor="@color/cor_laranja"
             android:textSize="18sp" />
+
+        <LinearLayout
+            android:layout_width="94dp"
+            android:layout_height="match_parent"
+            android:duplicateParentState="false"
+            android:fadeScrollbars="false"
+            android:longClickable="false"
+            android:measureWithLargestChild="false"
+            android:orientation="horizontal"
+            android:padding="5dp">
+
+            <TextView
+                android:id="@+id/valor_voto_colocacao"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:fontFamily="@font/ubuntu_regular"
+                android:text="@string/_0"
+                android:textColor="#DD2C00"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/texto_voto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="5dp"
+                android:layout_weight="1"
+                android:fontFamily="@font/ubuntu_regular"
+                android:text="@string/voteAccountingITem"
+                android:textColor="#DD2C00"
+                android:textSize="18sp" />
+
+        </LinearLayout>
 
     </LinearLayout>
 </androidx.cardview.widget.CardView>
