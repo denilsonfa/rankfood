@@ -129,6 +129,10 @@ public class Data implements Parcelable {
                 }
         ));
 
+        dataRelationship.add(TesteRelationship(1, 2, true));
+        dataRelationship.add(TesteRelationship(0, 1, false));
+        dataRelationship.add(TesteRelationship(0, 2, true));
+        dataRelationship.add(TesteRelationship(3, 1, false));
     }
 
     public void setStatusOfinstance(Integer log, boolean guestEnable){
