@@ -3,8 +3,8 @@
 
 #
 ```
-        versionCode 1
-        versionName '1.0'
+        versionCode 0.2.0
+        versionName 'stable'
 ```
 
 #

@@ -154,7 +154,6 @@
                     android:inputType="textCapSentences"
                     android:maxLength="50"
                     android:minHeight="40dp"
-                    android:text="leandro"
                     android:textSize="16sp"
                     android:theme="@style/list_edTxt"
                     tools:ignore="Autofill,TextContrastCheck" />
@@ -171,7 +170,6 @@
                     android:inputType="textEmailAddress"
                     android:maxLength="50"
                     android:minHeight="40dp"
-                    android:text="me@sas.com"
                     android:textSize="16sp"
                     android:theme="@style/list_edTxt"
                     tools:ignore="Autofill,TextContrastCheck" />
@@ -187,7 +185,6 @@
                     android:inputType="textPassword"
                     android:maxLength="50"
                     android:minHeight="40dp"
-                    android:text="123"
                     android:textSize="16sp"
                     android:theme="@style/list_edTxt"
                     tools:ignore="Autofill,TextContrastCheck" />
@@ -203,7 +200,6 @@
                     android:inputType="textPassword"
                     android:maxLength="50"
                     android:minHeight="40dp"
-                    android:text="123"
                     android:textSize="16sp"
                     android:theme="@style/list_edTxt"
                     tools:ignore="Autofill,TextContrastCheck" />
